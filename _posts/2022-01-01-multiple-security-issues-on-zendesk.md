@@ -232,6 +232,8 @@ When a deal is lost, it is moved into the Lost stage of the sales pipeline. To g
 But we were able to accomplish the task of creating loss reasons inside the organisation via the following api path with broken access control.
 
 - Creating a loss reason
+
+
 ```http
 POST /apis/sales/api/v1/loss_reasons.json HTTP/1.1
 
