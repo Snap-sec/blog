@@ -14,7 +14,8 @@ Another expedition to choose a new target to hack at snapsec stopped on Zendesk.
 
 Zendesk basically is a comprehensive management platform for all customers and deals within a business. The various functionalities of zendesk product are summarized as below:
 
-{{zendesk pic}}
+![Zendesk Dashboard](https://github.com/Snap-sec/blog/blob/gh-pages/assets/images/zendesk/1.png)
+
 
 -   Send an email
 -   Fill out a support request form in your Zendesk Support portal
@@ -61,7 +62,6 @@ In this phase we create several assumptions about many things in the app, For ex
 
 
 
-
 ## Bypassing CSRF using Cache Deception Attack
 
 Cache deception attack  is often caused by a non-standard server-side setting overriding recommended Cache-Control directives. Due to the cache misconfiguration, an attacker may send a specially crafted link to users, which will result in the leak of sensitive data. In this case we were able to bypass **csrf protection by leveraging the cache decption attack**.
@@ -96,6 +96,11 @@ We identified a vulnerable endpoint through which a user was able to get read/wr
 
  ```http
 POST /apis/tags/api/v1/taggings/batch_add.json
+Host: app.futuresimple.com
+Connection: close
+Origin: https://app.futuresimple.com
+Content-Type: application/json
+x-csrf-token-signature: [VALUE]
 
 {"tagid":"3","dealid":"231"}
 ```
@@ -105,6 +110,11 @@ POST /apis/tags/api/v1/taggings/batch_add.json
  
  ```http
 POST /apis/tags/api/v1/taggings/batch_untag.json
+Host: app.futuresimple.com
+Connection: close
+Origin: https://app.futuresimple.com
+Content-Type: application/json
+x-csrf-token-signature: [VALUE]
 
 {"tagid":"2"}
 ```
@@ -125,7 +135,14 @@ But we identified a vulnerable endpoint through which we were still able to gain
 - Editing documents on contacts
  
 ```http
-PUT /apis/uploader/api/v2/uploads/[upload_id].json 
+PUT /apis/uploader/api/v2/uploads/[upload_id].json
+Host: app.futuresimple.com
+Connection: close
+Origin: https://app.futuresimple.com
+Content-Type: application/json
+x-csrf-token-signature: [VALUE]
+
+{"KEY":"VALUE"}
 ```
  
 So we were able to effect the integrity of the documents as we were able to edit the names of documents and even change their extensions.
@@ -137,7 +154,7 @@ So we were able to effect the integrity of the documents as we were able to edit
 
 Since zendesk allows users to collaborate on various functionalities in the app. This was accomplished by various roles for performing different functions in the app. One role in the app was defined as *limitted permission user* which has access to limktted features in the app. The following user was *unable to create* the *contacts* nor could he add any appointments on them.
 
-{{1}}
+
 
 But we were able to find an api path with *broken access controls*  that lead the **limitted user** to create and remove appointments with the *contacts* eventhough this functionality was restricted from the *said role*.
 
@@ -215,6 +232,11 @@ But we analysed  the following vulnerable request through which we were able to 
  
 ```http
 PUT /apis/sales/api/v1/deals/[deal-id].json HTTP/1.1
+Host: app.futuresimple.com
+Connection: close
+Origin: https://app.futuresimple.com
+Content-Type: application/json
+x-csrf-token-signature: [VALUE]
 
 {"pipeline_stage_id":}
 ```
@@ -236,6 +258,11 @@ But we were able to accomplish the task of creating loss reasons inside the orga
 
 ```http
 POST /apis/sales/api/v1/loss_reasons.json HTTP/1.1
+Host: app.futuresimple.com
+Connection: close
+Origin: https://app.futuresimple.com
+Content-Type: application/json
+x-csrf-token-signature: [VALUE]
 
 {"loss_reason":{"name":"My reason"}}
 ```
