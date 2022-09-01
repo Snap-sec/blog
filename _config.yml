@@ -15,8 +15,8 @@ permalink: /:title/
 authors:
 
   snapsec:
-    name: snapsec
-    display_name: "Snapsec"
+    name: "Snapsec Team"
+    display_name: "Snapsec Team"
     gravatar: d84e5349885a30ac2d2deaac48a94692
     email: support@snapsec.co
     web: https://snapsec.co/blog
