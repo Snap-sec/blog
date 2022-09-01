@@ -1,5 +1,10 @@
-# LOG4J on Agorapulse
-
+---
+layout: post
+title:  "How did we Found Log4shell on Agorapulse"
+author: snapsec
+categories: [ log4shell,article]
+image: assets/images/agora-log4j/0.png
+---
 
 
 Log4j is a logging framework for Java applications. It is a popular choice for developers looking for a simple and flexible logging solution. However, Log4j has been found to be vulnerable to a number of security threats. The log4j library has recently been found to contain a serious vulnerability that went by the moniker of log4shell and gained widespread attention. This vulnerability allows unauthenticated remote code execution on vulnerable servers and may be exploited to expose sensitive information. For example, if an attacker can inject malicious code into a Log4j logging statement, they can execute any arbitrary commands on the vulnerable server.
