@@ -106,12 +106,9 @@ After their fix was implemented we , The team requested an re-check on the vulne
 
   
   
-
+> ⚠️ Agorapulse was one of the 14 companies Snapsec helped to detect and fix Log4shell on the first day it was publicly disclosed. 
 
 ## About us
 
-Snapsec is a team of security experts specialized in providing pentesting and other security services to secure your online assets. We have a specialized testing methodology that ensures in-depth testing of your business logic and other latest vulnerabilities. 
-
- If you are looking for a team that values your security and ensures that you are fully secure against online security threats, feel free to get in touch with us #[support@snapsec.co](mailto:support@snapsec.co)
- 
+Snapsec is a team of security experts specialized in providing pentesting and other security services to secure your online assets.  Please feel free to contact us at support@snapsec.com if you're seeking for a company that appreciates your security and guarantees that you are completely protected from online security risks. 
  
