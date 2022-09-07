@@ -12,7 +12,7 @@ The application was extensive in functionalities and it gives users capability t
 ## List of vulnerabilities found
 
 | Title      |  
-| ----------- | ----------- |
+| ----------- |  
 | _RCE via Log4shell_      |  
 | _Accessing automatic scheduling reports_   | 
 | _Accessing sensitive organization information_   |  
