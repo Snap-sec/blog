@@ -13,12 +13,12 @@ The application was extensive in functionalities and it gives users capability t
 
 | Title      | Severity|
 | ----------- | ----------- |
-| _RCE via Log4shell_      | **High**|
-| _Accessing automatic scheduling reports_   | **Medium**|
-| _Accessing sensitive organization information_   | **Medium**|
-| _Changing ROI settings of account_   | **Medium**|
-| _Changing general report settings like logo, timezone etc_   | **Medium**|
-| _Chaniging rules of inbox assistant from an unauthorized role_   | **Medium**|
+| _RCE via Log4shell_      |  
+| _Accessing automatic scheduling reports_   | 
+| _Accessing sensitive organization information_   |  
+| _Changing ROI settings of account_   |  
+| _Changing general report settings like logo, timezone etc_   |  
+| _Chaniging rules of inbox assistant from an unauthorized role_   | 
 
 
 ## 1 RCE via Log4shell
