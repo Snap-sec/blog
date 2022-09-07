@@ -77,7 +77,7 @@ PUT /api/organizations/287159/workspaces/187160/settings/roi/accounts/facebook_5
 > Hence, a guest role was able to change the ROI settings of a page.
 
 
-## Changing general report settings like logo,timezone etc.
+## Changing general report settings like logo, timezone etc.
 
 With guest permission in an organization, a user has no access to the general settings of social media profiles. Due to limited permissions, the guest user is not able to change the report settings. 
 But we were able to identify a broken api path through which a user with guest permissions was able to change the general report settings of a organisation.The broken access on the vulnerable endpoint lets a guest change the timezone, author name, and logo for the reports.
