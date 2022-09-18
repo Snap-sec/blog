@@ -9,17 +9,30 @@ image: assets/images/18/1.png
 
 On 15 September, UBER acknowledged that it was responding to a "cybersecurity incident" and had contacted law authorities about the hack. An individual claiming to be an 18-year-old hacker claimed credit for the attack. On Thursday night, the attacker reportedly tweeted, "Hi I declare I am a hacker and UBER has suffered a data breach," in a channel on UBER's Slack. The hacker claimed to have compromised a variety of Uber accounts and cloud services.
 
+The public message below was posted by a hacker on behalf of the Uber account for bug hunters on the bug bounty platform HackerOne, informing everyone of this incident
+
+![1](/blog/assets/images/18/7.jpeg)
+
+
+
 ## How did UBER Got Compromised:
 
-**Grabbing UBER Employees Credentials**
-
-The attacker has been quite open about how they hacked into the corporate network of UBER. 
+Following the incident, a member of the security community communicated with an attacker via telegram. This is a brief screenshot of that communication.
 
 ![1](/blog/assets/images/18/2.png)
 
+The attacker admits in the screenshot that he used social engineering to hack an Uber employee, then used his VPN to access Uber's internal network and searched there for possibilities to escalate privileges.
+
+Let's break it down into further steps to understand what exactly happend.
+
+**Attacker Stealing UBER Employees Credentials**
+
+The attacker has been quite open about how they hacked into the corporate network of UBER. 
+
+
 Its obvious that the first step was to grab the credentials of an employee, So an attacker used an fake UBER login page, to trick UBER employee into logging into his fake page and get his credentials. However It appears that UBER uses MFA (Duo) push notifications for its internal staff. And to actually gain access to the hacked employees account, The attacker had to bypass the 2FA.
 
-**Bypassing 2FA**
+**Attacker Bypassing 2FA**
 
 Even though 2FA is a good security measure which can prevent attackers from gaining access to compromised account but MFA itself can be prone to Social engineering Attacks.  
 
@@ -27,11 +40,11 @@ Among the attacks MFA is prone to ,MFA fatigue Attack is one of one of them, *Mu
 
 Read more about **[MFA fatigue attacks](https://portswigger.net/daily-swig/mfa-fatigue-attacks-users-tricked-into-allowing-device-access-due-to-overload-of-push-notifications)** *from PortSwigger Blog*
 
-**Accessing the VPN** 
+**Attacker Accessing the VPN** 
 
 Once an employee was hacked, the attacker appears to have utilized that victim's existing VPN access to pivot to the internal network. Generally, Internal infrastructure is frequently less audited and appraised than external infrastructure. From the screenshot, it’s clearly mentioned that he Scanned the internal network for more resource and services to exploit.
 
-**Finding a Sensitive Powershell Script**
+**Attacker Finding a Sensitive Powershell Script**
 
 While scanning the internal network of an UBER team, The attacker appears to have discovered an internal network share containing scripts and privileged credentials, granting them access to the wide varity of Systems . Below is the list of Environments that were compromised by attacker
 
@@ -46,7 +59,7 @@ While scanning the internal network of an UBER team, The attacker appears to hav
 To Support his claim the attacker shared several screenshots of UBER's internal environment, including their GDrive, VCenter, sales metrics, Slack, and even their EDR portal. Check [This Tweet](https://twitter.com/BillDemirkapi/status/1570602545017683968?s=20&t=dCzHPOq-jOuYBmm9Xe3VYQ) for images.
 
 
-## What are some good lesson to take from the breach
+## What Are Some Good Lessons To Take From This Security Incident
 
 
 
