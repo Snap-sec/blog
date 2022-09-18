@@ -43,10 +43,16 @@ While scanning the internal network of an UBER team, The attacker appears to hav
 - vSphere
 - Financial Dashboards
 
-To Support his claim the attacker  attacker shared several screenshots of UBER's internal environment, including their GDrive, VCenter, sales metrics, Slack, and even their EDR portal.
+To Support his claim the attacker shared several screenshots of UBER's internal environment, including their GDrive, VCenter, sales metrics, Slack, and even their EDR portal.
 
-> Images from : [https://twitter.com/BillDemirkapi/status/1570602545017683968?s=20&t=m_SOp3V2uBJowoSBt5SM7Q](https://twitter.com/BillDemirkapi/status/1570602545017683968?s=20&t=m_SOp3V2uBJowoSBt5SM7Q)
-> 
+![1](/blog/assets/images/18/3.jpeg)
+![1](/blog/assets/images/18/4.jpeg)
+![1](/blog/assets/images/18/5.jpeg)
+![1](/blog/assets/images/18/6.jpeg)
+
+
+
+
 
 ## What are some good lesson to take from the breach
 
