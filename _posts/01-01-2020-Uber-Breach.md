@@ -1,4 +1,11 @@
-# UBER HACKE 2
+---
+layout: post
+title:  "Uber Breach - Few Security Takeaways"
+author: snapsec
+categories: [ uber ]
+image: assets/images/18/1.png
+---
+
 
 On 15 September, uber acknowledged that it was responding to a "cybersecurity incident" and had contacted law authorities about the hack. An individual claiming to be an 18-year-old hacker claimed credit for the attack. On Thursday night, the attacker reportedly tweeted, "Hi I declare I am a hacker and Uber has suffered a data breach," in a channel on Uber's Slack. The hacker claimed to have compromised a variety of Uber accounts and cloud services.
 
