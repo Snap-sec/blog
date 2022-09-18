@@ -15,7 +15,7 @@ On 15 September, UBER acknowledged that it was responding to a "cybersecurity in
 
 The attacker has been quite open about how they hacked into the corporate network of UBER. 
 
-![Untitled](UBER%20HACKE%202%2056281a2e3ea44701bbec356444485683/Untitled.png)
+![1](/blog/assets/images/18/2.png)
 
 Its obvious that the first step was to grab the credentials of an employee, So an attacker used an fake UBER login page, to trick UBER employee into logging into his fake page and get his credentials. However It appears that UBER uses MFA (Duo) push notifications for its internal staff. And to actually gain access to the hacked employees account, The attacker had to bypass the 2FA.
 
