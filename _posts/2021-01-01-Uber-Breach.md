@@ -45,10 +45,10 @@ While scanning the internal network of an UBER team, The attacker appears to hav
 
 To Support his claim the attacker shared several screenshots of UBER's internal environment, including their GDrive, VCenter, sales metrics, Slack, and even their EDR portal.
 
-![1](/blog/assets/images/18/3.jpeg)
-![1](/blog/assets/images/18/4.jpeg)
-![1](/blog/assets/images/18/5.jpeg)
-![1](/blog/assets/images/18/6.jpeg)
+![1](/blog/assets/images/18/3.jpeg){:height="400px" width="400px"}
+![1](/blog/assets/images/18/4.jpeg){:height="400px" width="400px"}
+![1](/blog/assets/images/18/5.jpeg){:height="400px" width="400px"}
+![1](/blog/assets/images/18/6.jpeg){:height="400px" width="400px"}
 
 
 
