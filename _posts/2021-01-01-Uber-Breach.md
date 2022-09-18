@@ -43,119 +43,12 @@ While scanning the internal network of an UBER team, The attacker appears to hav
 - vSphere
 - Financial Dashboards
 
-To Support his claim the attacker shared several screenshots of UBER's internal environment, including their GDrive, VCenter, sales metrics, Slack, and even their EDR portal.
-
-![1](/blog/assets/images/18/3.jpeg){:height="400px" width="400px"}
-![1](/blog/assets/images/18/4.jpeg){:height="400px" width="400px"}
-![1](/blog/assets/images/18/5.jpeg){:height="400px" width="400px"}
-![1](/blog/assets/images/18/6.jpeg){:height="400px" width="400px"}
-
-
-<!-- Carousel wrapper -->
-<div
-  id="carouselBasicExample"
-  class="carousel slide carousel-fade"
-  data-mdb-ride="carousel"
->
-  <!-- Indicators -->
-  <div class="carousel-indicators">
-    <button
-      type="button"
-      data-mdb-target="#carouselBasicExample"
-      data-mdb-slide-to="0"
-      class="active"
-      aria-current="true"
-      aria-label="Slide 1"
-    ></button>
-    <button
-      type="button"
-      data-mdb-target="#carouselBasicExample"
-      data-mdb-slide-to="1"
-      aria-label="Slide 2"
-    ></button>
-    <button
-      type="button"
-      data-mdb-target="#carouselBasicExample"
-      data-mdb-slide-to="2"
-      aria-label="Slide 3"
-    ></button>
-  </div>
-
-  <!-- Inner -->
-  <div class="carousel-inner">
-    <!-- Single item -->
-    <div class="carousel-item active">
-      <img
-        src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(15).webp"
-        class="d-block w-100"
-        alt="Sunset Over the City"
-      />
-      <div class="carousel-caption d-none d-md-block">
-        <h5>First slide label</h5>
-        <p>
-          Nulla vitae elit libero, a pharetra augue mollis interdum.
-        </p>
-      </div>
-    </div>
-
-    <!-- Single item -->
-    <div class="carousel-item">
-      <img
-        src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(22).webp"
-        class="d-block w-100"
-        alt="Canyon at Nigh"
-      />
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Second slide label</h5>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        </p>
-      </div>
-    </div>
-
-    <!-- Single item -->
-    <div class="carousel-item">
-      <img
-        src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(23).webp"
-        class="d-block w-100"
-        alt="Cliff Above a Stormy Sea"
-      />
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Third slide label</h5>
-        <p>
-          Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-        </p>
-      </div>
-    </div>
-  </div>
-  <!-- Inner -->
-
-  <!-- Controls -->
-  <button
-    class="carousel-control-prev"
-    type="button"
-    data-mdb-target="#carouselBasicExample"
-    data-mdb-slide="prev"
-  >
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button
-    class="carousel-control-next"
-    type="button"
-    data-mdb-target="#carouselBasicExample"
-    data-mdb-slide="next"
-  >
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-<!-- Carousel wrapper -->
-
-
+To Support his claim the attacker shared several screenshots of UBER's internal environment, including their GDrive, VCenter, sales metrics, Slack, and even their EDR portal. Check [This Tweet](https://twitter.com/BillDemirkapi/status/1570602545017683968?s=20&t=dCzHPOq-jOuYBmm9Xe3VYQ) for images.
 
 
 ## What are some good lesson to take from the breach
+
+
 
 Let’s go back to the story where it actually started, The attacker compromised an Employee by exploiting not a Security Vulnerability in any of their services but using an Social Engineering Attack which lead attacker to steal Credentials of an Employee.
 
@@ -187,6 +80,13 @@ For example, if a company has a policy that says any data set that contains pers
 
 There is also a user education dimension to this problem - users need to understand the sensitivity of the data they work with and their role in keeping it safe. In many cases, this involves educating users about what *not* to do.
 
-[https://twitter.com/imranparray101/status/1570635827348385792?s=20&t=m6KXmnaZz7D2rg894A9t_w](https://twitter.com/imranparray101/status/1570635827348385792?s=20&t=m6KXmnaZz7D2rg894A9t_w)
 
 *Every organisation is prone to cyber attacks, no matter how big or how small they are, because criminals are more interested in exploiting vulnerabilities than specific organisations*. But Every breach has some lessons to take, Infact there is much more uber breach had brought to us but as for now Let's consider these few points and move on from this astonishing breach of 2022.
+
+
+## About us
+
+Snapsec is a team of security experts specialized in providing pentesting and other security services to secure your online assets. We have a specialized testing methodology which ensures indepth testing of your business logic and other latest vulnerabilities. 
+
+ If you are looking for a team which values your security and ensures that you are fully secure against online security threats, feel free to get in touch with us #[support@snapsec.co](mailto:support@snapsec.co)
+ 
