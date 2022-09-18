@@ -7,17 +7,17 @@ image: assets/images/18/1.png
 ---
 
 
-On 15 September, uber acknowledged that it was responding to a "cybersecurity incident" and had contacted law authorities about the hack. An individual claiming to be an 18-year-old hacker claimed credit for the attack. On Thursday night, the attacker reportedly tweeted, "Hi I declare I am a hacker and Uber has suffered a data breach," in a channel on Uber's Slack. The hacker claimed to have compromised a variety of Uber accounts and cloud services.
+On 15 September, UBER acknowledged that it was responding to a "cybersecurity incident" and had contacted law authorities about the hack. An individual claiming to be an 18-year-old hacker claimed credit for the attack. On Thursday night, the attacker reportedly tweeted, "Hi I declare I am a hacker and UBER has suffered a data breach," in a channel on UBER's Slack. The hacker claimed to have compromised a variety of Uber accounts and cloud services.
 
-## How did Uber Got Compromised:
+## How did UBER Got Compromised:
 
-**Grabbing Uber Employees Credentials**
+**Grabbing UBER Employees Credentials**
 
-The attacker has been quite open about how they hacked into the corporate network of Uber. 
+The attacker has been quite open about how they hacked into the corporate network of UBER. 
 
 ![Untitled](UBER%20HACKE%202%2056281a2e3ea44701bbec356444485683/Untitled.png)
 
-Its obvious that the first step was to grab the credentials of an employee, So an attacker used an fake uber login page, to trick uber employee into logging into his fake page and get his credentials. However It appears that Uber uses MFA (Duo) push notifications for its internal staff. And to actually gain access to the hacked employees account, The attacker had to bypass the 2FA.
+Its obvious that the first step was to grab the credentials of an employee, So an attacker used an fake UBER login page, to trick UBER employee into logging into his fake page and get his credentials. However It appears that UBER uses MFA (Duo) push notifications for its internal staff. And to actually gain access to the hacked employees account, The attacker had to bypass the 2FA.
 
 **Bypassing 2FA**
 
@@ -33,7 +33,7 @@ Once an employee was hacked, the attacker appears to have utilized that victim's
 
 **Finding a Sensitive Powershell Script**
 
-While scanning the internal network of an Uber team, The attacker appears to have discovered an internal network share containing scripts and privileged credentials, granting them access to the wide varity of Systems . Below is the list of Environments that were compromised by attacker
+While scanning the internal network of an UBER team, The attacker appears to have discovered an internal network share containing scripts and privileged credentials, granting them access to the wide varity of Systems . Below is the list of Environments that were compromised by attacker
 
 - Slack
 - Google Workspace Admin
@@ -43,7 +43,7 @@ While scanning the internal network of an Uber team, The attacker appears to hav
 - vSphere
 - Financial Dashboards
 
-To Support his claim the attacker  attacker shared several screenshots of Uber's internal environment, including their GDrive, VCenter, sales metrics, Slack, and even their EDR portal.
+To Support his claim the attacker  attacker shared several screenshots of UBER's internal environment, including their GDrive, VCenter, sales metrics, Slack, and even their EDR portal.
 
 > Images from : [https://twitter.com/BillDemirkapi/status/1570602545017683968?s=20&t=m_SOp3V2uBJowoSBt5SM7Q](https://twitter.com/BillDemirkapi/status/1570602545017683968?s=20&t=m_SOp3V2uBJowoSBt5SM7Q)
 > 
