@@ -56,7 +56,7 @@ While scanning the internal network of an UBER team, The attacker appears to hav
 - vSphere
 - Financial Dashboards
 
-To Support his claim the attacker shared several screenshots of UBER's internal environment, including their GDrive, VCenter, sales metrics, Slack, and even their EDR portal. Check [This Tweet](https://twitter.com/BillDemirkapi/status/1570602545017683968?s=20&t=dCzHPOq-jOuYBmm9Xe3VYQ) for images.
+To Support his claim the attacker shared several screenshots of UBER's internal environment, including their GDrive, VCenter, sales metrics, Slack, and even their EDR portal. Click [Here](https://twitter.com/BillDemirkapi/status/1570602545017683968?s=20&t=dCzHPOq-jOuYBmm9Xe3VYQ) to view images.
 
 
 ## What Are Some Good Lessons To Take From This Security Incident
@@ -71,15 +71,17 @@ According to an IBM research, human error is the root cause of 95% of cyber secu
 
 This emphasizes that people who work within the organization should be educated on a constant schedule about their roles and responsibilities in keeping the company safe. This may be accomplished by good privilege management and adequate security trainings inside organizations.
 
-So just to keep it precise and crisp, Humans within the organisation needs continuous patches and updates exactly the way your softwares do.
+So just to keep it precise and crisp, Humans within the organisation needs continuous patches and updates exactly the way your softwares do and that can be done by providing them with proper cyber security awareness and trainings.
 
 **Running More Phishing Campaign's**
 
  
 
-Phishing is popular with cybercriminals because it enables them to steal financial and personal information by exploiting human behavior. Due to the fact that just one mistake by one employee clicking on one link could result in fraud, a data breech, huge costs, and damage the company’s reputation, By preparing your staff to recognize and report social engineering threats, phishing simulation protects your company from these threats.
+Phishing is popular with cybercriminals because it enables them to steal financial and personal information by exploiting human behavior. Due to the fact that just one mistake by one employee clicking on one link could result in fraud, a data breech, huge costs, and damage the company’s reputation, By preparing your staff to recognize and report social engineering threats, You may easily reduce your chances of being hacked by using a social engineering approach.
 
-So continuous simulation and training help your employees fight phishing attacks and other cyber security threats should be a fundamental part of your security.
+Anti-phishing and security training programs educate staff on the many sorts of attacks, how to spot subtle signals, and how to report questionable emails to your IT department. Phishing simulations are commonly used in training to test and reinforce good employee behavior. Advanced technologies offer extremely changeable attack simulations for a wide range of vectors, including speech, text messages, and finding physical media. Vishing, also known as voice phishing, employs a phone message to entice potential victims to call back and provide personal information. Fake caller-ID information is frequently used by cybercriminals to make calls appear to be from a reputable organization or business. Smishing, also known as SMS phishing, is a type of phishing that uses text messages to trick victims into giving account information or installing malware.
+
+So continuous simulating phishing attacks against your orginisation and indentifying employees with vulnerable behaviours and training them should be an important aspect of your company's cybersecurity.
 
 **Using Phishing Resistant MFA**
 
