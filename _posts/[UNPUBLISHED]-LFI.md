@@ -1,0 +1,67 @@
+# Local File Inclusion(LFI)
+
+### 
+
+### What is LFI
+
+LFI stands for Local File Inclusion. LFI vulnerability in web app can trick application into loading arbitrary files from the server that are restricted. LFI can lead to critical information disclosure or even remote code execution. LFI issue occurs when application uses path as input to retrieve files from system, if application does not properly sanitize the user input and blindly trusts it, an attacker can leverage this misconfiguration and can affect the confidentiality of company.
+
+Before we move further into LFI we will first have a look at how system locates and retrieves files. When looking for a file we actually provide path of that file to the system so it can navigate to that particular location and retrieve the file. Now paths are of two types:
+
+1. **Absolute path:** This contains the full address to the file. It starts from root directory. Example `home/downloads/reports/StatusReport.pdf`. Here directories are separated by ‘/’ delimiter. In windows delimiter is ‘\’ 
+2.  **Relative path:** This contains the address to the file relative to present working directory(pwd). For example we are in downloads folder and want to navigate into reports folder and then open status reports pdf file. Here we will not write the full address of the file, rather we will just write `/reports/StatusReports.pdf`. Here you can see we provided the path to file relative to that of present directory we are in, here in this case downloads folder.
+
+### Why does LFI vulnerability occur?
+
+This vulnerability arises due to the flaw in code. Lets say there is a webapp that allows you to share files over internet. So the basic flow of application would be
+
+**Step 1.** You upload the file
+
+**Step 2.** Website stores your file in some folder(e.g uploads) on the server.
+
+**Step 3.** Other person downloads the file by writing the name/ID of file.[This is where the vulnerabilty occurs]
+
+Lets say the file is stored on a path `root/vulnerablewebsite/all_files/file_sharing/upload.`. Lets now see an example vulnerabe php code for downloading the files from server.
+
+```php
+<?php
+	 //get file name from user
+   $file = $_GET['file'];
+	 //Reteieve file
+	include(",/uploads/$file");
+?>
+
+```
+
+ As you can see from above that this code does not filter the user input whatsoever. An attacker could leverage this and backtraverse to other folders using the input name parameter of website and can pass file name as `vulnerable.com/download?filename=../../../../../../etc/passwd`. The server will execute this code and backtraverse into root folder like `uploads>>file_sharing>>all_files>>vulnerablewebsite>>root` and will retrieve contents of **passwd** file in root folder. Here ../ will backtraverse one step. This way an attacker could gain unauthorized access to system or other sensitive files of the server. These files could contain application code, cookies, access tokens, user information, passwords etc etc. Thus affecting the confidentiality of company.
+
+### Common filters and how to bypass them
+
+1. **Stripping traversal delimiters(../):** A website may use a filter that strips ../ It can be bypassed by using delimiters two times like ....//....//. Lets see an example for the same:
+    
+    If we input   `[vulnerable. com/downloads?name=../../etc/passwd](http://vulnerable.com/downloads?name=../../etc/passwd)` If it strips ../ we will be left with just `vulnerable. com/downlad?name=etc/passwd` which will not give desired output. However, if we use `....//....//....//....//etc/passwd` It will strip ../ we will still be left with `../../../../etc/passwd`
+    
+2. **Blocking relative path:** A website may block relative path by blocking traversal sequence but might allow absolute path. So, we can just enter `/etc/passwd` and could retrieve the file.
+3. **Blocking traversal delimiters(../):** A webapp may have a firewall placed in server with rule that checks the user input before forwarding it, if it finds the input contains traversal sequence it drops the request. This filter can be bypassed by using different encodings(like URL encoding).
+    
+    Example encoded request would be like 
+    
+    1.  `vulnerable. com/dowload?name=..%2f..%2f..%2f..%2fetc%2fpasswd` or
+    2. `vulnerable. com/download?name=%2e%2e%2f%2e%2e%2fetc%2fpasswd` 
+    
+4. **Validating on file extension:** Lets say we have a webapp that shows images and the url is `filename=image1.png` if we try to just write /etc/passwd we would be blocked. This filter can be easily bypassed by using **NULL** character. when server executes the input it will stop at NULL character  because it represents `end-of-line` and we will be left with just LFI payload.
+    
+    `vulnerable. com/images?name=../../../etc/passwd%00.png` >>
+    
+    This will be executed as
+    
+    `vulnerable. com/images?name=../../../etc/passwd`
+    
+
+### Other methods:
+
+LFI can be tested and filters could be bypassed by double encoding, or using other encoding methods. We might have to backtraverse 10-15 steps backs because we donot know where exactly the files are located in server and have to perform trail and error method. We can also use a payload lists to check for this vulnerability quickly.
+
+### Conclusion:
+
+LFI attack is very dynamic in nature, so there is no single straight forward method to test or attack. Developers use different types of filters or other blocking mechanism to stop the attacks, so attackers have to use different bypasses and other hit and trail methods to trick webapp into loading arbitrary.
