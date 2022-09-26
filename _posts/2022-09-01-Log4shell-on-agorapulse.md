@@ -7,7 +7,7 @@ image: assets/images/agora-log4j/0.png
 ---
 
 
-Log4j is a logging framework for Java applications. It is a popular choice for developers looking for a simple and flexible logging solution. However, in the past, Log4j has been found to be vulnerable to a number of security threats. The log4j library has recently been found to contain a serious vulnerability that went by the moniker of log4shell and gained widespread attention. This vulnerability allows unauthenticated remote code execution on vulnerable servers and may be exploited to expose sensitive information.
+Log4j is a logging framework for Java applications. It is a popular choice for developers looking for a simple and flexible logging solution. However, in the past Log4j has been found to be vulnerable to a number of security threats. The log4j library has recently been found to contain a serious vulnerability that went by the moniker of log4shell and gained widespread attention. This vulnerability allows unauthenticated remote code execution on vulnerable servers and may be exploited to expose sensitive information.
 
 
 Log4Shell vulnerability is a critical vulnerability, affecting Apache Log4j versions 2.0 to 2.14.1, [as identified by Chen Zhaojun of the Alibaba Cloud Security Team](https://www.bloomberg.com/news/articles/2021-12-13/how-apache-raced-to-fix-a-potentially-disastrous-software-flaw). NIST published a critical CVE in the National Vulnerability Database on December 10th, 2021, naming this [CVE-2021–44228](https://nvd.nist.gov/vuln/detail/CVE-2021-44228). Apache Software Foundation assigned the maximum CVSS severity rating of 10.
