@@ -7,7 +7,6 @@ image: assets/images/SecuritySimplified/or-2/0.png
 ---
 
 
-## What is Open Redirect
 
 Open redirection vulnerabilities arise when an application incorporates user-controllable data into the target of a redirection in an unsafe way. An attacker can construct a URL within the application that causes a redirection to an arbitrary external domain. _-portswigger_
 
