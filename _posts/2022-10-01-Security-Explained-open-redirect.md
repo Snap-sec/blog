@@ -57,7 +57,7 @@ If the website does not validate the url parameters, we can simply enter any web
 	
 ## Where is the problem
 
-Now the question is which part of the code snippet is vulnerable , and what makes it vulnerable?
+Now the question is which part of the code snippet is vulnerable and what makes it vulnerable?
 
 
 The vulnerability in this case is rather straightforward: the current code snippet adds the value of the 'url' parameter to the response header that is transmitted to the client without any input constraints. Therefore `header('Location:'.$url);` is the actual piece of code that causes this vulnerability.
