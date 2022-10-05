@@ -11,7 +11,7 @@ image: assets/images/SecuritySimplified/or-2/0.png
 
 Open redirection vulnerabilities arise when an application incorporates user-controllable data into the target of a redirection in an unsafe way. An attacker can construct a URL within the application that causes a redirection to an arbitrary external domain. _-portswigger_
 
-Please note that open redirection can be caused by the code sitting at the server side as well as code at the front-end. We will have a look at both the perespectives here.
+Please note that open redirection can be caused by the code sitting at the server side as well as code at the front-end. In this blog article, we'll examine server-side perspectives.
 
 
 ## Vulnerable Code Snippet (Server Side)
@@ -26,6 +26,7 @@ if(isset($_GET['url'])){
 ?>
 ```
 
+In the Above Code Snippet:
 	
 - isset() is basically a function, Which checks whether a variable is empty or not. Also check whether the variable is set/declared, If the varible is not empty it return True otherwise false.
 
@@ -35,21 +36,21 @@ if(isset($_GET['url'])){
 > So in conclusion what we really understood from this code snipped is that it check if the GET Based parameter `name` is set in the URL, if its set it prepends "Hello" to the `name` and sends response to the user.
 
 
-- The __header()__ function sends a raw HTTP header to a client. 
+- The __header()__ function sends a raw HTTP header to a HTTP client which is browser in this case. 
 
 - The HTTP __Location header__ is a response header indicates the URL to redirect a user to.
 
 
 __Conclusion:__
 
-> So in conclusion what we understand from this code snippet is that it check if the GET Based parameter `url` is set in the URL, if the the `url` parameter is set it then send a raw HTTP Response Header `Location` set to the client with value set to whatever is sent in the request by cleint.
+> So, from this code snippet, we can derive that it checks if the GET Based parameter 'url' is set in the URL, and if it is, it sends a raw HTTP Response Header 'Location' set to the client with value set to whatever is sent in the client's request.
 
-In other words it redirects the user to whatever the value he has passed in the url paramter.
+In other words, it redirects the user to the value he specified in the url parameter.
 
 
 ## Exploitation
 
-The Exploitation is pretty simple, If the website is not validating the url paramters , We can simply add any web address in the url parameter and it will redirect us to the page.
+If the website does not validate the url parameters, we can simply enter any web address in the url parameter and it will redirect us to the page.
 
 <video width="800" height="400" controls autoplay >
 <source src="https://github.com/Snap-sec/blog/blob/gh-pages/assets/images/SecuritySimplified/or-2/vid1.mp4?raw=true" type="video/mp4">
@@ -61,14 +62,13 @@ The Exploitation is pretty simple, If the website is not validating the url para
 Now the question is which part of the code snippet is vulnerable , and What makes it vulnerable?
 
 
-The vulnerability is pretty simple here, The current code snippet doesn't have any kind of restrictions imposed to the input, Which means it directly adds the `url` parameter value to the response header sent to the client. So i believe `header('Location:'.$url);` is the actual peice of code which gives rise to this vulnerability.
-
+The vulnerability in this case is rather straightforward: the current code snippet adds the value of the 'url' parameter to the response header that is transmitted to the client without any input constraints. Therefore `header('Location:'.$url);` is the actual piece of code that causes this vulnerability.
 
 
 
 ## Fix
 
-The fix can vary for company to company, One of the fixes will be allowing whitelisted domains or only allowing relative urls to redirected to. 
+The solution can change depending on the circumstance. One solution is to allow only whitelisted domains or relative urls to be redirected to.
 
 __While Listed Domains__
 
@@ -141,7 +141,7 @@ if (isset($_GET["url"])) {
 
 ```
 
-In the following php code we introduce an new function callled `Validate(url)`, The function takes and User input url as parameter and then checks if the value is a absulute url by matching it to an regular expression save in `pattern` varibale. If url is relative we allow the redirection to happen otherwise the redirection is blocked.
+The function "Validate(url)" is introduced in the following PHP code. It accepts a user-inputted url as a parameter and determines whether the value is an relative url by comparing it to a regular expression saved in the "pattern" variable. Redirecting is permitted if the URL is relative; otherwise, it is prohibited.
 
 
 ## Confirming the FIX
@@ -152,7 +152,11 @@ In the following php code we introduce an new function callled `Validate(url)`, 
 <source src="https://github.com/Snap-sec/blog/blob/gh-pages/assets/images/SecuritySimplified/or-2/vid3-confirm.mp4?raw=true" type="video/mp4">
 </video>
 
-Thanks and see you soon.
 
+## About us
+
+Snapsec is a team of security experts specialized in providing pentesting and other security services to secure your online assets. We have a specialized testing methodology which ensures indepth testing of your business logic and other latest vulnerabilities. 
+
+ If you are looking for a team which values your security and ensures that you are fully secure against online security threats, feel free to get in touch with us #[support@snapsec.co](mailto:support@snapsec.co)
 
 
