@@ -52,9 +52,8 @@ In other words, it redirects the user to the value he specified in the url param
 
 If the website does not validate the url parameters, we can simply enter any web address in the url parameter and it will redirect us to the page.
 
-<video width="800" height="400" controls autoplay >
-<source src="https://github.com/Snap-sec/blog/blob/gh-pages/assets/images/SecuritySimplified/or-2/vid1.mp4?raw=true" type="video/mp4">
-</video>
+![1](/blog/assets/images/SecuritySimplified/or-2/vid1.gif)
+
 
 	
 ## Where is the problem
@@ -107,6 +106,11 @@ if (isset($_GET["url"])) {
 ```
 
 
+
+![1](/blog/assets/images/SecuritySimplified/or-2/vid2.gif)
+
+
+
 In the following php code we introduce an new function callled `Validate(url)`, The function takes and User input url as paramyter and then checks if the host of url is equal to the while listed domain, If that that's the code we it allows redirection to happen otherwise the redirection is blocked and a Error message `Domain Not Allowed` is blocked.
 
 
@@ -148,9 +152,8 @@ The function "Validate(url)" is introduced in the following PHP code. It accepts
 - On going back and trying to reproduce open redirection on both the fixes , Yon can see we were able to fix the vulnerabilities
 
 
-<video width="800" height="400" controls autoplay>
-<source src="https://github.com/Snap-sec/blog/blob/gh-pages/assets/images/SecuritySimplified/or-2/vid3-confirm.mp4?raw=true" type="video/mp4">
-</video>
+![1](/blog/assets/images/SecuritySimplified/or-2/confirm.gif)
+
 
 
 ## About us
