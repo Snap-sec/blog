@@ -143,7 +143,7 @@ if (isset($_GET["url"])) {
 
 ```
 
-The function "Validate(url)" is introduced in the following PHP code. It accepts a user-inputted url as a parameter and determines whether the value is a relative url by comparing it to a regular expression saved in the "pattern" variable. Redirecting is permitted if the URL is relative; otherwise, it is prohibited.
+The function `Validate(url)` is introduced in the following PHP code. It accepts a user-inputted url as a parameter and determines whether the value is a relative url by comparing it to a regular expression saved in the `pattern` variable. Redirecting is permitted if the URL is relative; otherwise, it is prohibited.
 
 
 ## Confirming the FIX
