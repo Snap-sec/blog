@@ -10,7 +10,7 @@ image: assets/images/SecuritySimplified/or-2/0.png
 
 Open redirection vulnerabilities arise when an application incorporates user-controllable data into the target of a redirection in an unsafe way. An attacker can construct a URL within the application that causes a redirection to an arbitrary external domain. _-portswigger_
 
-Please note that open redirection can be caused by the code sitting at the server side as well as code at the front-end. In this blog article, we'll examine server-side perspectives.
+Please note that open redirection can be caused by the code sitting at the server side as well as code at the front-end. In this blog article, we will examine server-side perspective.
 
 
 ## Vulnerable Code Snippet (Server Side)
@@ -27,12 +27,12 @@ if(isset($_GET['url'])){
 
 In the Above Code Snippet:
 	
-- isset() is basically a function, Which checks whether a variable is empty or not. Also check whether the variable is set/declared, If the varible is not empty it return True otherwise false.
+- isset() is a function which checks whether a variable is empty or not and if the variable is set/declared. If the variable is not empty it returns True otherwise false.
 
-- `$_GET` is a PHP super global variable which is used to access GET based Parameters from anywhere in the PHP script, As example if you visiting a URL `https://snapsec.co?book.php?id=1` , The GET based `id` parameter in the URL can be accessed by the book.php by using the following code `$_GET['id']`.
+- `$_GET` is a PHP super global variable which is used to access GET based parameters from anywhere in the PHP script, As an example, if you visit a URL `https://snapsec.co?book.php?id=1`. The following code allows the book.php to access the URL's GET-based `id`  parameter. `$_GET['id']`.
 
-- The `echo ""` statement is used to echo/print/reflect any values passed within single quotes, This data is written in a response sent to the user.
-> So in conclusion what we really understood from this code snipped is that it check if the GET Based parameter `name` is set in the URL, if its set it prepends "Hello" to the `name` and sends response to the user.
+The `echo ""` statement is used to echo/print/reflect any values passed within single quotes. This data is written in a response sent to the user.
+> So in conclusion, what we understand from this code snippet is that it checks if the GET based parameter `name` is set in the URL. If it is set, it prepends "Hello" to the `name` and sends response to the user.
 
 
 - The __header()__ function sends a raw HTTP header to a HTTP client which is browser in this case. 
@@ -42,9 +42,9 @@ In the Above Code Snippet:
 
 __Conclusion:__
 
-> So, from this code snippet, we can derive that it checks if the GET Based parameter 'url' is set in the URL, and if it is, it sends a raw HTTP Response Header 'Location' set to the client with value set to whatever is sent in the client's request.
+> So, from this code snippet, we can derive that it checks if the GET based parameter 'url' is set in the URL, and if it is, it sends a raw HTTP Response Header 'Location' set to the client with a value set to whatever is sent in the client's request.
 
-In other words, it redirects the user to the value he specified in the url parameter.
+In other words, it redirects the user to the value he/she specified in the url parameter.
 
 
 ## Exploitation
@@ -57,7 +57,7 @@ If the website does not validate the url parameters, we can simply enter any web
 	
 ## Where is the problem
 
-Now the question is which part of the code snippet is vulnerable , and What makes it vulnerable?
+Now the question is which part of the code snippet is vulnerable , and what makes it vulnerable?
 
 
 The vulnerability in this case is rather straightforward: the current code snippet adds the value of the 'url' parameter to the response header that is transmitted to the client without any input constraints. Therefore `header('Location:'.$url);` is the actual piece of code that causes this vulnerability.
@@ -110,15 +110,14 @@ if (isset($_GET["url"])) {
 
 
 
-In the following php code we introduce an new function callled `Validate(url)`, The function takes and User input url as paramyter and then checks if the host of url is equal to the while listed domain, If that that's the code we it allows redirection to happen otherwise the redirection is blocked and a Error message `Domain Not Allowed` is blocked.
+In the following php code, we introduce a new function called `Validate(url)`, This function takes a user input URL as parameter and then checks if the host of the URL is equal to the white-listed domain. If that is the case, it allows redirection to happen; otherwise, the redirection is blocked and an error message `Domain Not Allowed` is blocked.
 
 
 
 __Allowing Only Absolute URL's__
 
 
-One of the interesting fixes would be only allowing relative URL's which would block all open reditection attempts.
-
+One of the interesting fixes would be only allowing relative URL's, which would block all open redirection attempts.
 ```php
 
 <?php
@@ -144,11 +143,11 @@ if (isset($_GET["url"])) {
 
 ```
 
-The function "Validate(url)" is introduced in the following PHP code. It accepts a user-inputted url as a parameter and determines whether the value is an relative url by comparing it to a regular expression saved in the "pattern" variable. Redirecting is permitted if the URL is relative; otherwise, it is prohibited.
+The function "Validate(url)" is introduced in the following PHP code. It accepts a user-inputted url as a parameter and determines whether the value is a relative url by comparing it to a regular expression saved in the "pattern" variable. Redirecting is permitted if the URL is relative; otherwise, it is prohibited.
 
 
 ## Confirming the FIX
-- On going back and trying to reproduce open redirection on both the fixes , Yon can see we were able to fix the vulnerabilities
+- On going back and trying to reproduce open redirection on both the fixes , Yon can see we were able to fix the vulnerabilities.
 
 
 ![1](/blog/assets/images/SecuritySimplified/or-2/confirm.gif)
