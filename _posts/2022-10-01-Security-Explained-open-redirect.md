@@ -32,7 +32,7 @@ In the Above Code Snippet:
 - `$_GET` is a PHP super global variable which is used to access GET based parameters from anywhere in the PHP script, As an example, if you visit a URL `https://snapsec.co?book.php?id=1`. The following code allows the book.php to access the URL's GET-based `id`  parameter. `$_GET['id']`.
 
 The `echo ""` statement is used to echo/print/reflect any values passed within single quotes. This data is written in a response sent to the user.
-> So in conclusion, what we understand from this code snippet is that it checks if the GET based parameter `name` is set in the URL. If it is set, it prepends "Hello" to the `name` and sends response to the user.
+> So in conclusion, what we understand from this code snippet is that it checks if the GET based parameter `url` is set in the URL. If it is set, it redirects user to the value `url` parameter by sending HTTP LOCATION header in the response.
 
 
 - The __header()__ function sends a raw HTTP header to a HTTP client which is browser in this case. 
