@@ -88,12 +88,12 @@ Although we cannot write and publish about every vulnerability we found, but her
 
 #### Accessing and Editing other users folders in the organization
 
-We Started with their access control model which included tons of permission on each level and just after spending a few hours we found that Lark-suite allows highest privileged user(Super-admins) to invite other admin's/users. The invited users are allowed to view/modify their folders in the lark app. But we found a security issue that could have allowed other users to view/modify the directory structure of other users in the organization, without having any access on those files.
+We Started with their access control model which included tons of permission on each level and just after spending a few hours we found that Lark-suite allows highest privileged user(Primary administrator) to invite other admin's/users. The invited users are allowed to view/modify their folders in the lark app. But we found a security issue that could have allowed other users to view/modify the directory structure of other users in the organization, without having any access on those files.
 
 ![1](/blog/assets/images/lark/1/1.png)
 
 
-Once the *highest privileged user(Super-admins)* added another user he was only able to *access the company information* but he lacked access on the *files and directories* of other members. On digging a bit we found a *GET Request* which takes user id in a parameter and *returns the directories and tokens of that user* in the response.
+Once the *highest privileged user(Primary administrator)* added another user he was only able to *access the company information* but he lacked access on the *files and directories* of other members. On digging a bit we found a *GET Request* which takes user id in a parameter and *returns the directories and tokens of that user* in the response.
 
 ```http
 GET  /suite/admin/space_manage/user_folder?userID=6782777787976515850  HTTP/1.1
