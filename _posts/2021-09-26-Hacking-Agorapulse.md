@@ -1,6 +1,14 @@
-## Multiple bugs on agora pulse.
+---
+layout: post
+title:  "Attacking Access Control Models in Modern Web Apps"
+author: imran
+categories: [Privilege-escalation,XSS,Log4Shell ]
+image: assets/images/ABACM/8.png
+---
 
-## Introduction
+
+
+
 
 Agorapulse provides everything an organization could possibly need for social media marketing, monitoring, and management. Agorapulse is a full-featured social media management platform. Some of its features include a variety of ways to publish content, scheduling posts and reporting about social account usage. Agorapulse provides a platform for companies for their marketing strategies while also keeping them under the budget radar. The software is used to create and schedule social media content, engage audiences, listen for key terms, and analyse social media performance.
 
@@ -9,29 +17,23 @@ Agorapulse provides everything an organization could possibly need for social me
 
 The application's functionalities were extensive, and it allowed users to integrate other third-party accounts (complexity). At this stage, we appeared harmless and stealthily explored the app, understanding the *logic of the application* and making ourselves capable of using it. All of this was accomplished with the assistance of their *youtube channels, blogs, support channels, general search queries*, and so on. We investigated the *structure of api paths* and *http requests* for various actions inside the application. We took note of the *ids being used* so that we don't miss out on any **IDOR chances**. The following is a list of a few vulnerabilities we found on agaorapulse.
 
-## List of vulnerabilities found
-
-| Title      |  
-| ----------- |  
-| _RCE via Log4shell_      |  
-| _Accessing automatic scheduling reports_   | 
-| _Accessing sensitive organization information_   |  
-| _Changing ROI settings of account_   |  
-| _Changing general report settings like logo, timezone etc_   |  
-| _Chaniging rules of inbox assistant from an unauthorized role_   | 
 
 
-## 1 RCE via Log4shell
+
+## 1 - RCE via Log4shell
 
 Log4j has been found to be vulnerable to a number of security threats. The log4j library has recently been found to contain a serious vulnerability.This vulnerability allows unauthenticated remote code execution on vulnerable servers and may be exploited to expose sensitive information.
 
 We were able to discover the vulnerable log4j framework that was implemented by *agorapulse*. We *exploited the same framework* by pasting the *payload in a new post*.
 
-{{screenshot 1 of post}}
+![image](https://user-images.githubusercontent.com/88488902/196965064-21210527-1944-4644-9794-0c679ba73c22.png)
+
 
 This *resulted in a DNS pingback* from the agora servers. After confirmation, we *exploited the vulnerability* by *reading various environment variables* of agorapulse servers without performing any sensitive *actions*. 
 
-{{environment varibales screenshot rep1}}
+
+![image](https://user-images.githubusercontent.com/88488902/196965165-a77a7a2c-4c32-44d3-b90c-4e81296cdb1c.png)
+
 
 You can go through detailed process here [https://snapsec.co/blog/Log4shell-on-agorapulse/](https://snapsec.co/blog/Log4shell-on-agorapulse/).
 
@@ -54,7 +56,6 @@ This app had various organisational roles with segregated permissions. One from 
 
 Until we came across an API endpoint like `GET /api/organizations/[org-id]? organizationId=[org-id] HTTP/1.1`. We premeditated the ids which were being used in the request and quickly identified that this id could return a set of various *information about the organization*, particularly *restricted to the guest role*.  When we sent this request with the credentials/cookies of the guest role, we received a *200 OK* response with various *organization information*. The information included *scheduled calendars, email adresses of shared members, identification ids, meeting dates* and other information.
 
-{{3 report response of 200o k}}
 
 > Hence, a guest role was able to leak un-authorized information about the organisation.
 
