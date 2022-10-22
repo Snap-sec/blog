@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Finding Multiple Security Issues on Agorapulse"
-author: imran
+author: snapsec
 categories: [Privilege-escalation,XSS,Log4Shell ]
 image: assets/images/19/0.png
 ---
