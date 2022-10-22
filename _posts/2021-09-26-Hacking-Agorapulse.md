@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Attacking Access Control Models in Modern Web Apps"
+title:  "Finding Multiple Security Issues on Agorapulse"
 author: imran
 categories: [Privilege-escalation,XSS,Log4Shell ]
 image: assets/images/19/0.png
