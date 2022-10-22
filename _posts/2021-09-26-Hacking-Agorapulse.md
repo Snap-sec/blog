@@ -3,7 +3,7 @@ layout: post
 title:  "Attacking Access Control Models in Modern Web Apps"
 author: imran
 categories: [Privilege-escalation,XSS,Log4Shell ]
-image: assets/images/ABACM/8.png
+image: assets/images/19/0.png
 ---
 
 
