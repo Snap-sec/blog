@@ -35,26 +35,43 @@ This *resulted in a DNS pingback* from the agora servers. After confirmation, we
 ![image](https://user-images.githubusercontent.com/88488902/196965165-a77a7a2c-4c32-44d3-b90c-4e81296cdb1c.png)
 
 
-You can go through detailed process here [https://snapsec.co/blog/Log4shell-on-agorapulse/](https://snapsec.co/blog/Log4shell-on-agorapulse/).
+You can go through detailed writeup about this vulnerability here [https://snapsec.co/blog/Log4shell-on-agorapulse/](https://snapsec.co/blog/Log4shell-on-agorapulse/).
 
 ## Accessing automatic scheduling reports
 
 In agorapulse we can have our reports emailed to us automatically, so that we don't need to worry about exporting them manually again. This feature is available as part of the [Power Reports add-on].
 With the guest role in the organisation, a user has limited access to the organisation's social profile settings. The guest user is restricted from viewing the information contained in automatic scheduled reports .
- But we were able to identify a vulnerable endpoint with broken access control that lets an unauthorised role `{ADD ROLE HERE}` to gain access to restricted information `{WHICH INFORMATION}`.
 
-- Scheduled reports information, labels information and the groups information
+But we were able to identify a vulnerable endpoint with broken access control that lets an unauthorised role `guest` to gain access to restricted information about the `labels, automatic scheduled reports and Orginisation groups`.
+
 ```http
 GET /api/bootstrap?accountId=574034 HTTP/1.1 
+Host: manager.agorapulse.com 
+Connection: close sec-ch-ua: "Chromium";v="92", " Not A;Brand";v="99", "Google Chrome";v="92" 
+Accept: application/json, text/plain, */* 
+Authorization: Bearer <value> 
+Agorapulse-Agent: manager-2021.08.03.0929 
+Content-Type: application/json 
+Origin: https://app.agorapulse.com 
+Sec-Fetch-Site: same-site 
+Sec-Fetch-Mode: cors 
+Sec-Fetch-Dest: empty 
+Referer: https://app.agorapulse.com/ 
+Accept-Language: en-US,en;q=0.9
+
 ```
-By forwarding the above request with the authorisation token of a guest user, the response received is 200 ok but it also returns data such as information related to automatic scheduling reports like assigne emails,labels and group names in that particular organisation.
+When the above request was forwarded with a guest user's authorization token, the response was `200 OK`, which also returned data such as information related to automatic scheduling reports, which included assignee emails, labels, and group names in that specific organisation.
+
+
+![image](https://user-images.githubusercontent.com/88488902/197342406-63ab17e9-faa6-42c4-b54e-391998c60209.png)
+
 
 
 ##  Accessing sensitive organisation information
 
-This app had various organisational roles with segregated permissions. One from the list was *guest role* which had no direct access to the *organization* but  few features like *posts to review*,  *likes* etc. We were unable to access various *instinctively vulnerable api paths* using the *credentials of the guest role*.
+Agorapulse had various organisational roles with segregated permissions. One from the list was *guest role* which had no direct access to the *organization* but  few features like *posts to review*,  *likes* etc. So this was a pretty good attack surface for fiding a bunch of privilege escaltion issues, At the beginning We were unable to access various *instinctively vulnerable api paths* using the *credentials of the guest role*, until we came across an API endpoint like `GET /api/organizations/[org-id]?organizationId=[org-id`. 
 
-Until we came across an API endpoint like `GET /api/organizations/[org-id]? organizationId=[org-id] HTTP/1.1`. We premeditated the ids which were being used in the request and quickly identified that this id could return a set of various *information about the organization*, particularly *restricted to the guest role*.  When we sent this request with the credentials/cookies of the guest role, we received a *200 OK* response with various *organization information*. The information included *scheduled calendars, email adresses of shared members, identification ids, meeting dates* and other information.
+We premeditated the ids which were being used in the request and quickly identified that this id could return a set of various *information about the organization*, particularly *restricted to the guest role*.  When we sent this request with the credentials/cookies of the guest role, we received a *200 OK* response with various *organization information*. The information included *scheduled calendars, email adresses of shared members, identification ids, meeting dates* and other information.
 
 
 > Hence, a guest role was able to leak un-authorized information about the organisation.
