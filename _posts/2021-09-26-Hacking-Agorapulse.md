@@ -121,13 +121,14 @@ Accept: application/json, text/plain, */*
 Accept-Language: en-US,en;q=0.5 
 Referer: https://app.agorapulse.com/ 
 Agorapulse-Agent: manager-2021.08.04.1214 
-Authorization: Bearer REDACTED
+Authorization: Bearer
 Content-Type: application/json 
 Content-Length: 118 
 Origin: https://app.agorapulse.com 
 
 {"roiEnabled":true,"postImpressionValue":5,"postLinkClickValue":1,"userEngagedValue":1,"accountUid":"facebook_574024"}
 ```
+
 
 The above request returned a '200 OK' response, indicating that changes were made to the target page. By returning to the ROI setting of a page through an admin account, we were able to confirm that an attacker with the guest role was indeed able to change the ROI setting of the page.
 
