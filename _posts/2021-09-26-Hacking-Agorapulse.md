@@ -89,7 +89,7 @@ Accept-Language: en-US,en;q=0.9
 We premeditated the ids which were being used in the request and quickly identified that this id could return a set of various *information about the organization*, particularly *restricted to the guest role*.  
 
 
-![image](https://user-images.githubusercontent.com/88488902/197342578-a14b4515-534b-442f-bd47-1356e9562042.png)
+![image](https://user-images.githubusercontent.com/88488902/197373980-d4c02a75-f0f8-40bf-833d-00c0bbb6dc5e.png)
 
 
 When we sent this request with the credentials/cookies of the guest role, we received a *200 OK* response with various *organization information*. The information included *scheduled calendars, email adresses of shared members, identification ids, meeting dates* and other information.
