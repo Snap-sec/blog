@@ -119,7 +119,7 @@ Accept: application/json, text/plain, */*
 Accept-Language: en-US,en;q=0.5 
 Referer: https://app.agorapulse.com/ 
 Agorapulse-Agent: manager-2021.08.04.1214 
-Authorization: Bearer [VALUE]
+Authorization: Bearer REDACTED
 Content-Type: application/json 
 Content-Length: 118 
 Origin: https://app.agorapulse.com 
