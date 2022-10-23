@@ -215,8 +215,14 @@ We observed that the following request had no authorization checks in place and 
 We received _200 OK_ after sending this request with the credentials of the *guest*, and the rule was moved to *different assistant*. We just need to get the *assistant name* which was leaked to the *guest via another GET request*. Using the name in the mentioned request, we were able to move the rules from this inbox assistant to another inbox assistant.
 
 
-![image](https://user-images.githubusercontent.com/88488902/197373388-49195ab7-34ff-4c8a-bbad-2b2a8268dc59.png)
+![image](https://user-images.githubusercontent.com/88488902/197374039-d83f19aa-71e8-4771-b8e1-5b1c93826c4d.png)
 
 
 We also found that when we sent the following http PUT request, the agorapulse application changed the chronological order of the assistant rules while leaking all of the inbox rules in the response. As a result, the guest role was able to leak information about the rules in the inbox assistant and even change their chronology.
 
+
+## About us
+
+Snapsec is a Cyber security service company for rapidly growing SaaS businesses, we help you with an enhanced level of security to defend your critical networks and data at affordable charges for our services.
+
+Please feel free to contact us at [support@snapsec.com](support@snapsec.com) if you’re seeking a company that appreciates your security and guarantees that you are completely protected from online security risks.
