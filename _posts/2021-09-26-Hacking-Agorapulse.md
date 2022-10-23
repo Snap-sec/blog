@@ -181,7 +181,7 @@ Accept-Language: en-US,en;q=0.9
 By returning to the Reports Sections of an target page through an admin account, we were able to confirm that an attacker with the guest role was indeed able to change the Custom Branding and other details like an Report Author of an target page.
 
 
-![image](https://user-images.githubusercontent.com/88488902/197373037-3c3536cb-5f36-4669-8253-259b1cb79b4f.png)
+![image](https://user-images.githubusercontent.com/88488902/197373702-64aabc9a-b347-416a-92c5-bbe96ec605db.png)
 
 
 ## Changing rules of inbox assistant from an unauthorized role
