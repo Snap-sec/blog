@@ -49,7 +49,7 @@ GET /api/bootstrap?accountId=574034 HTTP/1.1
 Host: manager.agorapulse.com 
 Connection: close sec-ch-ua: "Chromium";v="92", " Not A;Brand";v="99", "Google Chrome";v="92" 
 Accept: application/json, text/plain, */* 
-Authorization: Bearer [Value] 
+Authorization: Bearer REDACTED
 Agorapulse-Agent: manager-2021.08.03.0929 
 Content-Type: application/json 
 Origin: https://app.agorapulse.com 
