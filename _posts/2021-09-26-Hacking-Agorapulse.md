@@ -178,24 +178,46 @@ Accept-Language: en-US,en;q=0.9
 {"accountUid":"facebook_574363","authorName":"Waris","authorPictureUrl":"PICTURE-URL","browserTimezoneEnabled":true,"locale":"en","timezone":"Asia/Calcutta"}
 ```
 
+By returning to the Reports Sections of an target page through an admin account, we were able to confirm that an attacker with the guest role was indeed able to change the Custom Branding and other details like an Report Author of an target page.
+
+
+![image](https://user-images.githubusercontent.com/88488902/197373037-3c3536cb-5f36-4669-8253-259b1cb79b4f.png)
+
 
 ## Changing rules of inbox assistant from an unauthorized role
 
 This issue was again identified in the *guest role*, which was the lowest level role available in the organization. This role was *granted some basic read permissions* on limited features.
 
-A feature implemented by agora for the automation of inbox messages was *inbox assistant*. Authorized users are able to create custom rules *by which the replies* to the *received messages* will be given. This feature was totally *unaccessible to the guest role* . We discovered a *vulnerable request* while analysing the *flow of the api requests* responsible for *moving the inbox assistants and viewing various rules*. The HTTP request looked something like this:
+A feature implemented by agora for the automation of inbox messages was *inbox assistant*. Authorized users are able to create custom rules *by which the replies* to the *received messages* will be given. This feature was totally *unaccessible to the guest role* . 
+
+If the administrator goes to 'organisational settings,' then to 'social profile,' and then to 'inbox assistant,' he can write the rules there or align the rules one after the other.
+
+
+![image](https://user-images.githubusercontent.com/88488902/197373210-0c63d54c-953a-4b8f-aee3-c12984d1b305.png)
+
+When the administrator changes the chronology of the rules by clicking on the *arrows*, the request looks like this:
 
 ```http
-PUT /api/accounts/twitter_137253/rules HTTP/1.1 
-Host: inbox.agorapulse.com 
-Connection: close Content-
-Length: 17 sec-ch-ua: "Chromium";v="92", " Not A;Brand";v="99", "Google Chrome";v="92" Accept: application/json, text/plain, */ 
-Authorization: Bearer
+PUT /api/accounts/twitter_137253/rules HTTP/1.1
+Host: inbox.agorapulse.com
+Connection: close
+Content-Length: 17
+Authorization: Bearer REDACTED
+sec-ch-ua-mobile: ?0
+Agorapulse-Agent: manager-2021.08.03.0929
+Content-Type: application/json
+Origin: https://app.agorapulse.com
+Accept-Language: en-US,en;q=0.9
 
-
-{"from":[inbox-assistant-id-of-current-inbox],"to":[inbox-assistant-id-of-another-inbox]}
+{"from":2,"to":1}
 ```
+We observed that the following request had no authorization checks in place and that it was possible to send it from a guest role in order to change the inbox rule chronology.
 
 We received _200 OK_ after sending this request with the credentials of the *guest*, and the rule was moved to *different assistant*. We just need to get the *assistant name* which was leaked to the *guest via another GET request*. Using the name in the mentioned request, we were able to move the rules from this inbox assistant to another inbox assistant.
 
-> Please note the actual http requests were different from the ones posted here.
+
+![image](https://user-images.githubusercontent.com/88488902/197373388-49195ab7-34ff-4c8a-bbad-2b2a8268dc59.png)
+
+
+We also found that when we sent the following http PUT request, the agorapulse application changed the chronological order of the assistant rules while leaking all of the inbox rules in the response. As a result, the guest role was able to leak information about the rules in the inbox assistant and even change their chronology.
+
