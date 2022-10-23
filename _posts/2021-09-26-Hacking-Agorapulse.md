@@ -47,7 +47,6 @@ But we were able to identify a vulnerable endpoint with broken access control th
 ```http
 GET /api/bootstrap?accountId=574034 HTTP/1.1 
 Host: manager.agorapulse.com 
-Connection: close sec-ch-ua: "Chromium";v="92", " Not A;Brand";v="99", "Google Chrome";v="92" 
 Accept: application/json, text/plain, */* 
 Authorization: Bearer REDACTED
 Agorapulse-Agent: manager-2021.08.03.0929 
@@ -58,8 +57,8 @@ Sec-Fetch-Mode: cors
 Sec-Fetch-Dest: empty 
 Referer: https://app.agorapulse.com/ 
 Accept-Language: en-US,en;q=0.9
-
 ```
+
 When the above request was forwarded with a guest user's authorization token, the response was `200 OK`, which also returned data such as information related to automatic scheduling reports, which included assignee emails, labels, and group names in that specific organisation.
 
 
