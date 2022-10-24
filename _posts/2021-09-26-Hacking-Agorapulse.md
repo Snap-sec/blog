@@ -22,8 +22,8 @@ The first step, as always, is to learn about the target app by interacting with 
 
 The agorapulse utilises a role-based access control model in their application, with roles classified into two categories:
 
-- organization role (Owner, Manager or a Member)
-- role on given social profile(s) (Admin, Editor, Moderator or Guest)
+- Organization role (Owner, Manager or a Member)
+- Role on given social profile(s) (Admin, Editor, Moderator or Guest)
 
 __Organization role:__
 
