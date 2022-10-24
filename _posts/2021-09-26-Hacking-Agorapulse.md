@@ -90,8 +90,8 @@ Accept-Language: en-US,en;q=0.9
 
 When the above request was forwarded with a guest user's authorization token, the response was `200 OK`, which also returned data such as information related to automatic scheduling reports, which included assignee emails, labels, and group names in that specific organisation.
 
+![image](https://user-images.githubusercontent.com/88488902/197461247-7d8dc851-326b-4307-aab0-dcd3344985eb.png)
 
-![image](https://user-images.githubusercontent.com/88488902/197342406-63ab17e9-faa6-42c4-b54e-391998c60209.png)
 
 > Hence an attacker with a Guest role was able to escalate his privleges and access restricted information within the orginsation.
 
