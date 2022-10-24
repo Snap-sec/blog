@@ -97,7 +97,7 @@ When the above request was forwarded with a guest user's authorization token, th
 
 ## 3 - Accessing sensitive organisation information
 
-Agorapulse had various organisational roles with segregated permissions. One from the list was *guest role* which had no direct access to the *organization* but a few features like *posts to review*,  *likes*, etc. So this was a pretty good attack surface for finding a bunch of privilege escalation issues; at the beginning, We were unable to access various *instinctively vulnerable API paths* using the *credentials of the guest role*, until we came across an API endpoint.
+As mentioned previously agorapulse had various organisational roles with segregated permissions. One from the list was *guest role* which had no direct access to the *organization* but a few features like *posts to review*,  *likes*, etc. So this was a pretty good attack surface for finding a bunch of privilege escalation issues; at the beginning, We were unable to access various *instinctively vulnerable API paths* using the *credentials of the guest role*, until we came across an API endpoint.
 
 ```http
 GET /api/organizations/[org-id]?organizationId=[org-id] HTTP/1.1
