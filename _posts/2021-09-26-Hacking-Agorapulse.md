@@ -15,8 +15,29 @@ Agorapulse provides everything an organization could possibly need for social me
 
 ## Approaching the target
 
-The first step, as always, is to learn about the target app by interacting with its various features and functionalities. In this case the application's functionalities were extensive, and it allowed users to integrate other third-party accounts (complexity). At this stage, we appeared harmless and stealthily explored the app, understanding the *logic of the application* and making ourselves capable of using it. All of this was accomplished with the assistance of their *youtube channels, blogs, support channels, general search queries*, and so on. We investigated the *structure of API paths* and *HTTP requests* for various actions inside the application. We took note of the *IDs being used* so that we don't miss out on any **IDOR chances**. The following is a list of a few vulnerabilities we found on agora pulse.
+The first step, as always, is to learn about the target app by interacting with its various features and functionalities. In this case the application's functionalities were extensive, and it allowed users to integrate other third-party accounts (complexity). At this stage, we appeared harmless and stealthily explored the app, understanding the *logic of the application* and making ourselves capable of using it. All of this was accomplished with the assistance of their *youtube channels, blogs, support channels, general search queries*, and so on. We investigated the *structure of API paths* and *HTTP requests* for various actions inside the application. We took note of the *IDs being used* so that we don't miss out on any **IDOR chances**. 
 
+
+## Understanding their Permission Model
+
+The agorapulse utilises a role-based access control model in their application, with roles classified into two categories:
+
+- organization role (Owner, Manager or a Member)
+- role on given social profile(s) (Admin, Editor, Moderator or Guest)
+
+__Organization role:__
+
+Organization roles define a user's permissions in terms of subscription and team settings. One can be the owner (1 per organization), a manager or a member within an orginsation
+
+__Roles on social profiles:__
+
+Roles on social profiles define permissions in terms of actions user is allowed to do on given social profile:
+Editor - Editors have full access to the Inbox, Publishing, Reports
+Moderator - Moderators have full access to Inbox, Listening, Publishing and Retweet Stuff.
+Guest - Guests are in view-only mode, they cannot perform any publishing, replying or moderation actions
+
+
+The list of a few vulnerabilities we discovered on agora pulse is provided below.
 
 
 
