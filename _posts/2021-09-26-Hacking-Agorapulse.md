@@ -124,7 +124,7 @@ We premeditated the ids which were being used in the request and quickly identif
 When we sent this request with the credentials of the guest role, we received a *200 OK* response with various *organization information*. The information included *scheduled calendars, email addresses of shared members, identification ids, meeting dates* and other information.
 
 
-> Hence, a guest role was able to leak un-authorized information about the organisation.
+> Hence, It indicated an clear case of privilege escalation as guest role was able to leak un-authorized information about the organisation.
 
 
 ## 4 - Changing ROI settings from an Un-Authorized Role
