@@ -255,7 +255,7 @@ We received _200 OK_ after sending this request with the credentials of the *gue
 
 We also found that when we sent the following HTTP PUT request, the agorapulse application changed the chronological order of the assistant rules while leaking all of the inbox rules in the response. As a result, the guest role was able to leak information about the rules in the inbox assistant and even change their chronology.
 
-## Fix
+## Fixing the issues
 
 Following the implementation of their fixes, the agorapulse team requested a re-check on the vulnerabilities, and our team attempted to find any possible bypasses for the existing fixes. [Several techniques](https://book.hacktricks.xyz/network-services-pentesting/pentesting-web/403-and-401-bypasses
 ) were used to ensure that all fixes implemented on privilege escalation issues were not easily bypassed.
