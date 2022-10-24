@@ -121,7 +121,7 @@ We premeditated the ids which were being used in the request and quickly identif
 ![image](https://user-images.githubusercontent.com/88488902/197373980-d4c02a75-f0f8-40bf-833d-00c0bbb6dc5e.png)
 
 
-When we sent this request with the credentials/cookies of the guest role, we received a *200 OK* response with various *organization information*. The information included *scheduled calendars, email addresses of shared members, identification ids, meeting dates* and other information.
+When we sent this request with the credentials of the guest role, we received a *200 OK* response with various *organization information*. The information included *scheduled calendars, email addresses of shared members, identification ids, meeting dates* and other information.
 
 
 > Hence, a guest role was able to leak un-authorized information about the organisation.
