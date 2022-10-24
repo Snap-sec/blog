@@ -10,7 +10,7 @@ image: assets/images/19/0.png
 
 
 
-Agorapulse provides everything an organization could possibly need for social media marketing, monitoring, and management. Agorapulse is a full-featured social media management platform. Some of its features include a variety of ways to publish content, schedule posts, and report about social account usage. Agorapulse provides a platform for companies for their marketing strategies while also keeping them under the budget radar. The software is used to create and schedule social media content, engage audiences, listen for key terms, and analyse social media performance.
+Agorapulse provides everything an organization could possibly need for social media marketing, monitoring, and management. Agorapulse is a full-featured social media management platform. Some of its features include a variety of ways to publish content, schedule posts, and report about social account usage. The software is used to create and schedule social media content, engage audiences, listen for key terms, and analyse social media performance.
 
 
 ## Approaching the target
