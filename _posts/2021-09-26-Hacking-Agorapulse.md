@@ -36,6 +36,9 @@ Editor - Editors have full access to the Inbox, Publishing, Reports
 Moderator - Moderators have full access to Inbox, Listening, Publishing and Retweet Stuff.
 Guest - Guests are in view-only mode, they cannot perform any publishing, replying or moderation actions
 
+Read more about their [permission model](https://support.agorapulse.com/article/show/34664-how-do-i-manage-roles-for-my-team) here.
+
+
 
 The list of a few vulnerabilities we discovered on agora pulse is provided below.
 
