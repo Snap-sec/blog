@@ -22,9 +22,11 @@ The first step, as always, is to learn about the target app by interacting with 
 
 ## 1 - RCE via Log4shell
 
-Log4j has been found to be vulnerable to a number of security threats. The log4j library has recently been found to contain a serious vulnerability. This vulnerability allows unauthenticated remote code execution on vulnerable servers and may be exploited to expose sensitive information.
+Log4j has recently been discovered to be vulnerable to a number of security threats. A critical vulnerability was recently discovered in the log4j library. This flaw allows unauthenticated remote code execution on vulnerable servers and could be used to expose sensitive information from the vulnerable servers.
 
-We were able to discover the vulnerable log4j framework that was implemented by *agorapulse*. We *exploited the same framework* by pasting the *payload in a new post*.
+
+After some investigation, we discovered that log4j was used in their application/infrastructure somewhere, and we were able to send our payloads and receive DNS pingbacks from their vulnerable server.
+
 
 ![image](https://user-images.githubusercontent.com/88488902/196965064-21210527-1944-4644-9794-0c679ba73c22.png)
 
