@@ -10,19 +10,19 @@ image: assets/images/19/0.png
 
 
 
-Agorapulse provides everything an organization could possibly need for social media marketing, monitoring, and management. Agorapulse is a full-featured social media management platform. Some of its features include a variety of ways to publish content, scheduling posts and reporting about social account usage. Agorapulse provides a platform for companies for their marketing strategies while also keeping them under the budget radar. The software is used to create and schedule social media content, engage audiences, listen for key terms, and analyse social media performance.
+Agorapulse provides everything an organization could possibly need for social media marketing, monitoring, and management. Agorapulse is a full-featured social media management platform. Some of its features include a variety of ways to publish content, schedule posts, and report about social account usage. Agorapulse provides a platform for companies for their marketing strategies while also keeping them under the budget radar. The software is used to create and schedule social media content, engage audiences, listen for key terms, and analyse social media performance.
 
 
 ## Approaching the target
 
-The application's functionalities were extensive, and it allowed users to integrate other third-party accounts (complexity). At this stage, we appeared harmless and stealthily explored the app, understanding the *logic of the application* and making ourselves capable of using it. All of this was accomplished with the assistance of their *youtube channels, blogs, support channels, general search queries*, and so on. We investigated the *structure of api paths* and *http requests* for various actions inside the application. We took note of the *ids being used* so that we don't miss out on any **IDOR chances**. The following is a list of a few vulnerabilities we found on agaorapulse.
+The application's functionalities were extensive, and it allowed users to integrate other third-party accounts (complexity). At this stage, we appeared harmless and stealthily explored the app, understanding the *logic of the application* and making ourselves capable of using it. All of this was accomplished with the assistance of their *youtube channels, blogs, support channels, general search queries*, and so on. We investigated the *structure of API paths* and *HTTP requests* for various actions inside the application. We took note of the *IDs being used* so that we don't miss out on any **IDOR chances**. The following is a list of a few vulnerabilities we found on agora pulse.
 
 
 
 
 ## 1 - RCE via Log4shell
 
-Log4j has been found to be vulnerable to a number of security threats. The log4j library has recently been found to contain a serious vulnerability.This vulnerability allows unauthenticated remote code execution on vulnerable servers and may be exploited to expose sensitive information.
+Log4j has been found to be vulnerable to a number of security threats. The log4j library has recently been found to contain a serious vulnerability. This vulnerability allows unauthenticated remote code execution on vulnerable servers and may be exploited to expose sensitive information.
 
 We were able to discover the vulnerable log4j framework that was implemented by *agorapulse*. We *exploited the same framework* by pasting the *payload in a new post*.
 
@@ -39,10 +39,10 @@ You can go through detailed writeup about this vulnerability here [https://snaps
 
 ## 2 - Accessing automatic scheduling reports
 
-In agorapulse we can have our reports emailed to us automatically, so that we don't need to worry about exporting them manually again. This feature is available as part of the [Power Reports add-on].
-With the guest role in the organisation, a user has limited access to the organisation's social profile settings. The guest user is restricted from viewing the information contained in automatic scheduled reports .
+In agorapulse we can have our reports emailed to us automatically, so we don't need to worry about exporting them manually again. This feature is available as part of the [Power Reports add-on].
+With the guest role in the organisation, a user has limited access to the organisation's social profile settings. The guest user is restricted from viewing the information contained in automatic scheduled reports.
 
-But we were able to identify a vulnerable endpoint with broken access control that lets an unauthorised role `guest` to gain access to restricted information about the `labels, automatic scheduled reports and Orginisation groups`.
+However, we were able to identify a vulnerable endpoint with broken access control that lets an unauthorised role `guest` to gain access to restricted information about the `labels, automatic scheduled reports and Orginisation groups`.
 
 
 ```http
@@ -71,7 +71,7 @@ When the above request was forwarded with a guest user's authorization token, th
 
 ## 3 - Accessing sensitive organisation information
 
-Agorapulse had various organisational roles with segregated permissions. One from the list was *guest role* which had no direct access to the *organization* but  few features like *posts to review*,  *likes* etc. So this was a pretty good attack surface for fiding a bunch of privilege escaltion issues, At the beginning We were unable to access various *instinctively vulnerable api paths* using the *credentials of the guest role*, until we came across an API endpoint 
+Agorapulse had various organisational roles with segregated permissions. One from the list was *guest role* which had no direct access to the *organization* but a few features like *posts to review*,  *likes*, etc. So this was a pretty good attack surface for finding a bunch of privilege escalation issues; at the beginning, We were unable to access various *instinctively vulnerable API paths* using the *credentials of the guest role*, until we came across an API endpoint.
 
 ```http
 GET /api/organizations/[org-id]?organizationId=[org-id] HTTP/1.1
@@ -95,7 +95,7 @@ We premeditated the ids which were being used in the request and quickly identif
 ![image](https://user-images.githubusercontent.com/88488902/197373980-d4c02a75-f0f8-40bf-833d-00c0bbb6dc5e.png)
 
 
-When we sent this request with the credentials/cookies of the guest role, we received a *200 OK* response with various *organization information*. The information included *scheduled calendars, email adresses of shared members, identification ids, meeting dates* and other information.
+When we sent this request with the credentials/cookies of the guest role, we received a *200 OK* response with various *organization information*. The information included *scheduled calendars, email addresses of shared members, identification ids, meeting dates* and other information.
 
 
 > Hence, a guest role was able to leak un-authorized information about the organisation.
@@ -108,9 +108,9 @@ Return on Investment (ROI) is a popular profitability metric used to evaluate ho
 With guest permission in an organization, the user has limited access to the organisation's social profile settings. Only users with admin rights can enable or disable the ROI settings for a particular page.
 
 
-But we were able to identify a Vulnerable api endpoint through which a user with guest permission was able to change the ROI settings of a page.
+However, we were able to identify a Vulnerable API endpoint through which a user with guest permission was able to change the ROI settings of a page.
 
-In the below request, by passing the id parameter of a page, a user with guest permission was able to change the ROI settings of any target page without any access to it. 
+In the below request, by passing the id parameter of a page, a user with guest permission was able to change the ROI settings of any target page without any access to it.
 
 
 ```http
@@ -143,7 +143,7 @@ The above request returned a '200 OK' response, indicating that changes were mad
 
 With guest permission in an organization, a user has no access to the general settings of social media profiles. Due to limited permissions, the guest user is not able to change the report settings. 
 
-But we were able to identify a broken api path through which a user with guest permissions was able to change the general report settings of a organisation.The broken access on the vulnerable endpoint lets a guest change the timezone, author name, and logo for the reports.
+But we were able to identify a broken api path through which a user with guest permissions was able to change the general report settings of an organisation. The broken access on the vulnerable endpoint lets a guest change the timezone, author name, and logo for the reports.
 
 
 Leveraging the above request, we can keep any random author for this organisation and also change the *timezone settings*, which can lead to disruption in automatic postings on accounts.
@@ -163,7 +163,7 @@ Accept-Language: en-US,en;q=0.9
 {"accountUid":"facebook_574363","authorName":"Waris","browserTimezoneEnabled":true,"locale":"en","timezone":"Asia/Calcutta"}
 ```
 
-We also discovered that it was possible to change the Authors Profile Picture by simply adding a new key (authorPictureUrl) in JSON request. So, if we send the above request with the authorization token of the guest and add a new key and value in JSON body which is authorPictureURl and then click on the send button, we can see the response is 200 ok, which means that a guest can change the author name, time zone, and profile picture without having any permissions.
+We also discovered that it was possible to change the author's Profile Picture by simply adding a new key (authorPictureUrl) in JSON request. So, if we send the above request with the authorization token of the guest and add a new key and value in JSON body which is authorPictureURl and then click on the send button, we can see the response is 200 ok, which means that a guest can change the author name, time zone, and profile picture without having any permissions.
 
 
 ```http
@@ -181,7 +181,7 @@ Accept-Language: en-US,en;q=0.9
 {"accountUid":"facebook_574363","authorName":"Waris","authorPictureUrl":"PICTURE-URL","browserTimezoneEnabled":true,"locale":"en","timezone":"Asia/Calcutta"}
 ```
 
-By returning to the Reports Sections of an target page through an admin account, we were able to confirm that an attacker with the guest role was indeed able to change the Custom Branding and other details like an Report Author of an target page.
+By returning to the Reports Sections of a target page through an admin account, we were able to confirm that an attacker with the guest role was indeed able to change the Custom Branding and other details like a Report Author of a target page.
 
 
 ![image](https://user-images.githubusercontent.com/88488902/197373702-64aabc9a-b347-416a-92c5-bbe96ec605db.png)
@@ -189,9 +189,9 @@ By returning to the Reports Sections of an target page through an admin account,
 
 ## 6 - Changing rules of inbox assistant from an unauthorized role
 
-This issue was again identified in the *guest role*, which was the lowest level role available in the organization. This role was *granted some basic read permissions* on limited features.
+This issue was again identified in the *guest role*, which was the lowest-level role available in the organization. This role was *granted some basic read permissions* on limited features.
 
-A feature implemented by agora for the automation of inbox messages was *inbox assistant*. Authorized users are able to create custom rules *by which the replies* to the *received messages* will be given. This feature was totally *unaccessible to the guest role* . 
+A feature implemented by agora for the automation of inbox messages was *inbox assistant*. Authorized users are able to create custom rules *by which the replies* to the *received messages* will be given. This feature was totally *unaccessible to the guest role*. 
 
 If the administrator goes to 'organisational settings,' then to 'social profile,' and then to 'inbox assistant,' he can write the rules there or align the rules one after the other.
 
@@ -223,7 +223,7 @@ We received _200 OK_ after sending this request with the credentials of the *gue
 ![image](https://user-images.githubusercontent.com/88488902/197374039-d83f19aa-71e8-4771-b8e1-5b1c93826c4d.png)
 
 
-We also found that when we sent the following http PUT request, the agorapulse application changed the chronological order of the assistant rules while leaking all of the inbox rules in the response. As a result, the guest role was able to leak information about the rules in the inbox assistant and even change their chronology.
+We also found that when we sent the following HTTP PUT request, the agorapulse application changed the chronological order of the assistant rules while leaking all of the inbox rules in the response. As a result, the guest role was able to leak information about the rules in the inbox assistant and even change their chronology.
 
 
 ## About us
