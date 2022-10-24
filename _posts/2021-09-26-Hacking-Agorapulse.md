@@ -15,7 +15,7 @@ Agorapulse provides everything an organization could possibly need for social me
 
 ## Approaching the target
 
-The application's functionalities were extensive, and it allowed users to integrate other third-party accounts (complexity). At this stage, we appeared harmless and stealthily explored the app, understanding the *logic of the application* and making ourselves capable of using it. All of this was accomplished with the assistance of their *youtube channels, blogs, support channels, general search queries*, and so on. We investigated the *structure of API paths* and *HTTP requests* for various actions inside the application. We took note of the *IDs being used* so that we don't miss out on any **IDOR chances**. The following is a list of a few vulnerabilities we found on agora pulse.
+The first step, as always, is to learn about the target app by interacting with its various features and functionalities. In this case the application's functionalities were extensive, and it allowed users to integrate other third-party accounts (complexity). At this stage, we appeared harmless and stealthily explored the app, understanding the *logic of the application* and making ourselves capable of using it. All of this was accomplished with the assistance of their *youtube channels, blogs, support channels, general search queries*, and so on. We investigated the *structure of API paths* and *HTTP requests* for various actions inside the application. We took note of the *IDs being used* so that we don't miss out on any **IDOR chances**. The following is a list of a few vulnerabilities we found on agora pulse.
 
 
 
