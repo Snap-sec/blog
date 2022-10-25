@@ -28,6 +28,7 @@ Cybercriminals seek several vulnerabilities to reach the destination in a system
 - **Insider threat** – When an active/former employee disrupts internal security by sharing or accessing sensitive information. 
 - **Ransomware** – A specific malware type that encrypts your data, making it inaccessible until the ransom is paid. 
 - **Consistent threat** – When a virus enters the system, it remains undetected until it extracts data for money or any other benefit.
+
 ## **What do the statistics reveal?** 
 A 1000 US-based business owners were involved in a survey back in April, which showed 9 percent of business owners accepted that their businesses were attacked by cybercriminals. On conducting deep research, it revealed that 50% of the small business faced at least one common cyber-attack. 
 
@@ -39,7 +40,7 @@ Additionally, it was surprising for [National Commission to know that 68%](https
 
 <https://www.helpnetsecurity.com/2017/10/27/smb-concern-cyber-threats/> 
 
-According to a report shared [by FireEye and Marsh & McLennan Companies](https://www.cnbc.com/2017/10/13/local-businesses-a-target-for-next-cyberattacks.html) that typically, businesses take around 146 days to identify a cyberattack to their systems. The damage could be imagined in that huge period of time.  
+According to a report shared [by FireEye and Marsh & McLennan Companies](https://www.cnbc.com/2017/10/13/local-businesses-a-target-for-next-cyberattacks.html).Typically businesses take around 146 days to identify a cyberattack to their systems. The damage could be imagined in that huge period of time.  
 
 ## **5 reasons why hackers are attracted to small businesses?** 
 1.  **They possess extensive data:** 
@@ -52,8 +53,9 @@ Since enterprise businesses set up an entire team of security professionals to h
 Small businesses remain occupied with expanding and managing their businesses. Sadly, they don’t often educate, train or supervise their employees regarding cyber security. 
 However, this negligence makes the companies more vulnerable to cyber-attacks and ultimately have to pay a huge cost. Although, [95% of the cyber-attacks](v) occur because of human error. 
 1. **Insignificant security for employees working from home:** 
-According to research conducted in the financial year 2020, there was a 600% surge in cyberattacks associated with COVID-19. Moreover, 40% of the companies that provided work-from-home facilities to their workers reported an escalation in cyber hits. 
-## **Ways to protect your business from tech hackers?** 
+According to research conducted in the financial year 2020, there was a 600% surge in cyberattacks associated with COVID-19. Moreover, 40% of the companies that provided work-from-home facilities to their workers reported an escalation in cyber hits.
+
+## **Ways to protect your business from tech hackers?**
 No matter how much you think your company or business is insignificant to the cyber attackers, you never get to know what kind of data they want to suck up from your website or to what business they will reach through your domain. Plus, it is also unimaginable what they are going to do with this data and the amount they would be making out of it. 
 
 But don’t worry, that’s not the end of the story. There are some essential ways that you can opt to prevent your website from hackers, and on the same side, you will have peace of mind. These steps include (but are not limited to):
@@ -63,6 +65,7 @@ But don’t worry, that’s not the end of the story. There are some essential w
 - Educating employees of the firm to apply specific protocols while opening files, sending attachments, or providing the sensitive information to anyone.
 - Creating a backup for the sensitive data so the lost information can be recovered in the event of cyberattacks. 
 - Make sure all the systems and software attached to your business are  and regularly updated and completely protected with compatible firewall and antivirus programs.  
-- Insuring your business with cyber liability insurance for your business security solutions. 
+- Insuring your business with cyber liability insurance for your business security solutions.
+
 ## **Endnote:** 
 Small businesses that are turning their heads to security and managing their operation on a shoestring budget may don’t need to have all the above securities in place. While proactive measures may feel daunting but the basics is the place to start. With consistency and planning, any business can safely reach a robust foundation, which aids in growing the business safely. 
