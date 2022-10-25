@@ -40,7 +40,7 @@ Additionally, it was surprising for [National Commission to know that 68%](https
 
 <https://www.helpnetsecurity.com/2017/10/27/smb-concern-cyber-threats/> 
 
-According to a report shared [by FireEye and Marsh & McLennan Companies](https://www.cnbc.com/2017/10/13/local-businesses-a-target-for-next-cyberattacks.html).Typically businesses take around 146 days to identify a cyberattack to their systems. The damage could be imagined in that huge period of time.  
+According to a report shared [by FireEye and Marsh & McLennan Companies](https://www.cnbc.com/2017/10/13/local-businesses-a-target-for-next-cyberattacks.html). Businesses take around 146 days to identify a cyberattack to their systems. The damage could be imagined in that huge period of time.  
 
 ## **5 reasons why hackers are attracted to small businesses?** 
 1.  **They possess extensive data:** 
