@@ -42,16 +42,16 @@ Additionally, it was surprising for [National Commission to know that 68%](https
 According to a report shared [by FireEye and Marsh & McLennan Companies](https://www.cnbc.com/2017/10/13/local-businesses-a-target-for-next-cyberattacks.html) that typically, businesses take around 146 days to identify a cyberattack to their systems. The damage could be imagined in that huge period of time.  
 
 ## **5 reasons why hackers are attracted to small businesses?** 
-1.  **They possess extensive data** 
+1.  **They possess extensive data:** 
 As said, cybercriminals know no boundaries. If they can catch large fish from the pool, phishing small ones is not a difficult task for them. Tech offenders know that small businesses have loads of data that would be easy to offload from their website and make a good profit selling them on the Dark Web. This data may include property, business information, medical records, emails, contacts, and other useful information.
-1.  **Way to reach larger companies** 
+1.  **Way to reach larger companies:** 
 In today’s world, businesses are digitally associated with each other. They need one another to manage the supply chain, perform transactions, and share information. While a large number of huge businesses invest in preventing their systems from hacking, penetrating through small businesses to get into the systems of large businesses is less challenging than attacking them directly. 
-1.  **Easy to breach security** 
+1.  **Easy to breach security:** 
 Since enterprise businesses set up an entire team of security professionals to handle the security tasks. Small businesses usually do not have resources to create a full fledged security department. So, the person involved in managing the security often wears many caps while performing business operations. Thus affecting security tightness.
-1. **Inadequate training for cyber security**
+1. **Inadequate training for cyber security:**
 Small businesses remain occupied with expanding and managing their businesses. Sadly, they don’t often educate, train or supervise their employees regarding cyber security. 
 However, this negligence makes the companies more vulnerable to cyber-attacks and ultimately have to pay a huge cost. Although, [95% of the cyber-attacks](v) occur because of human error. 
-1. **Insignificant security for employees working from home** 
+1. **Insignificant security for employees working from home:** 
 According to research conducted in the financial year 2020, there was a 600% surge in cyberattacks associated with COVID-19. Moreover, 40% of the companies that provided work-from-home facilities to their workers reported an escalation in cyber hits. 
 ## **Ways to protect your business from tech hackers?** 
 No matter how much you think your company or business is insignificant to the cyber attackers, you never get to know what kind of data they want to suck up from your website or to what business they will reach through your domain. Plus, it is also unimaginable what they are going to do with this data and the amount they would be making out of it. 
