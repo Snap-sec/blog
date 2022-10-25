@@ -42,11 +42,11 @@ Additionally, it was surprising for [National Commission to know that 68%](https
 According to a report shared [by FireEye and Marsh & McLennan Companies](https://www.cnbc.com/2017/10/13/local-businesses-a-target-for-next-cyberattacks.html) that typically, businesses take around 146 days to identify a cyberattack to their systems. The damage could be imagined in that huge period of time.  
 
 ## **5 reasons why hackers are attracted to hacking small businesses?** 
-1. ### **They possess extensive data** 
+1.  **They possess extensive data** 
 As said, cybercriminals know no boundaries. If they can catch large fish from the pool, phishing on small ones is not a difficult task for them. Tech offenders know that small businesses have loads of data that would be easy to offload from their website and make a good profit selling them to the Dark Web. This data may include property or business information, medical records, emails, contacts, and other useful information.
-1. ### **Way to reach larger companies** 
+1.  **Way to reach larger companies** 
 ` `In today’s world, businesses are digitally associated with each other. They need one another to manage the supply chain, perform transactions, and share information. While a large number of huge businesses invest in preventing their systems from hacking, penetrating through small business to get into systems of large businesses is less tough than attacking them directly. 
-1. ### **Easy to breach security** 
+1.  **Easy to breach security** 
 Since enterprise businesses set up an entire team of security professionals to handle the security tasks. But many times the person involves in managing the security wears many caps while performing the business operations. 
 1. ### **Inadequate training for cyber security**
 Small businesses remain occupied in expanding and managing the businesses. Sadly, they don’t often educate, train or supervise their employees regarding cyber security. 
