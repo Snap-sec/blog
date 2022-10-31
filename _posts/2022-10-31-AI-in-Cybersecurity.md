@@ -3,7 +3,7 @@ layout: post
 title:  "AI in Cybersecurity"
 author: snapsec
 categories: [ cyberattacks,AI ]
-image: assets/images/BD/0.png
+image: assets/images/20/0.png
 ---
 
 
