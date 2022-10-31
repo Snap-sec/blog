@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Enhancing Network Security with AI"
-author: snapsec
+title:  "AI in cyberattack lifecycle"
+author: mubashir
 categories: [ cyberattacks,AI ]
 image: assets/images/20/0.png
 ---
