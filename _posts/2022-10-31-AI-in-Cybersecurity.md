@@ -1,3 +1,12 @@
+---
+layout: post
+title:  "AI in Cybersecurity"
+author: snapsec
+categories: [ cyberattacks,AI ]
+image: assets/images/BD/0.png
+---
+
+
 Not only has the number of cyberattacks increased significantly over the last few decades, but they have also become more sophisticated. As a result, developing a cyber-resilient strategy is critical. Traditional security methods are insufficient to prevent data breaches in the event of a cyberattack.
 Cybercriminals have learned how to hack, attack, and breach data using new techniques and powerful tools. Fortunately, AI technologies have been introduced into cyberspace to build smart models for defending systems from attacks.
 
@@ -10,6 +19,7 @@ Artificial intelligence is a technology that enables machines and computer appli
 AI systems learn from patterns and features in the data that they study by combining massive amounts of data with sophisticated, iterative processing algorithms. Each time an AI system runs a round of data processing, it tests and measures its own performance and develops additional expertise.
 
 Because AI never requires a break, it can run through hundreds, thousands, or even millions of jobs extraordinarily fast, learning a significant lot in a short period of time and becoming extremely proficient at whatever it's being trained to do.
+
 
 
 
@@ -34,6 +44,9 @@ Furthermore, because AI does not rely on static resources to detect, alert, and 
 
 ## Where does AI fits in Cyber Security.
 
+AI and machine learning (ML) have become critical technologies in information security because they can rapidly analyze millions of events and identify a wide range of threats, from malware exploiting zero-day vulnerabilities to identifying risky behavior that could lead to a phishing attack or malicious code download. Artificial intelligence can be tweaked in any aspect of cyber security. Here are a few examples:
+
+
 - Phishing and spam detection
 
   Spam detection is difficult. The distinction between spam and non-spam messages is hazy, and the criteria change over time. Machine learning has proven to be the most effective and preferred approach by email providers among various efforts to automate spam detection. While as In the case of spam detection using AI, a trained machine learning model will be able to determine whether the sequence of words found in an email are closer to those found in spam emails or safe ones. and Hence can take active decision on spam filtration of emails.
@@ -54,7 +67,6 @@ DDoS attacks have been a major threat to the Internet and can cause significant 
 obtaining a complete, accurate inventory of all devices, users, and applications exposed to the internet, and then performing risk calculations based on historical cybersecurity datasets to determine which areas of networks are more vulnerable or involved in specific types of attacks
 
 
-AI and machine learning (ML) have become critical technologies in information security because they can rapidly analyze millions of events and identify a wide range of threats, from malware exploiting zero-day vulnerabilities to identifying risky behavior that could lead to a phishing attack or malicious code download. Artificial intelligence can be tweaked in any aspect of cyber security. Here are a few examples:
 
 
 
