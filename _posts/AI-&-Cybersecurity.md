@@ -19,6 +19,11 @@ Because AI never requires a break, it can run through hundreds, thousands, or ev
 
 Traditional cybersecurity methods rely on the static control of security devices and work in response to an attack. For instance, the majority of intrusion detection systems currently in use completely rely on a predefined set of Rules or patterns to monitor, detect, and provide alerts for intrusions. However, there is a significant disadvantage to that strategy. For instance, one disadvantage is that attackers can get around static rules or patterns by using different attack obfuscations techniques.
 
+Many of these IDS and IPS, Firewalls, and WAFS use regex-based rules or patterns to detect, prevent, block, and alert security incidents. In fact, Using Regex based Security measures plays a critical role in the development and maintenance of security posture across multiple layers of a corporation's infrastructure. For example, Network Security Engineers use regex to fine-tune how firewalls behave, Developers use regex to do input validation, System administrators can use regex rules to detect potentially dangerous content in files and to quarantine these files accordingly.
+
+Because regex is so widely used as a security measure, incorrectly deployed regex patterns can have a wide-ranging impact on a effected orginisation. However, because we are completely relying on a simple regex to delete and alert the intrusion and not using any active technology to actively analyze the behavior of the attack and then take active decisions to block and prevent it.
+
+It again subjugates it to many bypasses, and Attacker can simply get around static rules or patterns by using different attack obfuscations techniques.
 
 
 ## AI in Cybersecurity 
