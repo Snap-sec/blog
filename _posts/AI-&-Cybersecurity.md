@@ -23,14 +23,39 @@ Many of these IDS and IPS, Firewalls, and WAFS use regex-based rules or patterns
 
 Because regex is so widely used as a security measure, incorrectly deployed regex patterns can have a wide-ranging impact on a effected orginisation. However, because we are completely relying on a simple regex to delete and alert the intrusion and not using any active technology to actively analyze the behavior of the attack and then take active decisions to block and prevent it.
 
-It again subjugates it to many bypasses, and Attacker can simply get around static rules or patterns by using different attack obfuscations techniques.
+It again subjugates it to many bypasses, and Attacker can simply get around static rules or patterns by using different attack obfuscations techniques as for the fact that these pre-defined regex's cannot detect any new changes in attack.
 
 
 ## AI in Cybersecurity 
 
 AI, as an example, adopts intelligence and can perform real-time analysis and decision making while processing enormous amounts of data to solve problems. AI can analyze large amount of data efficiently, accurately, and in short time. Using threats history, an AI-based system can know about the past threats and use this knowledge to predict similar attacks in the future, even if their patterns change.
 
+Furthermore, because AI does not rely on static resources to detect, alert, and block the intrusion, but rather it has a dynamic analysing and decision making capabilities, it can discover new and significant changes in the attack, thus protecting the organization even if the attacker has sophisticated and obfesticated the attack.
+
+## Where does AI fits in Cyber Security.
+
+- Phishing and spam detection
+
+  Spam detection is difficult. The distinction between spam and non-spam messages is hazy, and the criteria change over time. Machine learning has proven to be the most effective and preferred approach by email providers among various efforts to automate spam detection. While as In the case of spam detection using AI, a trained machine learning model will be able to determine whether the sequence of words found in an email are closer to those found in spam emails or safe ones. and Hence can take active decision on spam filtration of emails.
+  
+  
+- Threat detection
+
+AI methods can detect threats and prevent attacks before they occur. This is typically accomplished by developing a model for analyzing large datasets of cybersecurity events and identifying patterns of malicious behavior. The model is typically composed of previously collected data and recorded Indicators of Compromise (IOC), which are used to monitor, identify, and respond to threats in real time.
+As a result, if similar activities are detected, the models automatically recognize them.
+
+- DOS and DDOS Attacks
 
 
-## AI-BASED APPROCHES IN CYBERSECURITY
+DDoS attacks have been a major threat to the Internet and can cause significant financial loss to businesses and governments. With the advancement of emerging technologies such as cloud computing, the Internet of Things, and artificial intelligence techniques, attackers can launch a large volume of DDoS attacks at a lower cost, making DDoS attacks much more difficult to detect and prevent. DDoS traffic is similar to regular traffic and hence makes it really diffcult for traditional security approaches to detect and block it. But with the help of AI intelligence techniques and Algorithms, such as Naive Bayes and Random forest tree, We can classify DDoS attack traffic from the normal traffic hence block the attack.
+
+- Attack Surface Detection and Network risk scoring
+
+obtaining a complete, accurate inventory of all devices, users, and applications exposed to the internet, and then performing risk calculations based on historical cybersecurity datasets to determine which areas of networks are more vulnerable or involved in specific types of attacks
+
+
+AI and machine learning (ML) have become critical technologies in information security because they can rapidly analyze millions of events and identify a wide range of threats, from malware exploiting zero-day vulnerabilities to identifying risky behavior that could lead to a phishing attack or malicious code download. Artificial intelligence can be tweaked in any aspect of cyber security. Here are a few examples:
+
+
+
 
