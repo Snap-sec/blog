@@ -3,7 +3,7 @@ layout: post
 title:  "AI in cyberattack lifecycle"
 author: mubashir
 categories: [ cyberattacks,AI ]
-image: assets/images/20/0.png
+image: assets/images/21/0.png
 ---
 
 Network defenders and the cybersecurity industry must move their focus from the network's edges and endpoints to the network's interior. Inside the network, IT and security data collection is frequently abundant but underutilised. Rich data can be utilised to build "network normal" behaviour and serve as a foundation for the use of artificial intelligence to surface adversary conduct when anyone acquires illicit access.
