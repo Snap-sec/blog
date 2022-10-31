@@ -54,17 +54,17 @@ AI and machine learning (ML) have become critical technologies in information se
   
 - Threat detection
 
-AI methods can detect threats and prevent attacks before they occur. This is typically accomplished by developing a model for analyzing large datasets of cybersecurity events and identifying patterns of malicious behavior. The model is typically composed of previously collected data and recorded Indicators of Compromise (IOC), which are used to monitor, identify, and respond to threats in real time.
+  AI methods can detect threats and prevent attacks before they occur. This is typically accomplished by developing a model for analyzing large datasets of cybersecurity events and identifying patterns of malicious behavior. The model is typically composed of previously collected data and recorded Indicators of Compromise (IOC), which are used to monitor, identify, and respond to threats in real time.
 As a result, if similar activities are detected, the models automatically recognize them.
 
 - DOS and DDOS Attacks
 
 
-DDoS attacks have been a major threat to the Internet and can cause significant financial loss to businesses and governments. With the advancement of emerging technologies such as cloud computing, the Internet of Things, and artificial intelligence techniques, attackers can launch a large volume of DDoS attacks at a lower cost, making DDoS attacks much more difficult to detect and prevent. DDoS traffic is similar to regular traffic and hence makes it really diffcult for traditional security approaches to detect and block it. But with the help of AI intelligence techniques and Algorithms, such as Naive Bayes and Random forest tree, We can classify DDoS attack traffic from the normal traffic hence block the attack.
+  DDoS attacks have been a major threat to the Internet and can cause significant financial loss to businesses and governments. With the advancement of emerging technologies such as cloud computing, the Internet of Things, and artificial intelligence techniques, attackers can launch a large volume of DDoS attacks at a lower cost, making DDoS attacks much more difficult to detect and prevent. DDoS traffic is similar to regular traffic and hence makes it really diffcult for traditional security approaches to detect and block it. But with the help of AI intelligence techniques and Algorithms, such as Naive Bayes and Random forest tree, We can classify DDoS attack traffic from the normal traffic hence block the attack.
 
 - Attack Surface Detection and Network risk scoring
 
-obtaining a complete, accurate inventory of all devices, users, and applications exposed to the internet, and then performing risk calculations based on historical cybersecurity datasets to determine which areas of networks are more vulnerable or involved in specific types of attacks
+  obtaining a complete, accurate inventory of all devices, users, and applications exposed to the internet, and then performing risk calculations based on historical cybersecurity datasets to determine which areas of networks are more vulnerable or involved in specific types of attacks
 
 
 
