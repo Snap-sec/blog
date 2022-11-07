@@ -41,7 +41,7 @@ Furthermore, because AI does not rely on static resources to detect, alert, and 
 
 ## Where does AI fits in Cyber Security.
 
-AI and machine learning (ML) have become critical technologies in information security because they can rapidly analyze millions of events and identify a wide range of threats, from malware exploiting zero-day vulnerabilities to identifying risky behavior that could lead to a phishing attack or malicious code download. Artificial intelligence can be tweaked in any aspect of cyber security. Here are a few examples:
+AI and machine learning (ML) have become critical technologies in information security because they can rapidly analyze millions of events and identify a wide range of threats, from malware analysis, detecting zero-day vulnerabilities to identifying risky behavior that could lead to a phishing attack or malicious code download. Artificial intelligence can be tweaked in any aspect of cyber security. Here are a few examples:
 
 
 - Phishing and spam detection
