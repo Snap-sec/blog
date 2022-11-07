@@ -31,10 +31,7 @@ Traditional cybersecurity methods rely on the static control of security devices
 
 Many of these IDS and IPS, Firewalls, and WAFS use regex-based rules or patterns to detect, prevent, block, and alert security incidents. In fact, Using Regex based Security measures plays a critical role in the development and maintenance of security posture across multiple layers of a corporation's infrastructure. For example, Network Security Engineers use regex to fine-tune how firewalls behave, Developers use regex to do input validation, System administrators can use regex rules to detect potentially dangerous content in files and to quarantine these files accordingly.
 
-Because regex is so widely used as a security measure, incorrectly deployed regex patterns can have a wide-ranging impact on a effected orginisation. However, because we are completely relying on a simple regex to delete and alert the intrusion and not using any active technology to actively analyze the behavior of the attack and then take active decisions to block and prevent it.
-
-It again subjugates it to many bypasses, and Attacker can simply get around static rules or patterns by using different attack obfuscations techniques as for the fact that these pre-defined regex's cannot detect any new changes in attack.
-
+Simply because we are relying entirely on a simple static regex to detect and alert the intrusions/attacks rather than using any dynamic technology to actively analyse the attack's behaviour and then take active decisions to block and prevent it. It is again subjected to numerous bypasses, and the attacker can simply get around static regular Expressions or patterns by employing various attack obfuscation techniques.
 
 ## AI in Cybersecurity 
 
