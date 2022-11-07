@@ -10,7 +10,7 @@ image: assets/images/20/0.png
 Not only has the number of cyberattacks increased significantly over the last few decades, but they have also become more sophisticated. As a result, developing a cyber-resilient strategy is critical. Traditional security methods are insufficient to prevent data breaches in the event of a cyberattack.
 Cybercriminals have learned how to hack, attack, and breach data using new techniques and powerful tools. Fortunately, AI technologies have been introduced into cyberspace to build smart models for defending systems from attacks.
 
-AI technologies can be used as fundamental tools in the field of cybersecurity because they can rapidly evolve to address complex situations. AI-based techniques have the potential to provide efficient and powerful cyber defense tools for detecting malware attacks, network intrusions, phishing and spam emails, and data breaches, 
+AI technologies can be used as fundamental tools in the field of cybersecurity because they can rapidly evolve to address complex situations. AI-based techniques have the potential to provide efficient and powerful cyber defense tools for detecting malware attacks, network intrusions, phishing and spam emails, and data breaches.
 
 ## What is AI and How does it work
 
