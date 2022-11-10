@@ -24,15 +24,15 @@ Cybercriminals seek several vulnerabilities to reach the destination in a system
 
 - **Malware** – They are malicious software such as Trojan horses, spyware, keyloggers, and viruses.
 - **Phishing Attacks** – Misleading emails and messages in order to gain sensitive information like social security numbers, passwords, and credit card numbers. 
-- **Social Engineering** – manipulate individuals into divulging confidential or personal information that may be used for fraudulent purposes.
+- **Social Engineering** – Manipulate individuals into divulging confidential or personal information that may be used for fraudulent purposes.
 - **Insider threat** – When an active/former employee disrupts internal security by sharing or accessing sensitive information. 
 - **Ransomware** – A specific malware type that encrypts your data, making it inaccessible until the ransom is paid. 
 - **Consistent threat** – When a virus enters the system, it remains undetected until it extracts data for money or any other benefit.
 
 ## **What do the statistics reveal?** 
-A 1000 US-based business owners were involved in a survey back in April, which showed 9 percent of business owners accepted that their businesses were attacked by cybercriminals. On conducting deep research, it revealed that 50% of the small business faced at least one common cyber-attack. 
+A thousand US-based business owners participated in a survey back in April, which showed that 9 percent of business owners accepted that their businesses were attacked by cybercriminals. After conducting deep research, it was revealed that 50% of the small businesses faced at least one common cyberattack.
 
-Additionally, it was surprising for [National Commission to know that 68%](https://www.nationwide.com/business/solutions-center/cybersecurity/train-employees#:~:text=Methodology-,Nationwide%20commissioned%20Edelman%20Intelligence%20to%20conduct%20a%2020%2Dminute%2C%20online,partial%20owner%20of%20their%20business.) of the businesses didn’t have a substantial resource for combating cyberattacks. 
+Additionally, it was surprising for [National Commission to know that 68%](https://www.nationwide.com/business/solutions-center/cybersecurity/train-employees#:~:text=Methodology-,Nationwide%20commissioned%20Edelman%20Intelligence%20to%20conduct%20a%2020%2Dminute%2C%20online,partial%20owner%20of%20their%20business.) of the businesses didn’t have a substantial resources for combating cyberattacks. 
 
 
 ![Aspose Words 97e70a29-f94a-4f65-9c83-e89500b2aa6c 003](https://user-images.githubusercontent.com/88488902/197681781-545d2d65-2b29-425d-af9f-395a6e27fbd6.jpeg)
@@ -40,7 +40,7 @@ Additionally, it was surprising for [National Commission to know that 68%](https
 
 <https://www.helpnetsecurity.com/2017/10/27/smb-concern-cyber-threats/> 
 
-According to a report shared [by FireEye and Marsh & McLennan Companies](https://www.cnbc.com/2017/10/13/local-businesses-a-target-for-next-cyberattacks.html). Businesses take around 146 days to identify a cyberattack to their systems. The damage could be imagined in that huge period of time.  
+According to a report shared [by FireEye and Marsh & McLennan Companies](https://www.cnbc.com/2017/10/13/local-businesses-a-target-for-next-cyberattacks.html). Businesses take around 146 days to identify a cyberattack on their systems. The damage could be imagined in that huge period of time.  
 
 ## **5 reasons why hackers are attracted to small businesses?** 
 1.  **They possess extensive data:** 
@@ -56,12 +56,12 @@ However, this negligence makes the companies more vulnerable to cyber-attacks an
 According to research conducted in the financial year 2020, there was a 600% surge in cyberattacks associated with COVID-19. Moreover, 40% of the companies that provided work-from-home facilities to their workers reported an escalation in cyber hits.
 
 ## **Ways to protect your business from tech hackers?**
-No matter how much you think your company or business is insignificant to the cyber attackers, you never get to know what kind of data they want to suck up from your website or to what business they will reach through your domain. Plus, it is also unimaginable what they are going to do with this data and the amount they would be making out of it. 
+No matter how much you think your company or business is insignificant to the cyber attackers, you never know what kind of data they want to suck up from your website or to what business they will reach through your domain. Plus, it is also unimaginable what they are going to do with this data and the amount they would be making out of it. 
 
 But don’t worry, that’s not the end of the story. There are some essential ways that you can opt to prevent your website from hackers, and on the same side, you will have peace of mind. These steps include (but are not limited to):
 
 - Performing routine vulnerability scans and penetration tests to ensure your systems are secure and patched on time. 
-- Performing a background check before employing the employees to ensure they don’t have a history of cyber crimes.
+- Performing background checks before employing the employees to ensure they don’t have a history of cyber crimes.
 - Educating employees of the firm to apply specific protocols while opening files, sending attachments, or providing the sensitive information to anyone.
 - Creating a backup for the sensitive data so the lost information can be recovered in the event of cyberattacks. 
 - Make sure all the systems and software attached to your business are  and regularly updated and completely protected with compatible firewall and antivirus programs.  
