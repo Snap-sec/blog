@@ -7,7 +7,7 @@ image: assets/images/22/0.png
 ---
 
 
-One of the largest online password manager with Over 25 million users as of 2020. LastPass suffered a massive data breach recently. The data included users information and vault data. Earlier in August LastPass had notified customers that some unauthorised actor had accessed their development server via compromised developer account, However, LastPass claimed that no customer data was accessed and only source code and some technical information was stolen. But recent developments in investigation show other wise.
+One of the largest online password manager with Over 25 million users as of 2020. LastPass suffered a massive data breach recently. The data included user information and vault data. Earlier in August, LastPass informed customers that an unauthorised actor had gained access to their development server through a compromised developer account; however, LastPass claimed that no customer data was accessed and that only source code and some technical information was stolen. But recent developments in the investigation show otherwise.
 
 # Previous incidents at Lastpass.
 
@@ -28,20 +28,18 @@ Few days later Ormandy discovered an additional security flaw allowing remote co
 
 ### Timeline of events.
 
-On 25 August company notified customers of an unusual activity in its development server. Company said that they have already deployed contingency measures and additional security measures. Initial investigation revealed that unauthorized actor/actors were able to gain access to development environment via compromised developer account. Attackers were able to steal source code and some technical information.  Company claimed that no user data was compromised and vaults were secured with encryption.
+**On August 25,** the company notified customers of unusual activity in its development server. Company said that they have already deployed contingency measures and additional security measures. Initial investigation revealed that unauthorized actor/actors were able to gain access to the development environment via a compromised developer account. Attackers were able to steal source code and some technical information. Company claimed that no user data was compromised and that vaults were secured with encryption.
 
 This poses a question: **”Is access to company source code high security threat?”**
-The answer is Yes. Source code and other technical information that was stolen from lastpass gave attackers an idea of architecture that is running behind the software. This information may reveal where certain data is stored and other resources that company uses. Since attackers have the source code, they will look hard into it to find any potential weakness in system that can be later used in further attacks.
+The answer is Yes. Source code and other technical information that was stolen from LastPass gave attackers an idea of the architecture that is running behind the software. This information may reveal where certain data is stored and other resources that company uses. Because attackers have access to the source code, they will thoroughly examine it to identify any potential flaws in the system that can be exploited in future attacks. 
 
-**On 15 Sept,** company said they have concluded the investigation in partnership with 'Mandiant'. And revealed that attackers had access to development environment for four days. During these days attackers were able to steal source code and other company information but there was no evidence that attackers tampered with company software code or any user data was compromised.
+**On Sept 15,** the company announced that it had completed the investigation in collaboration with Mandiant. and revealed that attackers had access to the development environment for four days. During these days, attackers were able to steal source code and other company information, but there was no evidence that attackers tampered with company software code or that any user data was compromised.
 
 “Our investigation revealed that the threat actor’s activity was limited to a four-day period in August 2022,” LastPass said in an update on the breach. “During this timeframe, the LastPass security team detected the threat actor’s activity and then contained the incident. There is no evidence of any threat actor activity beyond the established timeline.”
 
-**On 30 November,** company again notified customers of a security incident that involved possible data breach. LastPass disclosed it is investigating a recent incident where someone using information obtained during the August intrusion managed to access source code and unspecified customer data stored within an unnamed third-party cloud storage service. LastPass did not disclose what kind of customer data the attacker might have accessed but maintained that its products and services remained fully functional. The new breach at LastPass suggests that attackers may have accessed more data from the company in August than previously thought.
+**On November 30,** company again notified customers of a security incident that involved a possible data breach. LastPass disclosed it is investigating a recent incident where someone using information obtained during the August intrusion managed to access source code and unspecified customer data stored within an unnamed third-party cloud storage service. LastPass did not disclose what kind of customer data the attacker might have accessed but maintained that its products and services remained fully functional. The new breach at LastPass suggests that attackers may have accessed more data from the company in August than previously thought.
 
-**On 22 December,** LastPass issued an update on the previous security incident, acknowledging that a recent cyberattack has resulted in the theft of customer data.
-Company said that attackers used the previously compromised data to target another employee, obtaining credentials and keys which were used gain access to and decypt the storage volumes within the cloud-based storage service. The 3rd party cloud storage was used to store archived backups of company's production data.
-Attackers were able to copy the archived backups of basic data of customers as well as customer vault data
+**On December 22,** LastPass issued an update on the previous security incident, acknowledging that a recent cyberattack had resulted in the theft of customer data. The company said that attackers used the previously compromised data to target another employee, obtaining credentials and keys that were used to gain access to and decrypt the storage volumes within the third-party cloud-based storage service. This third-party cloud storage was used to store archived backups of company’s production data. Attackers were able to copy the archived backups of basic customer data as well as customer vault data.
 
 ## What data was stolen?
 
@@ -69,25 +67,23 @@ Company also said in a statement that encrypted fields are secured with 256-bit 
 
 ## Are you at risk?
 
-In short, The answer is **Yes**.
-Currently there is no patch or mitigation to stolen data.
-Since the data has already been stolen and is in hands of hackers. Changing your master password after the breach will not help at all, especially if you are/were using a weak password before the breach.
-The only thing that is stopping hackers from accessing your data is your master password. Attackers can take their time and try to bruteforce the MasterPassword and gain access to data if the MasterPassword is weak.
-The time it takes for attacker to successfully bruteforce your password depends on the users password Strength. For example, with current technology, a 10-digit password with only numbers can be cracked almost instantly whereas a 13-digit password with numbers, upper and lowercase letters, and symbols will take 2 million years to crack.
+In short, the answer is **Yes**.
 
-Here is visual representation:
+Currently, there is no patch or mitigation for stolen data. Since the data has already been stolen and is in the hands of hackers. Changing your master password after the breach will not help at all, especially if you are or were using a weak password before the breach. The only thing that is stopping hackers from accessing your data is your master password. Attackers can take their time and try to brute-force the MasterPassword  to gain access to data if the MasterPassword is weak. The time it takes an attacker to successfully bruteforce your password is determined by its strength.For example, with current technology, a 10-digit password with only numbers can be cracked almost instantly, whereas a 13-digit password with numbers, upper and lowercase letters, and symbols will take 2 million years to crack.
+
+Here is how mcuh time it takes to brute-force password based on strength:
 
 ![1](https://user-images.githubusercontent.com/88488902/209912324-cdba7b11-79b6-4f8a-8f7f-a6d54f8cbc35.jpeg)
 
 
 ## What can you do now?
 
-If you were using a strong MasterPassword it is unlikely that you data will be accessed as it will take lots of resources and time to crack. However, if your MasterPassword is weak then the best option is to:
+If you were using a strong MasterPassword it is unlikely that your data will be accessed as it will take lots of resources and time to crack. However, if your MasterPassword is weak, then the best option is to:
 
 - Change all the passwords that were stored on LastPass
 - Change MasterPassword for future safety.
 - Use unique password and not to repeat the previous passwords.
-- Since the attackers have access to website URLs they might try to target victims with attacks like phishing scams.
+- Since the attackers have access to website URLs they might try to target victims with phising attacks. So, make sure not give out any personal information.
 
 
 
