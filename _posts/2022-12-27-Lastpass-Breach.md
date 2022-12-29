@@ -74,9 +74,11 @@ Currently there is no patch or mitigation to stolen data.
 Since the data has already been stolen and is in hands of hackers. Changing your master password after the breach will not help at all, especially if you are/were using a weak password before the breach.
 The only thing that is stopping hackers from accessing your data is your master password. Attackers can take their time and try to bruteforce the MasterPassword and gain access to data if the MasterPassword is weak.
 The time it takes for attacker to successfully bruteforce your password depends on the users password Strength. For example, with current technology, a 10-digit password with only numbers can be cracked almost instantly whereas a 13-digit password with numbers, upper and lowercase letters, and symbols will take 2 million years to crack.
+
 Here is visual representation:
 
-![paasstrenth.jpeg](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6a0d4d47-43c0-4e39-8452-bc9a19be03d1/paasstrenth.jpeg)
+![1](https://user-images.githubusercontent.com/88488902/209912324-cdba7b11-79b6-4f8a-8f7f-a6d54f8cbc35.jpeg)
+
 
 ## What can you do now?
 
