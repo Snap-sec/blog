@@ -90,7 +90,7 @@ If you were using a strong MasterPassword it is unlikely that your data will be 
 
 ## About us
 
-Snapsec is a team of security experts specialized in providing pentesting and other security services to secure your online assets. We have a specialized testing methodology which ensures indepth testing of your business logic and other latest vulnerabilities. 
+At Snapsec, we offer a range of cybersecurity services to help businesses protect their digital assets and improve their security posture. Our team of experts can conduct vulnerability assessments, penetration testing, and security training to identify and fix vulnerabilities and provide recommendations for improvement. Our goal is to help our clients enhance their defenses against cyber threats and operate with confidence in the digital world.
 
  If you are looking for a team which values your security and ensures that you are fully secure against online security threats, feel free to get in touch with us #[support@snapsec.co](mailto:support@snapsec.co)
  
