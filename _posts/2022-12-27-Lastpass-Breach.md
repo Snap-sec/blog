@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Lastpass Breach - Everything you need to know"
-author: snapsec
+author: adnan
 categories: [ uber ]
 image: assets/images/22/0.png
 ---
