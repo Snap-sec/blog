@@ -3,7 +3,7 @@ layout: post
 title:  "The Future of Tech in Saudi Arabia: Maximizing Opportunities, Minimizing Risks"
 author: imran
 categories: [ cybersecurity,saudi-arabia ]
-image: assets/images/23/0.png
+image: assets/images/26.png
 ---
 
 
