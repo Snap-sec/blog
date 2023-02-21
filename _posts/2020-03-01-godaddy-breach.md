@@ -37,6 +37,21 @@ Had the company taken action sooner, the potential harm to customers might have 
 
 Therefore, the ongoing breach highlights the need for companies to adopt proactive measures to identify and address security risks as soon as possible to avoid prolonged exposure to threats.
 
+## How can data breaches of this kind be prevented?
+
+![image](https://user-images.githubusercontent.com/88488902/220256027-b27405c5-a780-4ec4-b0c6-c4ace950d507.png)
+
+
+> Every data breach starts with a single vulnerability
+
+Every data breach is like a domino effect, it starts with a single vulnerability and progresses from there. As such, identifying and addressing vulnerabilities is a critical aspect of any effective cybersecurity program.
+
+One effective approach to preventing data breaches of this kind is to conduct regular security assessments of the organization's IT systems and networks. These assessments can help identify vulnerabilities and gaps in security controls that may be exploited by threat actors to gain unauthorized access to sensitive data or systems. The assessments can also help prioritize the vulnerabilities and develop a plan to remediate them based on the level of risk they pose.
+
+It is crucial to note that data breaches typically begin with a single vulnerability that is exploited by attackers to gain a foothold in the target environment. Performing continuous security assessments can help detect and address vulnerabilities at an early stage, minimizing the chances of them being exploited by threat actors.
+
+Regular security assessments should be part of a comprehensive cybersecurity program that includes implementing appropriate security controls, training employees on security best practices, and establishing an incident response plan to mitigate the impact of a breach if it occurs. By taking these steps, organizations can reduce the risk of a data breach and protect their sensitive data from being compromised.
+
 
 
 ## Conclusion
