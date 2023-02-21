@@ -53,7 +53,7 @@ In the past, if your company had a data breach, it wasn't very bad for your repu
 
 
 
-## The Cleints 
+## The Clients 
 
 ![1](/blog/assets/images/4/5.png)
 
