@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "CSRF Attacks - How to Find, Exploit and fix them"
-author: imran
+author: snapsec
 categories: [ cybersecurity,csrf,web-attacks ]
-image: assets/images/26.png
+image: assets/images/csrf-101.png
 ---
 
 
