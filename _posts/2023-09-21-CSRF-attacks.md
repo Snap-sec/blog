@@ -75,7 +75,7 @@ new_password=qwerty &csrf_tok=871caef0757a4ac9691aceb9aad8b65b
 
 Try this:
 
-```http
+```
 POST /change_password
 POST body:
 new_password=qwerty
@@ -83,7 +83,7 @@ new_password=qwerty
 
 Or, this:
 
-```http
+```
 POST /change_password
 POST body:
 new_password=qwerty &csrf_tok=
@@ -95,7 +95,7 @@ new_password=qwerty &csrf_tok=
 The application might only be checking if the token is _valid_ or not, and not checking if it _belongs to the current user_. If that’s the case, you can simply hard code your own CSRF token into the payload. Let’s say the victim’s token is _871caef0757a4ac9691aceb9aad8b65b_, and yours is YOUR_TOKEN. You can obtain your own CSRF token easily but not the victim’s token. Try to bypass the CSRF protection by providing your own token in the place of the legitimate token.
 In other words, instead of sending this:
 
-```http
+```
 POST /change_password
 POST body:
 new_password=qwerty &csrf_tok=871caef0757a4ac9691aceb9aad8b65b
@@ -103,6 +103,7 @@ new_password=qwerty &csrf_tok=871caef0757a4ac9691aceb9aad8b65b
 
 
 Send this:
+
 ```
 POST /change_password
 POST body:
@@ -114,9 +115,11 @@ new_password=qwerty &csrf_tok=YOUR_TOKEN
 Let’s say that _attacker.com_ is a domain that you own. And _bank.com_ is the site that you are attacking. The site is not using CSRF tokens but is checking the referer header instead. What can you do now?
 
 - Sending a blank tokens is one of the first things that you should do, sometimes all you need to do to bypass a referer check is to simply not send a referer. To do this, you can add the following meta tag to the page hosting your payload:
+
 ```
 <meta name=”referrer” content=”no-referrer”>
 ```
+
 The application might only be validating the referer if one is sent, in that case, you’ve successfully bypassed its CSRF protection!
 
 
