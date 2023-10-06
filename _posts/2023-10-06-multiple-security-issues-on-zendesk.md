@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Multiple privilege escalations on zendesk"
+title:  "Hacking Zendesk - Cache Deception, Privilege Escalation and more"
 author: snapsec
 categories: [ article,broken-access-control ]
 image: assets/images/zendesk/zendesk.png
