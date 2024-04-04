@@ -1,0 +1,48 @@
+# What are CVE’s and why you need to monitor them
+
+Proposed By : Imran
+: 16
+Progress: In progress
+Stage: 📝 Written
+
+## Introduction:
+
+The significance of cybersecurity in the ever-expanding digital world, where data travels effortlessly across networks, cannot be emphasized. A vital component of keeping up a strong defense against cyberattacks is being aware of and vigilant about Common Vulnerabilities and Exposures (CVEs). This blog article will discuss the importance of CVEs and the reasons that people and businesses should be on the lookout for them.
+
+## **Defining CVEs:**
+
+The acronym CVE stands for Common Vulnerabilities and Exposures, which are standardized designations given to known cybersecurity flaws in the public domain. These weaknesses could be in the hardware, software, or system setup. CVEs are a component of the Common Vulnerability Scoring System (CVSS), which provide an objective assessment of a vulnerability's seriousness.
+
+## Why Keep an Eye on CVEs?
+
+1. **Early Warning System:** 
+    
+    Concerning possible cybersecurity dangers, CVEs act as an early warning system. A vulnerability is given a distinct CVE ID upon discovery, and this data is made available to the public. Organizations and individuals can remain up to date on the most recent vulnerabilities that cybercriminals may exploit by keeping an eye on CVEs.
+    
+2. **Proactive Defense:** 
+    
+    Organizations can take preventative action to guard against possible risks by being aware of CVEs. Depending on the exact vulnerability, this proactive defense may entail installing security patches, making configuration adjustments, or deploying extra security measures to reduce the related risk.
+    
+3. **Vendor Communication:**
+    
+     CVEs let vendors, security researchers, and end users communicate with one another. The impacted vendor is usually notified when a vulnerability is found, and they proceed to develop and release patches or updates to fix the problem. Organizations can be guaranteed to act promptly by keeping an eye on CVEs, which alerts them to these developments.
+    
+4. **Risk Management:**
+    
+    Understanding CVEs is a crucial component of effective risk management. By monitoring and assessing the vulnerabilities relevant to their systems, organizations can prioritize and allocate resources to address the most critical issues. This risk-based approach helps in making informed decisions about cybersecurity investments and strategies.
+    
+5. **Compliance Requirements:**
+    
+    Many industries and regulatory bodies require organizations to stay current with security patches and updates. Monitoring CVEs is essential for meeting compliance requirements and ensuring that systems remain secure and in compliance with industry standards.
+    
+
+## **How to Monitor CVEs:**
+
+1. **Subscribe to Vulnerability Databases:** Make use of reliable vulnerability databases, including the Common Vulnerabilities and Exposures system or the National Vulnerability Database (NVD). To get timely information, join their email lists or feeds.
+2. **Security Information and Event Management (SIEM) Systems:** Install SIEM systems that have the ability to automate the CVE monitoring process. SIEM systems can give businesses real-time notifications and facilitate quick responses to new risks.
+3. **Collaborate with Security Communities:** Participate in forums, groups, and information-sharing sites related to cybersecurity. Working together with professionals and peers can yield insightful information about new dangers and practical mitigation techniques.
+4. **Regularly Update and Patch Systems:** In order to guarantee that operating systems, applications, and software are updated on a regular basis, implement a strong patch management procedure. One essential element of mitigating CVEs is the timely application of patches.
+
+## Conclusion:
+
+Keeping up-to-date on cybersecurity vulnerabilities is essential in today's dynamic landscape. CVEs serve as milestones on the ever-changing cybersecurity threat landscape. Organizations may navigate this landscape more effectively by regularly monitoring them, hardening their defenses and lowering the chance of being targeted by bad actors. A proactive approach to CVE monitoring is critical for ensuring a robust and secure digital environment.
