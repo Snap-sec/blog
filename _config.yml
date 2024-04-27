@@ -2,8 +2,8 @@
 name: "Snapsec | blog"
 title: "Snapsec | Blog"
 description: "Snapsec - A cybersecurity Company."
-logo: 'assets/images/logo.png'
-favicon: 'assets/images/logo.png'
+logo: 'assets/images/logo.svg'
+favicon: 'assets/images/logo.svg'
 baseurl: /blog
 google_analytics: 'UA-208550451-1'
 disqus: 'snapsec-co'
