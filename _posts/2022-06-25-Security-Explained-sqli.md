@@ -9,12 +9,11 @@ image: assets/images/SecuritySimplified/sqli-3/0.png
 
 
 ## What is SQL Injection
-SQL injection is a web security vulnerability that allows an attacker to interfere with the queries that an application makes to its database. It generally allows an attacker to view data that they are not normally able to retrieve. This might include data belonging to other users, or any other data that the application itself is able to access. In many cases, an attacker can modify or delete this data, causing persistent changes to the application's content or behavior. 
-_portswigger_
+SQL injection is a web security vulnerability that allows an attacker to interfere with the queries that an application makes to its database. It generally allows an attacker to view data that they are not normally able to retrieve. This might include data belonging to other users, or any other data that the application itself is able to access. In many cases, an attacker can modify or delete this data, causing persistent changes to the application's content or behavior. ~_portswigger_
 
 ## Vulnerable Code Snippet (Server Side)
 
-- Before Directly Jumping into the Vulnerable code snipped, Imagine the following database structure with the following content:
+- Before Directly Jumping into the Vulnerable code snippet, Imagine the following database structure:
 	- e-commerce [Database]
 		- products [Table]
 		- customers [Table]
@@ -53,17 +52,18 @@ echo '<br><a href="">Order Now</a></center><br><br><br>';
 ```
 
 	
-- isset() is basically a function, Which checks whether a variable is set/no-empty or is not NULL.. Also check whether the variable is set/declared, If the varible is not empty it return True otherwise false.
+- isset() is basically a function, Which checks whether a variable is empty or not. Also check whether the variable is set/declared, If the variable is not empty it returns True otherwise false.
 
-- `$_GET` is a PHP super global array which is used to access GET based Parameters from anywhere in the PHP script, As example if you visiting a URL `https://snapsec.co?book.php?id=1` , The GET based `id` parameter in the URL can be accessed by the book.php by using the following code `$_GET['id']`.
+- `$_GET` is a PHP super global variable which is used to access GET based Parameters from anywhere in the PHP script, As example if you visit a URL `https://snapsec.co?book.php?id=1` , The GET based `id` parameter in the URL can be accessed by the book.php by using the following code `$_GET['id']`.
 
-- Then the code is creating an connection with a Mysql Server Running on `localhost` with the username `root` and selects `e-commerce` as a database.
+- Then the code is creating a connection with a Mysql Server Running on `localhost` with the username `root` and selects `e-commerce` as a database.
 
 - In the next line the SQL query is dynamically generated which includes the id set by the user in the get based parameter id. 
 
-- Lastly, The query is executed an the data is finally saved in `data` varibale.
+- Lastly, The query is executed as the data is finally saved in `data` variable.
 
 - After that the while loop is run and all the products of the catogory of `?id=` is sent to the user using the `echo ""` in the php
+
 
 
 
@@ -77,7 +77,8 @@ __Conclusion:__
 
 ### In Browser
 
-- On browsing the `sqli.php?id=1` , the following query is executed, hence Returns all the products of category 1
+
+- On browsing the sqli.php?id=1 , the following query is executed, hence returns all the products of category 1
 ```sql
 SELECT * FROM products where category='1';
 ```
@@ -100,16 +101,16 @@ SELECT * FROM products where category='2';
 
 ## Exploitation
 
-We know that the mysql queries are dynamically generated in the code, therefore a user controllable input (`?id=`) is used to generate the query and due to the lack of proper validation on `?id=` parameter, it is possible for the queries or sql statements to be injected by the attacker.
+We know that the mysql queries are dynamically generated in the code. Therefore a user controlled input (`?id=`) is used to generate the query and due to the lack of proper validation on `?id=` parameter, it is possible for the queries or sql statements to be injected by an attacker.
 
-Now on visiting the following URL, In place of simple `id` we are adding `' UNION SELECT id,email,password,null FROM customers-- -` as an value in the id parameter, Since there is not filteration or validation in place the final sql query should look like:
+Now on visiting the following URL, in place of simple `id` we are adding `' UNION SELECT id,email,password,null FROM customers-- -` as a value in the id parameter. Since there is not filteration or validation in place the final sql query should look like:
 
 
 ```sql
 SELECT * FROM products where category='2' UNION SELECT id,email,password,null FROM customers-- -;
 ```
 
-Since the `UNION` operator is used to combine the result-set of two or more SELECT statements. Our final Array`($data)` in the code is filled with the rows returned from the 1st and 2nd select query which is `SELECT * FROM products where category='2'` and `SELECT id,email,password,null FROM customers` hence echo's back the customers emails and passwords on the screen. hence would allow attacker to retrive data from other tables like `customers` table by injecting an new `SELECT` statement into the query.
+Since the `UNION` operator is used to combine the result-set of two or more SELECT statements. Our final Array`($data)` in the code is filled with the rows returned from the 1st and 2nd select query which is `SELECT * FROM products where category='2'` and `SELECT id,email,password,null FROM customers` hence it echos back the customers emails and passwords on the screen. This would allow attacker to retrive data from other tables like `customers` table by injecting an new `SELECT` statement into the query.
 
 
 ![3](/blog/assets/images/SecuritySimplified/sqli-3/3.png)
@@ -121,14 +122,14 @@ Since the `UNION` operator is used to combine the result-set of two or more SELE
 
 ## Where is the problem
 
-the following part of code is responsible to generate SQL queries
+The following part of code is responsible to generate SQL queries
 
 ```php
 $cid=$_GET['id'];
 $connection=mysqli_connect("localhost","root","","e-commerce");
 $q="SELECT * FROM products where category='$cid'";
 ```
-the GET parameter id `$_GET['id']` is directly taken from the user and without any validation added the query varible `$q`, Hence Allows attacker to escape the previous query by adding `'` to the id (`?id=2'`) and then append any MYSQL Query to the `$q` variable, Hence allows him to execute arbitar SQL commands on the vulnerable SERVER.
+The GET parameter id `$_GET['id']` is directly taken from the user and without any validation added the query varible `$q`. Hence allows an attacker to escape the previous query by adding `'` to the id (`?id=2'`) and then append any MYSQL Query to the `$q` variable. Thus, allowing him to execute arbitary SQL commands on the vulnerable SERVER.
 
 
 
@@ -154,13 +155,13 @@ echo '<br><a href="">Order Now</a></center><br><br><br>';
 ?>
 ```
 
-The following code snippet introduces a new function *mysqli_real_escape_string* that wraps the user input *id* before it is passed to be a part of the dynamically generated SQL query. Ensures that special characters in a string are escaped for use in SQL statements. 
+In the following code snippet we have introduced a new function `mysqli_real_escape_string` that wraps the user input `id` before it is passed as a part of the dynamically generated sql query. This escapes special characters in a string for use in a SQL statement. 
 
 
 
 ## Confirming the FIX
 
-If you want to verify our fix is effective, you can check that when you add the malicious SQLi payload to the id parameter in the script, no injection attacks take place as a result of the special characters being escaped in MySQL queries. So, the final sql query should look like this.
+To verify the fix, you can check that when you add the malicious SQLi payload to the id parameter in the script, no injection attacks take place as a result of the special characters being escaped in MySQL queries. So, the final sql query should look like this.
 
 
 ```mysql
@@ -175,7 +176,7 @@ In the query the `\` escaping slash added before `'` in the user input prevents 
 
 
 
-- Just to make sure none other MYSQLi exploitation techniques are working i ran a quick sqlmap scan on the script and it seems we are perfectly fine.
+- Just to make sure none other MYSQLi exploitation techniques are working I ran a quick sqlmap scan on the script and it seems we are perfectly fine.
 
 
 ![5](/blog/assets/images/SecuritySimplified/sqli-3/5.png)
