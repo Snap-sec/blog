@@ -67,10 +67,8 @@ To check if your OpenSSH server is vulnerable, you can use the following methods
 If your server is running one of the vulnerable versions, it is crucial to update OpenSSH to a patched version as soon as possible to mitigate the regreSSHion vulnerability. Regularly updating your software and maintaining security patches is essential to protect against such vulnerabilities.
 
 
+## Automated Vulnerability Detection with SnapSec
 
-## Automatic Detection with Snapsec Suite
-
-**Automated Vulnerability Detection with SnapSec**
 
 At SnapSec, we prioritize proactive security measures through automated vulnerability detection. Our dedicated team continuously monitors the latest exploits released in the cybersecurity landscape. When a new vulnerability like regreSSHion in OpenSSH is identified, our experts swiftly create comprehensive detection rules tailored to the exploit's characteristics.
 
