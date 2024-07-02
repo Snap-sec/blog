@@ -3,7 +3,8 @@ layout: post
 title:  "regreSSHion: Unauthenticated Remote Code Execution Vulnerability in OpenSSH Server"
 author: snapsec
 categories: [ cyberattacks,ssh,0day ]
-image: assets/images/BD/0.png
+image: ![banner](https://github.com/Snap-sec/blog/assets/88488902/65633829-4714-4641-89af-0029cc8fae06)
+
 ---
 
 
@@ -42,6 +43,10 @@ These versions are vulnerable to a race condition in the signal handler, enablin
 To check if your OpenSSH server is vulnerable, you can use the following methods:
 
 1. **Check OpenSSH Version Using Command Line:**
+
+![image](https://github.com/Snap-sec/blog/assets/88488902/b3acde7a-9df4-4e07-82d2-c13baf420e95)
+
+
    Open a terminal and type:
    ```
    ssh -V
@@ -49,6 +54,10 @@ To check if your OpenSSH server is vulnerable, you can use the following methods
    This command will display the version of OpenSSH installed on your system. Compare the version with the vulnerable versions mentioned earlier ('SSH-2.0-OpenSSH_8.5p1' to 'SSH-2.0-OpenSSH_9.7p1').
 
 2. **Check OpenSSH Version Using Netcat (nc):**
+
+![image](https://github.com/Snap-sec/blog/assets/88488902/c75b6c1f-72ed-44ba-a5c6-64a3edc6a958)
+
+
    Use netcat to connect to the SSH port (typically port 22) of your server and observe the server's response headers:
    ```
    nc <hostname or IP> 22
@@ -56,3 +65,15 @@ To check if your OpenSSH server is vulnerable, you can use the following methods
    After connecting, the SSH server typically responds with its version information. Look for a response that includes the OpenSSH version number. Again, compare this version with the list of vulnerable versions provided earlier.
 
 If your server is running one of the vulnerable versions, it is crucial to update OpenSSH to a patched version as soon as possible to mitigate the regreSSHion vulnerability. Regularly updating your software and maintaining security patches is essential to protect against such vulnerabilities.
+
+
+
+## Automatic Detection with Snapsec Suite
+
+**Automated Vulnerability Detection with SnapSec**
+
+At SnapSec, we prioritize proactive security measures through automated vulnerability detection. Our dedicated team continuously monitors the latest exploits released in the cybersecurity landscape. When a new vulnerability like regreSSHion in OpenSSH is identified, our experts swiftly create comprehensive detection rules tailored to the exploit's characteristics.
+
+Using our SnapSec suite, these rules are integrated into our scanning and monitoring systems without delay. This automated process ensures that all customer infrastructures are promptly scanned for vulnerabilities associated with newly discovered exploits. Results from these scans are then relayed directly to our intuitive dashboard, providing our clients with real-time visibility into their security posture.
+
+By leveraging automation, SnapSec empowers organizations to stay ahead of emerging threats, such as regreSSHion, by promptly identifying and mitigating vulnerabilities before they can be exploited. This proactive approach not only enhances security but also ensures peace of mind for our customers, knowing that their systems are continuously monitored and protected against the latest cybersecurity risks.
