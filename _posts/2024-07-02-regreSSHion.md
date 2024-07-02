@@ -3,7 +3,7 @@ layout: post
 title:  "regreSSHion: Unauthenticated Remote Code Execution Vulnerability in OpenSSH Server"
 author: snapsec
 categories: [ cyberattacks,ssh,0day ]
-image: ![banner](https://github.com/Snap-sec/blog/assets/88488902/65633829-4714-4641-89af-0029cc8fae06)
+image: assets/images/27/0.png
 
 ---
 
