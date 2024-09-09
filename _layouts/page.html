@@ -1,8 +1,15 @@
 ---
 layout: default
 ---
+<script>
 
-
+  (function() {
+  var newURL = "https://blog.snapsec.co";
+  if (window.location.href !== newURL) {
+    window.location.href = newURL;
+  }
+})();
+</script>
 <section>
     <div class="section-title">
         <h2><span>{{ page.title }}</span></h2>
