@@ -3,19 +3,15 @@ layout: default
 title: Archive
 ---
 
-<!-- Begin List Posts
-================================================== -->
-<section class="recent-posts">
-<div class="section-title">
-    <h2>Archive of posts with <span>{{ page.type }} '{{ page.title }}'</span></h2>
+<div class="hero-section text-center py-4">
+    <span class="hero-badge">ARTICLE ARCHIVE</span>
+    <h1 class="hero-title mt-2">{{ page.type | capitalize }}: {{ page.title }}</h1>
 </div>
-<div class="row listrecent">
 
-{% for post in page.posts %}
-
-    {% include postbox.html %}
-
-{% endfor %}
-
-</div>
+<section class="recent-posts mb-5">
+    <div class="row listrecent">
+    {% for post in page.posts %}
+        {% include postbox.html %}
+    {% endfor %}
+    </div>
 </section>

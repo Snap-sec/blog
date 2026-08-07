@@ -5,172 +5,186 @@ archive: false
 post_class: post-template
 ---
 
+<!-- Typeform Lead Generation Form -->
+<div data-tf-live="01K4CHPA6V5F18MJHH9568VAS4"></div>
+<script src="//embed.typeform.com/next/embed.js"></script>
 
-
-<!-- Typeform Lead Generation Form {literal} -->
-<div data-tf-live="01K4CHPA6V5F18MJHH9568VAS4"></div><script src="//embed.typeform.com/next/embed.js"></script>
-<!-- /Brevo Conversations {/literal} -->
-
-
-
-
-<!-- Begin Article
-================================================== -->
-<div class="container">
+<!-- Begin Article -->
+<div class="container article-container py-4">
     <div class="row">
 
-
-        
-        
-        
-        
-        <!-- Post Share -->
-        <div class="col-md-2 pl-0">
+        <!-- Post Share Sticky -->
+        <div class="col-lg-1 col-md-2 mb-4">
             {% include share.html %}
         </div>
 
-        <!-- Post -->
+        <!-- Main Article Column -->
         {% assign author = site.authors[page.author] %}
+        <div class="col-lg-11 col-md-10">
 
-        <div class="col-md-9 flex-first flex-md-unordered">
-            <div class="mainheading">
+            <!-- Back to Articles Link -->
+            <div class="mb-4">
+                <a href="{{ site.baseurl }}/" class="back-link d-inline-flex align-items-center">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                    Back to Articles
+                </a>
+            </div>
 
-                <!-- Author Box -->
-                {% if page.author %}
-                <div class="row post-top-meta">
-                    <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0">
-                        {% if author.avatar %}
-                        <img class="author-thumb" src="{{site.baseurl}}/{{ author.avatar }}" alt="{{ author.display_name }}">
-                        {% else %}
-                        <img class="author-thumb" src="https://www.gravatar.com/avatar/{{ author.gravatar }}?s=250&d=mm&r=x" alt="{{ author.display_name }}">
-                        {% endif %}
-                    </div>
-                    <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left">
-                        <a target="_blank" class="link-dark" href="{{ author.web }}">{{ author.display_name }}</a><a target="_blank" href="{{ author.twitter }}" class="btn follow">Follow</a>
-                        <span class="author-description">{{ author.description }}</span>
-                    </div>
+            <!-- Article Header Meta -->
+            <div class="article-header mb-4">
+                {% if page.categories.first %}
+                <div class="mb-3">
+                    <span class="badge-category">{{ page.categories.first }}</span>
                 </div>
                 {% endif %}
 
                 <!-- Post Title -->
-                <h1 class="posttitle">{{ page.title }}</h1>
+                <h1 class="post-hero-title font-weight-bold mb-3">{{ page.title }}</h1>
 
+                <!-- Post Sub-Meta (Date & Author) -->
+                <div class="d-flex flex-wrap align-items-center article-meta-bar py-3 my-3 border-top border-bottom">
+                    {% if page.author %}
+                    <div class="d-flex align-items-center mr-4 mb-2 mb-sm-0">
+                        {% if author.avatar %}
+                        <img class="author-avatar mr-2" src="{{site.baseurl}}/{{ author.avatar }}" alt="{{ author.display_name }}">
+                        {% else %}
+                        <img class="author-avatar mr-2" src="https://www.gravatar.com/avatar/{{ author.gravatar }}?s=250&d=mm&r=x" alt="{{ author.display_name }}">
+                        {% endif %}
+                        <div>
+                            <span class="font-weight-600 text-dark d-block leading-tight">{{ author.display_name }}</span>
+                            {% if author.twitter %}
+                            <a target="_blank" href="{{ author.twitter }}" class="text-blue small font-weight-500">@{{ author.twitter | split: '/' | last }}</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <div class="d-flex align-items-center text-muted small ml-sm-auto">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mr-1"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                        <span>Published <time datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date: "%b %-d, %Y" }}</time></span>
+                        {% if page.last_modified_at %}
+                        <span class="ml-2">(Updated {{ page.last_modified_at | date: "%b %-d, %Y" }})</span>
+                        {% endif %}
+                    </div>
+                </div>
             </div>
 
-            <!-- Adsense if enabled from _config.yml (change your pub id and slot) -->
+            <!-- Adsense if enabled from _config.yml -->
             {% if site.adsense == "enabled" %}
                 {% include adsense-under-header.html %}
             {% endif %}
-            <!-- End Adsense -->
 
             <!-- Post Featured Image -->
             {% if page.image %}
-
-            {% if site.lazyimages == "enabled" %}
-            <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="{% if page.image contains "://" %}{{ page.image }}{% else %}{{ site.baseurl }}/{{ page.image }}{% endif %}" alt="{{ page.title }}">
-            {% else %}
-            <img class="featured-image img-fluid" src="{% if page.image contains "://" %}{{ page.image }}{% else %}{{ site.baseurl }}/{{ page.image }}{% endif %}" alt="{{ page.title }}">
+            <div class="featured-image-wrap mb-4">
+                {% if site.lazyimages == "enabled" %}
+                <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="{% if page.image contains "://" %}{{ page.image }}{% else %}{{ site.baseurl }}/{{ page.image }}{% endif %}" alt="{{ page.title }}">
+                {% else %}
+                <img class="featured-image img-fluid" src="{% if page.image contains "://" %}{{ page.image }}{% else %}{{ site.baseurl }}/{{ page.image }}{% endif %}" alt="{{ page.title }}">
+                {% endif %}
+            </div>
             {% endif %}
 
-            {% endif %}
-            <!-- End Featured Image -->
-
-            <!-- Post Content -->
+            <!-- Post Body Content -->
             <div class="article-post">
-                <!-- Toc if any -->
                 {% if page.toc %}
                     {% if page.beforetoc %}
-                        <p><em>{{page.beforetoc}}</em></p>
+                        <p class="lead text-muted mb-4"><em>{{page.beforetoc}}</em></p>
                     {% endif %}
-                    <div class="toc mt-4 mb-4 lead">
-                        <h3 class="font-weight-bold">Summary</h3>
+                    <div class="toc-box p-4 my-4">
+                        <h4 class="toc-title font-weight-bold mb-3">Table of Contents</h4>
                         {% include toc.html html=content %}
                     </div>
                 {% endif %}
-                <!-- End Toc -->
-                {{content}}
+
+                {{ content }}
             </div>
 
             <!-- Rating -->
             {% if page.rating %}
-            <div class="rating mb-4 d-flex align-items-center">
-                <strong class="mr-1">Rating:</strong> {% include star_rating.html %}
+            <div class="rating my-4 p-3 bg-light rounded d-flex align-items-center">
+                <strong class="mr-2">Rating:</strong> {% include star_rating.html %}
             </div>
             {% endif %}
 
-            <!-- Post Date -->
-            <p>
-            <small>
-                <span class="post-date"><time class="post-date" datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date_to_string }}</time></span>           
-                {% if page.last_modified_at %}
-                (Updated: <time datetime="{{ page.last_modified_at | date_to_xmlschema }}" itemprop="dateModified">{{ page.last_modified_at | date: "%b %-d, %Y" }}</time>)
-                {% endif %}
-                </small>
-            </p>
-
-            <!-- Post Categories -->
-            <div class="after-post-cats">
-                <ul class="tags mb-4">
+            <!-- Post Tags & Categories Bar -->
+            <div class="post-tags-bar my-4 pt-3 border-top d-flex flex-wrap align-items-center">
+                {% if page.categories.size > 0 %}
+                <div class="mr-4 mb-2">
+                    <span class="font-weight-600 text-dark mr-2 small text-uppercase tracking-wider">Categories:</span>
                     {% assign sortedCategories = page.categories | sort %}
                     {% for category in sortedCategories %}
-                    <li>
-                        <a class="smoothscroll" href="{{site.baseurl}}/categories#{{ category | replace: " ","-" }}">{{ category }}</a>
-                    </li>
+                    <a class="badge-tag" href="{{site.baseurl}}/categories#{{ category | replace: " ","-" }}">{{ category }}</a>
                     {% endfor %}
-                </ul>
-            </div>
-            <!-- End Categories -->
+                </div>
+                {% endif %}
 
-            <!-- Post Tags -->
-            <div class="after-post-tags">
-                <ul class="tags">
+                {% if page.tags.size > 0 %}
+                <div class="mb-2">
+                    <span class="font-weight-600 text-dark mr-2 small text-uppercase tracking-wider">Tags:</span>
                     {% assign sortedTags = page.tags | sort %}
                     {% for tag in sortedTags %}
-                    <li>
-                        <a class="smoothscroll" href="{{site.baseurl}}/tags#{{ tag | replace: " ","-" }}">#{{ tag }}</a>
-                    </li>
+                    <a class="badge-tag" href="{{site.baseurl}}/tags#{{ tag | replace: " ","-" }}">#{{ tag }}</a>
                     {% endfor %}
-                </ul>
+                </div>
+                {% endif %}
             </div>
-            <!-- End Tags -->
 
-            <!-- Prev/Next -->
-            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
-            {% if page.previous.url %}
-            <a class="prev d-block col-md-6" href="{{ site.baseurl }}/{{page.previous.url}}"> &laquo; {{page.previous.title}}</a>
-            {% endif %}
-            {% if page.next.url %}
-            <a class="next d-block col-md-6 text-lg-right" href="{{ site.baseurl }}/{{page.next.url}}">{{page.next.title}} &raquo; </a>
-            {% endif %}
-            <div class="clearfix"></div>
+            <!-- Author Bio Card End -->
+            {% if page.author %}
+            <div class="author-bio-card p-4 my-5 rounded d-flex flex-column flex-sm-row align-items-center">
+                {% if author.avatar %}
+                <img class="author-avatar-lg mb-3 mb-sm-0 mr-sm-4" src="{{site.baseurl}}/{{ author.avatar }}" alt="{{ author.display_name }}">
+                {% else %}
+                <img class="author-avatar-lg mb-3 mb-sm-0 mr-sm-4" src="https://www.gravatar.com/avatar/{{ author.gravatar }}?s=250&d=mm&r=x" alt="{{ author.display_name }}">
+                {% endif %}
+                <div>
+                    <div class="d-flex align-items-center mb-1">
+                        <h4 class="font-weight-bold mb-0 mr-3">{{ author.display_name }}</h4>
+                        {% if author.twitter %}
+                        <a target="_blank" href="{{ author.twitter }}" class="btn btn-sm btn-outline-primary rounded-pill px-3">Follow</a>
+                        {% endif %}
+                    </div>
+                    <p class="text-muted mb-0 small">{{ author.description }}</p>
+                </div>
             </div>
-            <!-- End Categories -->
+            {% endif %}
+
+            <!-- Next & Previous Articles Navigation -->
+            <div class="post-navigation-row row my-4">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    {% if page.previous.url %}
+                    <a class="nav-card p-3 d-block h-100 rounded text-decoration-none" href="{{ site.baseurl }}{{page.previous.url}}">
+                        <span class="text-uppercase text-muted small font-weight-600 d-block mb-1">← Previous Article</span>
+                        <span class="nav-card-title font-weight-bold text-dark d-block">{{page.previous.title}}</span>
+                    </a>
+                    {% endif %}
+                </div>
+                <div class="col-md-6 text-md-right">
+                    {% if page.next.url %}
+                    <a class="nav-card p-3 d-block h-100 rounded text-decoration-none" href="{{ site.baseurl }}{{page.next.url}}">
+                        <span class="text-uppercase text-muted small font-weight-600 d-block mb-1">Next Article →</span>
+                        <span class="nav-card-title font-weight-bold text-dark d-block">{{page.next.title}}</span>
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
 
         </div>
-        <!-- End Post -->
-
     </div>
 </div>
-<!-- End Article
-================================================== -->
 
-<!-- Begin Comments
-================================================== -->
+<!-- Begin Comments -->
 {% if page.comments != false %}
-    <div class="container">
-        <div id="comments" class="row justify-content-center mb-5">
-            <div class="col-md-8">
-                {% include disqus.html %}
-            </div>
+<div class="container">
+    <div id="comments" class="row justify-content-center mb-5">
+        <div class="col-lg-11 col-md-10 offset-lg-1 offset-md-2">
+            {% include disqus.html %}
         </div>
     </div>
+</div>
 {% endif %}
-<!--End Comments
-================================================== -->
 
-<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
-https://search.google.com/structured-data/testing-tool/u/0/
-================================================== -->
 {% if page.rating %}
 <script type="application/ld+json">
 {

@@ -5,11 +5,18 @@ title: Home
 
 {% if page.url == "/" %}
 
-<!-- Featured
-================================================== -->
-<section class="featured-posts">
-    <div class="section-title">
-        <h2><span>Featured</span></h2>
+<!-- Enterprise Hero Section -->
+<div class="hero-section text-center py-5">
+    <span class="hero-badge">CYBERSECURITY & APPSEC INSIGHTS</span>
+    <h1 class="hero-title mt-3">Snapsec Security Blog</h1>
+    <p class="hero-subtitle mx-auto mt-2">Technical deep-dives, vulnerability research, and continuous security insights from the Snapsec team.</p>
+</div>
+
+<!-- Featured Posts -->
+<section class="featured-posts mb-5">
+    <div class="section-header d-flex align-items-center justify-content-between mb-4">
+        <h2 class="section-heading mb-0">Featured Articles</h2>
+        <div class="heading-line flex-grow-1 ml-3"></div>
     </div>
     <div class="row">
 
@@ -28,14 +35,12 @@ title: Home
 
 {% endif %}
 
-<!-- Posts Index
-================================================== -->
-<section class="recent-posts">
+<!-- Posts Index -->
+<section class="recent-posts mb-5">
 
-    <div class="section-title">
-
-        <h2><span>All Stories</span></h2>
-
+    <div class="section-header d-flex align-items-center justify-content-between mb-4">
+        <h2 class="section-heading mb-0">All Articles</h2>
+        <div class="heading-line flex-grow-1 ml-3"></div>
     </div>
 
     <div class="row listrecent">
@@ -50,10 +55,8 @@ title: Home
 
 </section>
 
-<!-- Pagination
-================================================== -->
-<div class="bottompagination">
-<div class="pointerup"><i class="fa fa-caret-up"></i></div>
+<!-- Pagination -->
+<div class="bottompagination mt-4">
 <span class="navigation" role="navigation">
     {% include pagination.html %}
 </span>

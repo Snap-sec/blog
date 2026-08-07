@@ -4,11 +4,21 @@ layout: default
 permalink: "/tags.html"
 ---
 
+<div class="hero-section text-center py-4">
+    <span class="hero-badge">EXPLORE BY TAG</span>
+    <h1 class="hero-title mt-2">Articles Tagged</h1>
+</div>
+
 <div class="row listrecent">
 {% for tag in site.tags %}
-<div class="section-title col-md-12 mt-4">
-<h2 id="{{ tag[0] | replace: " ","-" }}">Tag <span class="text-capitalize">{{ tag[0] }}</span></h2>
+<div class="col-md-12 my-4">
+    <div class="d-flex align-items-center mb-3">
+        <h2 id="{{ tag[0] | replace: " ","-" }}" class="section-heading mb-0 text-capitalize">#{{ tag[0] }}</h2>
+        <span class="badge-category ml-3">{{ tag[1].size }} Articles</span>
+        <div class="heading-line flex-grow-1 ml-3"></div>
+    </div>
 </div>
+
 {% assign pages_list = tag[1] %}
 {% for post in pages_list %}
 {% if post.title != null %}

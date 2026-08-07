@@ -1,17 +1,21 @@
 <script src="{{site.baseurl}}/assets/js/lunr.js"></script>
 
-
 <style>
-    .lunrsearchresult .title {color: #d9230f;}
-    .lunrsearchresult .url {color: silver;}
-    .lunrsearchresult a {display: block; color: #777;}
-    .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
-    .lunrsearchresult a:hover .title {text-decoration: underline;}
+    .lunrsearchresult { padding: 10px 14px; border-bottom: 1px solid #f1f5f9; transition: background 0.2s; }
+    .lunrsearchresult:hover { background: #f8fafc; }
+    .lunrsearchresult .title { color: #004dff; font-weight: 600; font-size: 0.95rem; }
+    .lunrsearchresult .url { color: #94a3b8; font-size: 0.8rem; }
+    .lunrsearchresult a { display: block; color: #475569; text-decoration: none; }
+    .lunrsearchresult a:hover .title { color: #0036b3; }
+    #lunrsearchresults { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1); margin-top: 8px; z-index: 1000; position: absolute; width: 320px; right: 15px; display: none; overflow: hidden; }
+    #lunrsearchresults ul { list-style: none; padding: 0; margin: 0; }
 </style>
 
-
-<form class="bd-search" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
-    <input type="text" class="form-control text-small launch-modal-search" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Type and enter..."/>
+<form class="bd-search ml-lg-3 my-2 my-lg-0" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
+    <div class="search-input-wrap position-relative">
+        <input type="text" class="form-control nav-search-input" id="lunrsearch" name="q" maxlength="255" value="" placeholder="Search articles..."/>
+        <svg class="search-icon-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+    </div>
 </form>
 
 <div id="lunrsearchresults">
