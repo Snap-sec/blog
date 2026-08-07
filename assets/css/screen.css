@@ -20,6 +20,10 @@
 }
 
 /* Global Reset & Core Styling */
+html {
+    scroll-behavior: smooth;
+}
+
 html, body {
     background-color: var(--bg-white);
     color: var(--text-body);
@@ -28,6 +32,7 @@ html, body {
     -moz-osx-font-smoothing: grayscale;
     font-size: 16px;
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -56,7 +61,28 @@ a:hover {
     border-bottom: 1px solid var(--border-color);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
     padding: 0.75rem 0;
-    transition: all 0.3s ease;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease;
+    will-change: transform;
+    transform: translateY(0);
+}
+
+.mediumnavigation.nav-hidden {
+    transform: translateY(-100%);
+}
+
+.alertbar {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    transform: translateY(20px);
+}
+
+.alertbar.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
 }
 
 .brand-logo-img {
