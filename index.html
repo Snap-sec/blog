@@ -4,63 +4,51 @@ title: Home
 ---
 
 {% if page.url == "/" %}
-
-<!-- Enterprise Hero Section -->
-<div class="hero-section text-center py-5">
-    <span class="hero-badge">CYBERSECURITY & APPSEC INSIGHTS</span>
-    <h1 class="hero-title mt-3">Snapsec Security Blog</h1>
-    <p class="hero-subtitle mx-auto mt-2">Technical deep-dives, vulnerability research, and continuous security insights from the Snapsec team.</p>
+<!-- Hero -->
+<div class="blog-hero section-frame section-frame-top" style="padding:64px 32px 48px;">
+  <div class="blog-hero-eyebrow">Cybersecurity &amp; AppSec Insights</div>
+  <h1 class="blog-hero-title">Snapsec Security Blog</h1>
+  <p class="blog-hero-sub">Unify discovery, vulnerability management, intelligence, and protection across your entire ecosystem.</p>
 </div>
-
-{% include snapsec-capabilities.html %}
 
 <!-- Featured Posts -->
-<section class="featured-posts mb-5">
-    <div class="section-header d-flex align-items-center justify-content-between mb-4">
-        <h2 class="section-heading mb-0">Featured Articles</h2>
-        <div class="heading-line flex-grow-1 ml-3"></div>
-    </div>
-    <div class="row">
-
+{% assign featured_posts = site.posts | where: "featured", true %}
+{% if featured_posts.size > 0 %}
+<div class="section-frame section-frame-top" style="padding:32px 32px 0;">
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;">
+    <h2 class="section-heading">Featured Articles</h2>
+    <span style="font-size:13px;color:#6E6E6E;">Handpicked security deep-dives</span>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;">
     {% for post in site.posts %}
-
-        {% if post.featured == true %}
-
-            {% include featuredbox.html %}
-
-        {% endif %}
-
+      {% if post.featured == true %}
+        {% include featuredbox.html %}
+      {% endif %}
     {% endfor %}
-
-    </div>
-</section>
-
+  </div>
+</div>
+{% endif %}
 {% endif %}
 
-<!-- Posts Index -->
-<section class="recent-posts mb-5">
+<!-- All Posts -->
+<div class="section-frame section-frame-top" style="padding:32px 32px 40px;">
+  {% if page.url == "/" %}
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;">
+    <h2 class="section-heading">All Publications</h2>
+    <span style="font-size:13px;color:#6E6E6E;">Latest research &amp; guides</span>
+  </div>
+  {% endif %}
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;">
+    {% for post in paginator.posts %}
+      {% include postbox.html %}
+    {% endfor %}
 
-    <div class="section-header d-flex align-items-center justify-content-between mb-4">
-        <h2 class="section-heading mb-0">All Articles</h2>
-        <div class="heading-line flex-grow-1 ml-3"></div>
-    </div>
-
-    <div class="row listrecent">
-
-        {% for post in paginator.posts %}
-
-        {% include postbox.html %}
-
-        {% endfor %}
-
-    </div>
-
-</section>
-
-<!-- Pagination -->
-<div class="bottompagination mt-4">
-<span class="navigation" role="navigation">
-    {% include pagination.html %}
-</span>
+  </div>
 </div>
 
+<!-- Pagination -->
+{% if paginator.total_pages > 1 %}
+<div class="section-frame section-frame-top" style="padding:24px 32px;display:flex;align-items:center;justify-content:flex-end;gap:8px;">
+  {% include pagination.html %}
+</div>
+{% endif %}

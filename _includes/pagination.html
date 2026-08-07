@@ -1,27 +1,37 @@
 {% if paginator.total_pages > 1 %}
-<div class="pagination-nav d-flex justify-content-center align-items-center my-4">
+<div class="pagination-wrap">
   {% if paginator.previous_page %}
-    <a class="pagination-item page-prev mr-2" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">← Prev</a>
+    <a class="pagination-item pagination-prev" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px;"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Prev
+    </a>
   {% else %}
-    <span class="pagination-item page-prev disabled mr-2">← Prev</span>
+    <span class="pagination-item pagination-prev disabled">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px;"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Prev
+    </span>
   {% endif %}
 
-  <div class="pagination-numbers d-flex align-items-center">
   {% for page in (1..paginator.total_pages) %}
     {% if page == paginator.page %}
-      <span class="pagination-item active mx-1">{{ page }}</span>
+      <span class="pagination-item active">{{ page }}</span>
     {% elsif page == 1 %}
-      <a class="pagination-item mx-1" href="{{ site.baseurl }}/">{{ page }}</a>
+      <a class="pagination-item" href="{{ site.baseurl }}/">{{ page }}</a>
     {% else %}
-      <a class="pagination-item mx-1" href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+      <a class="pagination-item" href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
     {% endif %}
   {% endfor %}
-  </div>
 
   {% if paginator.next_page %}
-    <a class="pagination-item page-next ml-2" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next →</a>
+    <a class="pagination-item pagination-next" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">
+      Next
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px;"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
   {% else %}
-    <span class="pagination-item page-next disabled ml-2">Next →</span>
+    <span class="pagination-item pagination-next disabled">
+      Next
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px;"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </span>
   {% endif %}
 </div>
 {% endif %}

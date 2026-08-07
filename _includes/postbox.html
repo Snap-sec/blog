@@ -1,42 +1,45 @@
-<!-- begin post -->
 {% assign author = site.authors[post.author] %}
-<div class="col-lg-4 col-md-6 mb-4">
-    <div class="card card-post h-100">
-        {% if post.image %}
-        <div class="card-img-wrap">
-            <a href="{{ site.baseurl }}{{ post.url }}">
-                {% if site.lazyimages == "enabled" %}
-                <img class="card-img-top lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="{% if post.image contains "://" %}{{ post.image }}{% else %}{{ site.baseurl }}/{{ post.image }}{% endif %}" alt="{{ post.title }}">
-                {% else %}
-                <img class="card-img-top" src="{% if post.image contains "://" %}{{ post.image }}{% else %}{{ site.baseurl }}/{{ post.image }}{% endif %}" alt="{{ post.title }}">
-                {% endif %}
-            </a>
-        </div>
+<div style="display:flex;flex-direction:column;">
+  <a href="{{ site.baseurl }}{{ post.url }}" style="display:flex;flex-direction:column;flex:1;text-decoration:none;color:inherit;">
+    <div class="post-card">
+
+      {% if post.image %}
+      <div class="post-card-img">
+        {% if site.lazyimages == "enabled" %}
+        <img class="lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="{% if post.image contains '://' %}{{ post.image }}{% else %}{{ site.baseurl }}/{{ post.image }}{% endif %}" alt="{{ post.title }}">
+        {% else %}
+        <img src="{% if post.image contains '://' %}{{ post.image }}{% else %}{{ site.baseurl }}/{{ post.image }}{% endif %}" alt="{{ post.title }}">
         {% endif %}
-        <div class="card-body d-flex flex-column">
-            {% if post.categories.first %}
-            <div class="mb-2">
-                <span class="badge-category">{{ post.categories.first }}</span>
-            </div>
+      </div>
+      {% else %}
+      <div class="post-card-img-placeholder">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#BDBDBD" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      </div>
+      {% endif %}
+
+      <div class="post-card-body">
+
+
+        <div class="post-card-title">{{ post.title }}</div>
+
+        <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 24 }}</p>
+
+
+        <div class="post-card-author">
+          {% if post.author %}
+            {% if author.avatar %}
+            <img class="post-card-avatar" src="{{ site.baseurl }}/{{ author.avatar }}" alt="{{ author.display_name }}">
+            {% else %}
+            <img class="post-card-avatar" src="https://www.gravatar.com/avatar/{{ author.gravatar }}?s=64&d=mm&r=x" alt="{{ author.display_name }}">
             {% endif %}
-            <h3 class="card-title font-weight-bold mb-2">
-                <a class="text-dark hover-blue" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-            </h3>
-            <p class="card-text text-muted mb-3 flex-grow-1">{{ post.excerpt | strip_html | truncatewords:22 }}</p>
-            <div class="card-author-meta d-flex align-items-center mt-auto pt-3 border-top-light">
-                {% if post.author %}
-                {% if author.avatar %}
-                <img class="author-avatar mr-2" src="{{site.baseurl}}/{{ author.avatar }}" alt="{{ author.display_name }}">
-                {% else %}
-                <img class="author-avatar mr-2" src="https://www.gravatar.com/avatar/{{ author.gravatar }}?s=250&d=mm&r=x" alt="{{ author.display_name }}">
-                {% endif %}
-                <div class="author-info">
-                    <span class="author-name d-block font-weight-600">{{ author.display_name }}</span>
-                    <span class="post-date text-muted">{{ post.date | date_to_string }}</span>
-                </div>
-                {% endif %}
+            <div>
+              <span class="post-card-author-name">{{ author.display_name }}</span>
+              <span class="post-card-date">{{ post.date | date: "%b %-d, %Y" }}</span>
             </div>
+          {% endif %}
         </div>
+
+      </div>
     </div>
+  </a>
 </div>
-<!-- end post -->

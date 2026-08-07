@@ -4,198 +4,133 @@ disqus: false
 archive: false
 post_class: post-template
 ---
+{% assign author = site.authors[page.author] %}
 
-<!-- Typeform Lead Generation Form -->
+<!-- Typeform -->
 <div data-tf-live="01K4CHPA6V5F18MJHH9568VAS4"></div>
 <script src="//embed.typeform.com/next/embed.js"></script>
 
-<!-- Begin Article -->
-<div class="container article-container py-4">
-    <div class="row">
+<div style="padding:32px;max-width:900px;margin:0 auto;">
 
-        <!-- Post Share Sticky -->
-        <div class="col-lg-1 col-md-2 mb-4">
-            {% include share.html %}
-        </div>
+  <!-- Back -->
+  <div style="margin-bottom:24px;">
+    <a href="{{ site.baseurl }}/" class="back-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12" />
+        <polyline points="12 19 5 12 12 5" />
+      </svg>
+      All Articles
+    </a>
+  </div>
 
-        <!-- Main Article Column -->
-        {% assign author = site.authors[page.author] %}
-        <div class="col-lg-11 col-md-10">
+  <!-- Category -->
+  {% if page.categories.first %}
+  <div style="margin-bottom:12px;">
+    <span class="cat-tag">{{ page.categories.first }}</span>
+  </div>
+  {% endif %}
 
-            <!-- Back to Articles Link -->
-            <div class="mb-4">
-                <a href="{{ site.baseurl }}/" class="back-link d-inline-flex align-items-center">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-                    Back to Articles
-                </a>
-            </div>
+  <!-- Title -->
+  <h1 class="article-hero-title" style="margin-bottom:32px;">{{ page.title }}</h1>
 
-            <!-- Article Header Meta -->
-            <div class="article-header mb-4">
-                {% if page.categories.first %}
-                <div class="mb-3">
-                    <span class="badge-category">{{ page.categories.first }}</span>
-                </div>
-                {% endif %}
+  <!-- Share -->
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:28px;">
+    <span
+      style="font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#6E6E6E;margin-right:4px;">Share</span>
+    {% include share.html %}
+  </div>
 
-                <!-- Post Title -->
-                <h1 class="post-hero-title font-weight-bold mb-3">{{ page.title }}</h1>
+  <!-- Featured image -->
+  {% if page.image %}
+  <div style="margin-bottom:32px;border-radius:12px;overflow:hidden;border:.5px solid #D9D9D9;">
+    {% if site.lazyimages == "enabled" %}
+    <img class="lazyimg" style="width:100%;display:block;"
+      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII="
+      data-src="{% if page.image contains '://' %}{{ page.image }}{% else %}{{ site.baseurl }}/{{ page.image }}{% endif %}"
+      alt="{{ page.title }}">
+    {% else %}
+    <img style="width:100%;display:block;"
+      src="{% if page.image contains '://' %}{{ page.image }}{% else %}{{ site.baseurl }}/{{ page.image }}{% endif %}"
+      alt="{{ page.title }}">
+    {% endif %}
+  </div>
+  {% endif %}
 
-                <!-- Post Sub-Meta (Date & Author) -->
-                <div class="d-flex flex-wrap align-items-center article-meta-bar py-3 my-3 border-top border-bottom">
-                    {% if page.author %}
-                    <div class="d-flex align-items-center mr-4 mb-2 mb-sm-0">
-                        {% if author.avatar %}
-                        <img class="author-avatar mr-2" src="{{site.baseurl}}/{{ author.avatar }}" alt="{{ author.display_name }}">
-                        {% else %}
-                        <img class="author-avatar mr-2" src="https://www.gravatar.com/avatar/{{ author.gravatar }}?s=250&d=mm&r=x" alt="{{ author.display_name }}">
-                        {% endif %}
-                        <div>
-                            <span class="font-weight-600 text-dark d-block leading-tight">{{ author.display_name }}</span>
-                            {% if author.twitter %}
-                            <a target="_blank" href="{{ author.twitter }}" class="text-blue small font-weight-500">@{{ author.twitter | split: '/' | last }}</a>
-                            {% endif %}
-                        </div>
-                    </div>
-                    {% endif %}
+  {% if site.adsense == "enabled" %}{% include adsense-under-header.html %}{% endif %}
 
-                    <div class="d-flex align-items-center text-muted small ml-sm-auto">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mr-1"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                        <span>Published <time datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date: "%b %-d, %Y" }}</time></span>
-                        {% if page.last_modified_at %}
-                        <span class="ml-2">(Updated {{ page.last_modified_at | date: "%b %-d, %Y" }})</span>
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
+  <!-- TOC -->
+  {% if page.toc %}
+  {% if page.beforetoc %}<p style="font-size:17px;color:#6E6E6E;font-style:italic;margin-bottom:24px;">{{ page.beforetoc
+    }}</p>{% endif %}
+  <div class="toc-box">
+    <div class="toc-title">Table of Contents</div>
+    {% include toc.html html=content %}
+  </div>
+  {% endif %}
 
-            <!-- Adsense if enabled from _config.yml -->
-            {% if site.adsense == "enabled" %}
-                {% include adsense-under-header.html %}
-            {% endif %}
+  <!-- Body -->
+  <div class="article-body">
+    {{ content }}
+  </div>
 
-            <!-- Post Featured Image -->
-            {% if page.image %}
-            <div class="featured-image-wrap mb-4">
-                {% if site.lazyimages == "enabled" %}
-                <img class="featured-image img-fluid lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="{% if page.image contains "://" %}{{ page.image }}{% else %}{{ site.baseurl }}/{{ page.image }}{% endif %}" alt="{{ page.title }}">
-                {% else %}
-                <img class="featured-image img-fluid" src="{% if page.image contains "://" %}{{ page.image }}{% else %}{{ site.baseurl }}/{{ page.image }}{% endif %}" alt="{{ page.title }}">
-                {% endif %}
-            </div>
-            {% endif %}
+  <!-- Rating -->
+  {% if page.rating %}
+  <div style="margin:24px 0;padding:16px;background:#F5F5F5;border-radius:8px;display:flex;align-items:center;gap:8px;">
+    <strong>Rating:</strong> {% include star_rating.html %}
+  </div>
+  {% endif %}
 
-            <!-- Post Body Content -->
-            <div class="article-post">
-                {% if page.toc %}
-                    {% if page.beforetoc %}
-                        <p class="lead text-muted mb-4"><em>{{page.beforetoc}}</em></p>
-                    {% endif %}
-                    <div class="toc-box p-4 my-4">
-                        <h4 class="toc-title font-weight-bold mb-3">Table of Contents</h4>
-                        {% include toc.html html=content %}
-                    </div>
-                {% endif %}
-
-                {{ content }}
-            </div>
-
-            <!-- Rating -->
-            {% if page.rating %}
-            <div class="rating my-4 p-3 bg-light rounded d-flex align-items-center">
-                <strong class="mr-2">Rating:</strong> {% include star_rating.html %}
-            </div>
-            {% endif %}
-
-            <!-- Post Tags & Categories Bar -->
-            <div class="post-tags-bar my-4 pt-3 border-top d-flex flex-wrap align-items-center">
-                {% if page.categories.size > 0 %}
-                <div class="mr-4 mb-2">
-                    <span class="font-weight-600 text-dark mr-2 small text-uppercase tracking-wider">Categories:</span>
-                    {% assign sortedCategories = page.categories | sort %}
-                    {% for category in sortedCategories %}
-                    <a class="badge-tag" href="{{site.baseurl}}/categories#{{ category | replace: " ","-" }}">{{ category }}</a>
-                    {% endfor %}
-                </div>
-                {% endif %}
-
-                {% if page.tags.size > 0 %}
-                <div class="mb-2">
-                    <span class="font-weight-600 text-dark mr-2 small text-uppercase tracking-wider">Tags:</span>
-                    {% assign sortedTags = page.tags | sort %}
-                    {% for tag in sortedTags %}
-                    <a class="badge-tag" href="{{site.baseurl}}/tags#{{ tag | replace: " ","-" }}">#{{ tag }}</a>
-                    {% endfor %}
-                </div>
-                {% endif %}
-            </div>
-
-            <!-- Author Bio Card End -->
-            {% if page.author %}
-            <div class="author-bio-card p-4 my-5 rounded d-flex flex-column flex-sm-row align-items-center">
-                {% if author.avatar %}
-                <img class="author-avatar-lg mb-3 mb-sm-0 mr-sm-4" src="{{site.baseurl}}/{{ author.avatar }}" alt="{{ author.display_name }}">
-                {% else %}
-                <img class="author-avatar-lg mb-3 mb-sm-0 mr-sm-4" src="https://www.gravatar.com/avatar/{{ author.gravatar }}?s=250&d=mm&r=x" alt="{{ author.display_name }}">
-                {% endif %}
-                <div>
-                    <div class="d-flex align-items-center mb-1">
-                        <h4 class="font-weight-bold mb-0 mr-3">{{ author.display_name }}</h4>
-                        {% if author.twitter %}
-                        <a target="_blank" href="{{ author.twitter }}" class="btn btn-sm btn-outline-primary rounded-pill px-3">Follow</a>
-                        {% endif %}
-                    </div>
-                    <p class="text-muted mb-0 small">{{ author.description }}</p>
-                </div>
-            </div>
-            {% endif %}
-
-            <!-- Next & Previous Articles Navigation -->
-            <div class="post-navigation-row row my-4">
-                <div class="col-md-6 mb-3 mb-md-0">
-                    {% if page.previous.url %}
-                    <a class="nav-card p-3 d-block h-100 rounded text-decoration-none" href="{{ site.baseurl }}{{page.previous.url}}">
-                        <span class="text-uppercase text-muted small font-weight-600 d-block mb-1">← Previous Article</span>
-                        <span class="nav-card-title font-weight-bold text-dark d-block">{{page.previous.title}}</span>
-                    </a>
-                    {% endif %}
-                </div>
-                <div class="col-md-6 text-md-right">
-                    {% if page.next.url %}
-                    <a class="nav-card p-3 d-block h-100 rounded text-decoration-none" href="{{ site.baseurl }}{{page.next.url}}">
-                        <span class="text-uppercase text-muted small font-weight-600 d-block mb-1">Next Article →</span>
-                        <span class="nav-card-title font-weight-bold text-dark d-block">{{page.next.title}}</span>
-                    </a>
-                    {% endif %}
-                </div>
-            </div>
-
-        </div>
+  <!-- Tags & Categories -->
+  <div style="margin:32px 0;padding-top:24px;border-top:.5px solid #D9D9D9;display:flex;flex-wrap:wrap;gap:16px;">
+    {% if page.categories.size > 0 %}
+    <div>
+      <span
+        style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#6E6E6E;margin-right:8px;">Categories:</span>
+      {% for category in page.categories %}
+      <a class="cat-tag" href="{{ site.baseurl }}/categories#{{ category | replace: ' ','-' }}"
+        style="margin-right:6px;">{{ category }}</a>
+      {% endfor %}
     </div>
+    {% endif %}
+    {% if page.tags.size > 0 %}
+    <div>
+      <span
+        style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#6E6E6E;margin-right:8px;">Tags:</span>
+      {% for tag in page.tags %}
+      <a class="tag-pill" href="{{ site.baseurl }}/tags#{{ tag | replace: ' ','-' }}">#{{ tag }}</a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+
+
+
+  <!-- Prev / Next -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px;">
+    <div>
+      {% if page.previous.url %}
+      <a href="{{ site.baseurl }}{{ page.previous.url }}" class="nav-post-card">
+        <span class="nav-post-label">&larr; Previous</span>
+        <span class="nav-post-title">{{ page.previous.title }}</span>
+      </a>
+      {% endif %}
+    </div>
+    <div>
+      {% if page.next.url %}
+      <a href="{{ site.baseurl }}{{ page.next.url }}" class="nav-post-card" style="text-align:right;">
+        <span class="nav-post-label">Next &rarr;</span>
+        <span class="nav-post-title">{{ page.next.title }}</span>
+      </a>
+      {% endif %}
+    </div>
+  </div>
+
+  {% if page.disqus == true %}{% include disqus.html %}{% endif %}
+
 </div>
 
-<!-- Enterprise Live Demo CTA -->
-{% include post-demo-cta.html %}
-
 {% if page.rating %}
-<script type="application/ld+json">
-{
-  "@context": "http://schema.org/",
-  "@type": "Review",
-  "itemReviewed": {
-    "@type": "Thing",
-    "name": "{{ page.title }}"
-  },
-  "author": {
-    "@type": "Person",
-    "name": "{{ author.display_name }}"
-  },
-  "datePublished": "{{ page.date | date:"%Y-%m-%d" }}",
-  "reviewRating": {
-    "@type": "Rating",
-    "ratingValue": "{{ page.rating }}",
-    "bestRating": "5"
-  }
-}
-</script>
+<script
+  type="application/ld+json">{"@context":"http://schema.org/","@type":"Review","itemReviewed":{"@type":"Thing","name":"{{ page.title }}"},"author":{"@type":"Person","name":"{{ author.display_name }}"},"datePublished":"{{ page.date | date:'%Y-%m-%d' }}","reviewRating":{"@type":"Rating","ratingValue":"{{ page.rating }}","bestRating":"5"}}</script>
 {% endif %}
