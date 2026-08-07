@@ -1,47 +1,42 @@
 <!-- begin post -->
 {% assign author = site.authors[post.author] %}
 <div class="col-md-12 col-lg-6 mb-4">
-    <div class="card card-featured h-100 group">
+    <div class="card card-featured h-100">
         <div class="row no-gutters h-100">
             <div class="col-md-5">
-                <div class="card-img-wrap h-100 overflow-hidden">
+                <div class="card-img-wrap h-100">
                     <a href="{{ site.baseurl }}{{ post.url }}">
                         {% if site.lazyimages == "enabled" %}
-                        <img class="card-img lazyimg h-100" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="{% if post.image contains "://" %}{{ post.image }}{% else %}{{ site.baseurl }}/{{ post.image }}{% endif %}" alt="{{ post.title }}">
+                        <img class="card-img lazyimg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAACCAQAAAA3fa6RAAAADklEQVR42mNkAANGCAUAACMAA2w/AMgAAAAASUVORK5CYII=" data-src="{% if post.image contains "://" %}{{ post.image }}{% else %}{{ site.baseurl }}/{{ post.image }}{% endif %}" alt="{{ post.title }}">
                         {% else %}
-                        <img class="card-img h-100" src="{% if post.image contains "://" %}{{ post.image }}{% else %}{{ site.baseurl }}/{{ post.image }}{% endif %}" alt="{{ post.title }}">
+                        <img class="card-img" src="{% if post.image contains "://" %}{{ post.image }}{% else %}{{ site.baseurl }}/{{ post.image }}{% endif %}" alt="{{ post.title }}">
                         {% endif %}
                     </a>
                 </div>
             </div>
             <div class="col-md-7">
-                <div class="card-body d-flex flex-column h-100 p-4">
+                <div class="card-body d-flex flex-column h-100">
                     {% if post.categories.first %}
                     <div class="mb-2">
                         <span class="badge-category">{{ post.categories.first }}</span>
                     </div>
                     {% endif %}
-                    <h3 class="body-heading-m mb-2">
+                    <h3 class="card-title font-weight-bold mb-2">
                         <a class="text-dark hover-blue" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
                     </h3>
-                    <p class="body-text-s mb-3 flex-grow-1">{{ post.excerpt | strip_html | truncatewords:20 }}</p>
-                    <div class="card-author-meta d-flex align-items-center justify-content-between mt-auto pt-3 border-top-light">
-                        <div class="d-flex align-items-center">
-                            {% if post.author %}
-                            {% if author.avatar %}
-                            <img class="author-avatar mr-2" src="{{site.baseurl}}/{{ author.avatar }}" alt="{{ author.display_name }}">
-                            {% else %}
-                            <img class="author-avatar mr-2" src="https://www.gravatar.com/avatar/{{ author.gravatar }}?s=250&d=mm&r=x" alt="{{ author.display_name }}">
-                            {% endif %}
-                            <div class="author-info">
-                                <span class="author-name d-block font-weight-600 text-dark">{{ author.display_name }}</span>
-                                <span class="post-date body-text-xxxs">{{ post.date | date_to_string }}</span>
-                            </div>
-                            {% endif %}
+                    <p class="card-text text-muted mb-3 flex-grow-1">{{ post.excerpt | strip_html | truncatewords:20 }}</p>
+                    <div class="card-author-meta d-flex align-items-center mt-auto pt-3 border-top-light">
+                        {% if post.author %}
+                        {% if author.avatar %}
+                        <img class="author-avatar mr-2" src="{{site.baseurl}}/{{ author.avatar }}" alt="{{ author.display_name }}">
+                        {% else %}
+                        <img class="author-avatar mr-2" src="https://www.gravatar.com/avatar/{{ author.gravatar }}?s=250&d=mm&r=x" alt="{{ author.display_name }}">
+                        {% endif %}
+                        <div class="author-info">
+                            <span class="author-name d-block font-weight-600">{{ author.display_name }}</span>
+                            <span class="post-date text-muted">{{ post.date | date_to_string }}</span>
                         </div>
-                        <a href="{{ site.baseurl }}{{ post.url }}" class="read-more-arrow text-dark font-weight-500 text-decoration-none">
-                            <span class="arrow-icon">-&gt;</span>
-                        </a>
+                        {% endif %}
                     </div>
                 </div>
             </div>
