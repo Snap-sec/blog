@@ -566,12 +566,12 @@ a:hover {
 
 /* Enterprise Live Demo CTA Section */
 .demo-cta-card {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-    color: var(--bg-white);
-    padding: 2.75rem 2.5rem;
-    border-radius: 16px;
-    box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: linear-gradient(135deg, #0b0f19 0%, #111827 100%) !important;
+    color: #ffffff !important;
+    padding: 2.75rem 2.5rem !important;
+    border-radius: 18px !important;
+    box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
     position: relative;
     overflow: hidden;
 }
@@ -580,81 +580,88 @@ a:hover {
     content: '';
     position: absolute;
     top: -50%;
-    right: -20%;
-    width: 380px;
-    height: 380px;
-    background: radial-gradient(circle, rgba(0, 77, 255, 0.22) 0%, rgba(0, 77, 255, 0) 70%);
+    right: -10%;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(0, 77, 255, 0.25) 0%, rgba(0, 77, 255, 0) 70%);
     pointer-events: none;
 }
 
 .demo-badge {
-    background: rgba(0, 77, 255, 0.25);
-    color: #60a5fa;
-    border: 1px solid rgba(96, 165, 250, 0.3);
+    background: rgba(0, 77, 255, 0.2) !important;
+    color: #60a5fa !important;
+    border: 1px solid rgba(96, 165, 250, 0.3) !important;
     font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.08em;
-    padding: 4px 12px;
+    padding: 5px 13px;
     border-radius: 9999px;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
 }
 
 .demo-tag-subtle {
-    color: #94a3b8;
-    font-size: 0.8rem;
+    color: #94a3b8 !important;
+    font-size: 0.82rem;
     font-weight: 500;
 }
 
 .demo-title {
-    font-size: 1.65rem;
+    font-size: 1.7rem !important;
     font-family: var(--font-heading);
-    color: #ffffff;
+    color: #ffffff !important;
     font-weight: 700;
     line-height: 1.3;
 }
 
 .demo-desc {
-    color: #94a3b8;
+    color: #94a3b8 !important;
     font-size: 0.98rem;
     line-height: 1.6;
-    max-width: 620px;
+    max-width: 640px;
 }
 
 .demo-feature-item {
-    font-size: 0.85rem;
-    color: #cbd5e1;
+    font-size: 0.88rem;
+    color: #e2e8f0 !important;
     font-weight: 500;
     display: inline-flex;
     align-items: center;
 }
 
-.text-primary-blue {
-    color: #3b82f6 !important;
-}
-
-.btn-demo-cta {
-    background: var(--primary-blue);
-    color: #ffffff !important;
-    font-family: var(--font-heading);
-    font-weight: 600;
-    font-size: 0.95rem;
-    padding: 0.85rem 1.6rem;
-    border-radius: 10px;
-    border: none;
+.feature-icon-box {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(0, 77, 255, 0.15);
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 8px 25px rgba(0, 77, 255, 0.4);
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-demo-cta {
+    background: #004dff !important;
+    color: #ffffff !important;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1rem !important;
+    padding: 0.9rem 1.8rem !important;
+    border-radius: 12px !important;
+    border: none !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 25px rgba(0, 77, 255, 0.4) !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
     text-decoration: none !important;
     white-space: nowrap;
 }
 
 .btn-demo-cta:hover {
-    background: var(--primary-hover);
+    background: #0036b3 !important;
     color: #ffffff !important;
-    transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(0, 77, 255, 0.5);
+    transform: translateY(-2px) !important;
+    box-shadow: 0 14px 32px rgba(0, 77, 255, 0.55) !important;
 }
 
 .btn-demo-cta .btn-arrow {
@@ -662,7 +669,11 @@ a:hover {
 }
 
 .btn-demo-cta:hover .btn-arrow {
-    transform: translateX(4px);
+    transform: translateX(5px);
+}
+
+.text-muted-light {
+    color: #94a3b8 !important;
 }
 
 /* Single Post Live Demo CTA Card */
