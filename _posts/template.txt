@@ -6,7 +6,7 @@ categories: [ general,blog-post,imran ]
 image: assets/images/13.jpg
 ---
 
-![1](/blog/assets/images/8/2.png)
+![1](/assets/images/8/2.png)
 
 
 

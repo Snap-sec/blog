@@ -16,7 +16,7 @@ Over the last few months, we've been compiling a list of some of the most freque
 
 ## Are Data Breaches Inevetable ? 
 
-![1](/blog/assets/images/4/1.png)
+![1](/assets/images/4/1.png)
 
 
 
@@ -36,7 +36,7 @@ As a result, a breach is inevitable — which makes cyber security even more cri
 
 ## The Money
 
-![1](/blog/assets/images/4/3.png)
+![1](/assets/images/4/3.png)
 
 
 
@@ -46,7 +46,7 @@ A single data breach costs a lot more money than it has ever cost before. There 
 
 ## The Reputation
 
-![1](/blog/assets/images/4/4.png)
+![1](/assets/images/4/4.png)
 
 
 In the past, if your company had a data breach, it wasn't very bad for your reputation unless it was very bad and sometimes even then. LinkedIn and other companies that have had huge data breaches haven't faded away because of them. In the last few years, people have become more aware of the risks of having their personal information stolen. Nearly two out of three people would probably not do business with a company that had been hacked over the last year. 
@@ -55,7 +55,7 @@ In the past, if your company had a data breach, it wasn't very bad for your repu
 
 ## The Clients 
 
-![1](/blog/assets/images/4/5.png)
+![1](/assets/images/4/5.png)
 
 
 An attack on one of your business partners or clients could also be caused by an attack at your own data. Cybercrime has a common theme: attacking a smaller company that may not have strong security in order to get into a bigger company for a bigger cyber attack. This has been very effective. Two-thirds of breaches happen because of third-party or supplier flaws, which make businesses much pickier about who they work with and what they do. 
@@ -63,7 +63,7 @@ An attack on one of your business partners or clients could also be caused by an
 
 ## Legal Penalties
 
-![1](/blog/assets/images/4/6.png)
+![1](/assets/images/4/6.png)
 
 
 When the European Union implemented the General Data Protection Regulation (GDPR) with fines of up to 4% of annual revenue, it introduced some of the harshest penalties for a breach of data protection laws anywhere in the world. In doing this, the Data Protection Authorities created tremendous leverage to gain compliance with the regulations, ensure consent is received from data subjects and to reduce the likelihood of personal data violation.

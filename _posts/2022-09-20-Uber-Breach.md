@@ -11,7 +11,7 @@ On 15 September, UBER acknowledged that it was responding to a "cybersecurity in
 
 The public message below was posted by a hacker on behalf of the Uber account for bug hunters on the bug bounty platform HackerOne, informing everyone of this incident
 
-![1](/blog/assets/images/18/7.jpeg)
+![1](/assets/images/18/7.jpeg)
 
 
 
@@ -19,7 +19,7 @@ The public message below was posted by a hacker on behalf of the Uber account fo
 
 Following the incident, a member of the security community communicated with an attacker via telegram. This is a brief screenshot of that communication.
 
-![1](/blog/assets/images/18/2.png)
+![1](/assets/images/18/2.png)
 
 The attacker admits in the screenshot that he used social engineering to hack an Uber employee, then used his VPN to access Uber's internal network and searched there for possibilities to escalate privileges.
 

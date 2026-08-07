@@ -4,7 +4,7 @@ title: "Snapsec | Blog"
 description: "Snapsec - A cybersecurity Company."
 logo: 'assets/images/logo.svg'
 favicon: 'assets/images/logo.svg'
-baseurl: /blog
+baseurl: ""
 google_analytics: 'UA-208550451-1'
 disqus: 'snapsec-co'
 mailchimp-list: 'https://snapsec.us14.list-manage.com/subscribe/post?u=50c67e68d53e5d91fa87f8496&amp;id=c4ebf52467'

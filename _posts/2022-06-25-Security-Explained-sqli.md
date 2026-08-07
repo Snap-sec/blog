@@ -20,11 +20,11 @@ _portswigger_
 		- customers [Table]
 
 
-![1](/blog/assets/images/SecuritySimplified/sqli-3/t1.png)
+![1](/assets/images/SecuritySimplified/sqli-3/t1.png)
 
 
 
-![1](/blog/assets/images/SecuritySimplified/sqli-3/t2.png)
+![1](/assets/images/SecuritySimplified/sqli-3/t2.png)
 
 
 
@@ -82,7 +82,7 @@ __Conclusion:__
 SELECT * FROM products where category='1';
 ```
 
-![1](/blog/assets/images/SecuritySimplified/sqli-3/1.png)
+![1](/assets/images/SecuritySimplified/sqli-3/1.png)
 
 
 - Similarly on browsing the `sqli.php?id=2` , the following query is executed:
@@ -90,7 +90,7 @@ SELECT * FROM products where category='1';
 SELECT * FROM products where category='2';
 ```
 
-![2](/blog/assets/images/SecuritySimplified/sqli-3/2.png)
+![2](/assets/images/SecuritySimplified/sqli-3/2.png)
 
 
 
@@ -112,7 +112,7 @@ SELECT * FROM products where category='2' UNION SELECT id,email,password,null FR
 Since the `UNION` operator is used to combine the result-set of two or more SELECT statements. Our final Array`($data)` in the code is filled with the rows returned from the 1st and 2nd select query which is `SELECT * FROM products where category='2'` and `SELECT id,email,password,null FROM customers` hence echo's back the customers emails and passwords on the screen. hence would allow attacker to retrive data from other tables like `customers` table by injecting an new `SELECT` statement into the query.
 
 
-![3](/blog/assets/images/SecuritySimplified/sqli-3/3.png)
+![3](/assets/images/SecuritySimplified/sqli-3/3.png)
 
 
 
@@ -170,7 +170,7 @@ SELECT * FROM products where category='2\' UNION SELECT id,email,password FROM c
 In the query the `\` escaping slash added before `'` in the user input prevents attacker from escaping the context of the id parmeter hence whole set of payload which is `2' UNION SELECT id,email,password FROM customers-- -` is treated as a value of id `category` in the mysql query.
 
 
-![4](/blog/assets/images/SecuritySimplified/sqli-3/4.png)
+![4](/assets/images/SecuritySimplified/sqli-3/4.png)
 
 
 
@@ -178,7 +178,7 @@ In the query the `\` escaping slash added before `'` in the user input prevents 
 - Just to make sure none other MYSQLi exploitation techniques are working i ran a quick sqlmap scan on the script and it seems we are perfectly fine.
 
 
-![5](/blog/assets/images/SecuritySimplified/sqli-3/5.png)
+![5](/assets/images/SecuritySimplified/sqli-3/5.png)
 
 
 

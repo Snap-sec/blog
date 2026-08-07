@@ -24,7 +24,7 @@ Here are the List of Aricle that will be published under this series:
   <div class="row">
     
 <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="/blog/assets/images/SecuritySimplified/SE-Cards/1.png" alt="Card image cap">
+  <img class="card-img-top" src="/assets/images/SecuritySimplified/SE-Cards/1.png" alt="Card image cap">
   <div class="card-body">
        <p class="card-text"><a href="https://snapsec.co/blog/Security-Explained-Reflected-xss/"><button type="button" class="btn btn-info">Read Blogpost</button>
 </a></p>
@@ -34,7 +34,7 @@ Here are the List of Aricle that will be published under this series:
 
     
 <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="/blog/assets/images/SecuritySimplified/SE-Cards/2.png" alt="Card image cap">
+  <img class="card-img-top" src="/assets/images/SecuritySimplified/SE-Cards/2.png" alt="Card image cap">
   <div class="card-body">
        <p class="card-text"><a href="https://snapsec.co/blog/Security-Explained-sqli/"><button type="button" class="btn btn-info">Read Blogpost</button>
 </a></p>
@@ -44,7 +44,7 @@ Here are the List of Aricle that will be published under this series:
 
     
 <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="/blog/assets/images/SecuritySimplified/SE-Cards/3.png" alt="Card image cap">
+  <img class="card-img-top" src="/assets/images/SecuritySimplified/SE-Cards/3.png" alt="Card image cap">
   <div class="card-body">
        <p class="card-text"><a href="https://snapsec.co/blog/Security-Explained-open-redirect/"><button type="button" class="btn btn-info">Read Blogpost</button>
 </a></p>

@@ -43,27 +43,27 @@ So basically the code consists of two-line, The first line with the if statement
 
 - On visiting the code snipped via the Browser and passing `name` parameter, It can be seen that the value of the `name` parameter is being reflected to user.
 
-![1](/blog/assets/images/SecuritySimplified/rxss-1/1.png)
+![1](/assets/images/SecuritySimplified/rxss-1/1.png)
 
 
 
 - Now, what happens if the value of the `name` parameter is changed to something like an HTML, Javascript piece of code. You can see the HTML code was executed rather than being displayed to the user.
 
-![1](/blog/assets/images/SecuritySimplified/rxss-1/2.png)
+![1](/assets/images/SecuritySimplified/rxss-1/2.png)
 
 
 
 - On having a closed look at the source code of the page, You can see the reflected value is being treated as an HTML code and gets executed in the browser.
 
 
-![1](/blog/assets/images/SecuritySimplified/rxss-1/3.png)
+![1](/assets/images/SecuritySimplified/rxss-1/3.png)
 
 
 
 
 - This also means that if the javascript code is passed to the parameter, On being reflected the browser will treat it as a javascript code and hence execute it
 
-![1](/blog/assets/images/SecuritySimplified/rxss-1/4.png)
+![1](/assets/images/SecuritySimplified/rxss-1/4.png)
 
 
 
@@ -99,12 +99,12 @@ echo "Hello " .htmlentities($_GET['name']);
 
 - Ongoing back and trying to inject an image in the name parameter you can see we were not able to inject new HTML code
 
-![1](/blog/assets/images/SecuritySimplified/rxss-1/5.png)
+![1](/assets/images/SecuritySimplified/rxss-1/5.png)
 
 
 - This is because all the special characters were properly encoded by `htmlentities()` function before sending them to the user.
 
-![1](/blog/assets/images/SecuritySimplified/rxss-1/6.png)
+![1](/assets/images/SecuritySimplified/rxss-1/6.png)
 
 
 ## About us

@@ -34,7 +34,7 @@ Even if a logic flaw for a business does not directly benefit the hacker, it cou
 
 ## An example of business logic vulnerability:
 
-![1](/blog/assets/images/6/3.png)
+![1](/assets/images/6/3.png)
 
 Here is a simple example.
 An e-commerce merchant, YYY.com sells electronic merchandise to consumers worldwide. The typical checkout process during fulfillment includes the following steps in sequence:
@@ -52,7 +52,7 @@ At step (3), the attacker manipulates a currency related parameter in the POST r
 
 ## So, what we can do about it?
 
-![1](/blog/assets/images/6/2.png)
+![1](/assets/images/6/2.png)
 
 
 __Proper Understanding of Target Application during Development Phase:__

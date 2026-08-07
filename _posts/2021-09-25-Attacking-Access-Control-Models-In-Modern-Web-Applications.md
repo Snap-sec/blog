@@ -25,7 +25,7 @@ Example:
 
 
 
-![1](/blog/assets/images/ABACM/1.png)
+![1](/assets/images/ABACM/1.png)
 
   
 In the following example of the Role-Based Access Control Model you can see it has 3 different roles defined with different sets of permission assigned to each role, For example, the __admin__ role has access to `All(users, Documents, logs, and Reports)` within the Organisation but __managers__ only have access to `users, documents and reports` while as __user__ role is further restricted and are only allowed to access `users, documents` within the organization.
@@ -85,7 +85,7 @@ To understand these approaches effectively let's assume we are testing a web app
 
 
 
-![1](/blog/assets/images/ABACM/2.png)
+![1](/assets/images/ABACM/2.png)
 
   
   
@@ -108,7 +108,7 @@ In the following test case, the user is granted __`read:users`__ permission in t
 
 
 
-![1](/blog/assets/images/ABACM/3.png)
+![1](/assets/images/ABACM/3.png)
 
   
   
@@ -125,7 +125,7 @@ In the following test case, the user is granted __`write:users`__ permission in 
 
 
 
-![1](/blog/assets/images/ABACM/4.png)
+![1](/assets/images/ABACM/4.png)
 
   
   
@@ -140,7 +140,7 @@ In the following test case, the user is granted __`read:documents`__ permission 
 
 
 
-![1](/blog/assets/images/ABACM/5.png)
+![1](/assets/images/ABACM/5.png)
 
   
   
@@ -156,7 +156,7 @@ In the following test case, the user is granted all the permission except __read
 
 
 
-![1](/blog/assets/images/ABACM/6.png)
+![1](/assets/images/ABACM/6.png)
 
   
 
@@ -165,7 +165,7 @@ In the following test case, the user is granted all the permission except __read
 In the following test case, the user is granted all the permission except __write:users__ permission in the model and then he tries to modify the user information from the following Endpoint`POST /api/users` on which he has no permission.
 
 
-![1](/blog/assets/images/ABACM/7.png)
+![1](/assets/images/ABACM/7.png)
 
 
 
@@ -180,7 +180,7 @@ In the mixed approach a user must be invited with a set of mixed permissions fro
 In the following test case, the user is granted _`read:users`_,_`write:docs`_,_`write:logs`_ permission then all the other restricted endpoints must be tested against these mixed permissions to check for broken access controls.
 
 
-![1](/blog/assets/images/ABACM/8.png)
+![1](/assets/images/ABACM/8.png)
 
 
 
@@ -191,7 +191,7 @@ In the following test case the user is granted _`write:docs`_,_`read:logs`_,_`wr
 
 
 
-![1](/blog/assets/images/ABACM/9.png)
+![1](/assets/images/ABACM/9.png)
 
 
 

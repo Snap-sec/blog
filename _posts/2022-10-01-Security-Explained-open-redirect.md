@@ -51,7 +51,7 @@ In other words, it redirects the user to the value he/she specified in the url p
 
 If the website does not validate the url parameters, we can simply enter any web address in the url parameter and it will redirect us to the page.
 
-![1](/blog/assets/images/SecuritySimplified/or-2/vid1.gif)
+![1](/assets/images/SecuritySimplified/or-2/vid1.gif)
 
 
 	
@@ -106,7 +106,7 @@ if (isset($_GET["url"])) {
 
 
 
-![1](/blog/assets/images/SecuritySimplified/or-2/vid2.gif)
+![1](/assets/images/SecuritySimplified/or-2/vid2.gif)
 
 
 
@@ -150,7 +150,7 @@ The function `Validate(url)` is introduced in the following PHP code. It accepts
 - On going back and trying to reproduce open redirection on both the fixes , Yon can see we were able to fix the vulnerabilities.
 
 
-![1](/blog/assets/images/SecuritySimplified/or-2/confirm.gif)
+![1](/assets/images/SecuritySimplified/or-2/confirm.gif)
 
 
 

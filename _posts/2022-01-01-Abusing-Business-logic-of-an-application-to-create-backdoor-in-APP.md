@@ -11,7 +11,7 @@ image: assets/images/BD/0.png
 
 Working with a target [having](https://google.com) various *access roles* and functionalities always gives us goosebumps. This time it was a design flaw in the *application logic* that we reformed to create a *backdoor* which revealed us all of the *response details* submitted on the *form or survey* created by the admin.
 
-![1](/blog/assets/images/BD/1.png)
+![1](/assets/images/BD/1.png)
 
 
 
@@ -27,13 +27,13 @@ The target is a well known *platform* that was specialized in *creating forms an
 
 Same was case with this, we brainstormed about the fact that *the roles like form designer and copywriter* have *write access on the form or survey*  of the admin but once they are *removed as collaborators* they can no longer have access on any part of the *form or survey*.
 
-![1](/blog/assets/images/BD/2.gif)
+![1](/assets/images/BD/2.gif)
 
 
 
 The forms or the surveys were dynamic  by nature as *they can be used to get the responses* and only *admin and people invited to the workspace had the access to view the responses* submitted on the form. The *responses can vary* from *personal information to any other sensitive information*  with respect to the objective of form. Analysing  the *submitted responses*  we came to know that admin can generate an `form Report` which can be shared with any un-authenticated users and allow them to view all of the responses on the form.  Browsing the specific url *anyone can view the responses of the form or survey* and sadly it *only editors and admins of the form can generate the response urls*.
 
-![1](/blog/assets/images/BD/3.png)
+![1](/assets/images/BD/3.png)
 
 
 
@@ -41,13 +41,13 @@ As we knew *that copywriters and designers* and *everyone else* who previously h
 
 VOILA!  we were able to generate the *report url for a form* as a *designer or copywriter* which otherwise should be not allowed *for their  respective roles*. 
 
-![1](/blog/assets/images/BD/4.png)
+![1](/assets/images/BD/4.png)
 
 
 
 Once a *designer or the copywriter* were removed from the *form or survey* , we checked the *report url* and it was *alive*.  After the form was used and *responses were filled* on the form, we were able to *see all of the information* on this form via the *previously generated url* which a *designer or copywriter* can use as  a *backdoor* to steal responses submitted on the form or surveys. This is how a backdoor via *logical misconfiguration/poor logical implementation*  can lead to steal the form responses  in a *completely* passive way.
 
-![1](/blog/assets/images/BD/5.png)
+![1](/assets/images/BD/5.png)
 
 
 

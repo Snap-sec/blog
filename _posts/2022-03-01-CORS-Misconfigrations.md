@@ -18,7 +18,7 @@ If you are a developer, you already know that it’s nearly impossible to keep e
 ## What is CORS:
 
 
-![1](/blog/assets/images/8/1.png)
+![1](/assets/images/8/1.png)
 
 
 CORS stands for CROSS ORIGIN RESOURCE SHARING. This method allows websites to load resources from different domains securely. These resources are usually fonts, images/videos, CSS, ajax requests containing API responses. CORS adds flexibility to Same-Origin-Policy which blocks reading resources from different origins by default. With Same-Origin-Policy, JavaScript can only make calls to URLs that live on the same origin as the location where the script is running. For example, if a JavaScript app wishes to make an AJAX call to an API running on a different domain, it would be blocked from doing so. To overcome this problem, CORS was introduced. CORS allows servers to specify certain trusted ‘origins’ they are willing to permit requests from.
@@ -67,7 +67,7 @@ The server *must* respond with the `Access-Control-Allow-Credentials` header
 
 ## Types of CORS requests
 
-![1](/blog/assets/images/8/2.png)
+![1](/assets/images/8/2.png)
 
 
 When two different domains access cross origin resource, There are two types of CORS requests made:
@@ -121,7 +121,7 @@ If any of the information in the response headers does not match the actual para
 
 ## CORS misconfigration and exploitation
 
-![1](/blog/assets/images/8/3.png)
+![1](/assets/images/8/3.png)
 
 
 Each application is build different hence needs a different CORS configrations. And if CORS configration are not strictly adhrered to the requirements of the application it can lead to Misconfigration issue which may result a security issue with a High impact on the security of a website. A CORS misconfiguration can leave the application-users at a high-risk of compromise of their sensitve information resulting in an impact on the confidentiality and integrity of data by allowing third-party sites to carry out privileged requests to vulnerable websites by posing as authenticated users. The malicious website can also retrieve user setting information or saved payments, cookies etc etc

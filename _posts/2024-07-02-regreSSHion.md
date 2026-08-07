@@ -44,7 +44,7 @@ To check if your OpenSSH server is vulnerable, you can use the following methods
 
 1. **Check OpenSSH Version Using Command Line:**
 
-![image](https://github.com/Snap-sec/blog/assets/88488902/b3acde7a-9df4-4e07-82d2-c13baf420e95)
+![image](https://github.com/Snap-sec/assets/88488902/b3acde7a-9df4-4e07-82d2-c13baf420e95)
 
 
    Open a terminal and type:
@@ -55,7 +55,7 @@ To check if your OpenSSH server is vulnerable, you can use the following methods
 
 2. **Check OpenSSH Version Using Netcat (nc):**
 
-![image](https://github.com/Snap-sec/blog/assets/88488902/c75b6c1f-72ed-44ba-a5c6-64a3edc6a958)
+![image](https://github.com/Snap-sec/assets/88488902/c75b6c1f-72ed-44ba-a5c6-64a3edc6a958)
 
 
    Use netcat to connect to the SSH port (typically port 22) of your server and observe the server's response headers:

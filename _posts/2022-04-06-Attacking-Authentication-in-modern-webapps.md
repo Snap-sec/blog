@@ -13,7 +13,7 @@ Authentication issues are easy to understand however they can sometimes prove th
 
 ## What is authentication?
 
-![1](/blog/assets/images/13/2.png)
+![1](/assets/images/13/2.png)
 
 
 Familiar with those login pages where you put your _emails and passwords_ and after successful entry you get logged into your account, that mechanism in simple terms is called _authentication_. Authentication is an answer to the question, “who are you?”. Modern web applications use robust authentication mechanisms for preventing errors and effective security.
@@ -31,7 +31,7 @@ We won’t be explaining the authentication mechanisms here but we will just tak
 
 ### Vulnerabilities in the authentication mechanisms
 
-![1](/blog/assets/images/13/3.png)
+![1](/assets/images/13/3.png)
 
 
 
@@ -58,7 +58,7 @@ __List of various bugs associated with the authentication mechanisms:__
 ## Testing some of the mentioned vulnerabilities
 
 
-![1](/blog/assets/images/13/4.png)
+![1](/assets/images/13/4.png)
 
 
 #### Login Over HTTP

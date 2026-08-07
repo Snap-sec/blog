@@ -30,7 +30,7 @@ One of the easiest and simplest ways to ensure your product is vulnerability fre
 
 ### Continuous Security testing
 
-![1](/blog/assets/images/11/2.png)
+![1](/assets/images/11/2.png)
 
 
 

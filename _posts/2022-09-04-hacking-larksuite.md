@@ -90,7 +90,7 @@ Although we cannot write and publish about every vulnerability we found, but her
 
 We Started with their access control model which included tons of permission on each level and just after spending a few hours we found that Lark-suite allows highest privileged user(Primary administrator) to invite other admin's/users. The invited users are allowed to view/modify their folders in the lark app. But we found a security issue that could have allowed other users to view/modify the directory structure of other users in the organization, without having any access on those files.
 
-![1](/blog/assets/images/lark/1/1.png)
+![1](/assets/images/lark/1/1.png)
 
 
 Once the *highest privileged user(Primary administrator)* added another user he was only able to *access the company information* but he lacked access on the *files and directories* of other members. On digging a bit we found a *GET Request* which takes user id in a parameter and *returns the directories and tokens of that user* in the response.
@@ -106,7 +106,7 @@ Cache-Control: no-cache
 Cookie:[Value]
 ```
 
-![1](/blog/assets/images/lark/1/2.png)
+![1](/assets/images/lark/1/2.png)
 
 On the above request we appended another token in the *parameter query* and added a *parentToken* and we gave its *value* as the _user's folder token_ we got in the response of the above request. Request looks something like this:
 
@@ -123,7 +123,7 @@ Cookie:[Value]
 The response of this request returned us all of the *files* inside that parent directory as well as the unique `token` of each file inside that directory, these Tokens could be later used to download the whole file using this endpoint `https://internal-api-space.larksuite.com/space/api/box/stream/download/all/[token]/` 
 
 
-![1](/blog/assets/images/lark/1/3.png)
+![1](/assets/images/lark/1/3.png)
 
 Moving a step further, we tried if we can *create new files* inside that *folder* and enquiring a bit we found a *below http request* was used to create new folders in a *directory*
 
@@ -139,7 +139,7 @@ Cookie:[Value]
 ```
 We used the *leaking directory tokens* in this request and the response was **200 ok** and upon confirmation, we found *new sub directory* was created in that folder.
 
-![1](/blog/assets/images/lark/1/4.png)
+![1](/assets/images/lark/1/4.png)
 
 
 ---
@@ -198,7 +198,7 @@ In this case, Lark-suite allowed admins to invite other admins with specific per
 
 In this case *we added a user with only* view company information as shown in this image.
 
-![1](/blog/assets/images/lark/2/1.png)
+![1](/assets/images/lark/2/1.png)
 
 We gave the new user this(company info) permission and restricted him from other permissions available, which means he should not be able to access other but we managed to figure out that an invited admin with limited privileges can still Edit/Access/Delete All-staff group in the organization.
 
@@ -285,7 +285,7 @@ In general, an unprivileged user was able to manage a staff department without h
 
 ### [IDOR] - Access to anyone's ticket's of helpdesk 
 
-![1](/blog/assets/images/lark/rest/xxx2.png)
+![1](/assets/images/lark/rest/xxx2.png)
 
 
 In enterprise collaboration, employees often have questions and don't know who to ask. Even they make lot of efforts and find someone who can answer the questions, they may not receive replies in time. To avoid such process, larksuite had a feature called designed called HelpDesk.
@@ -312,7 +312,7 @@ As mentioned earlier *larksuite allows* users to share *files with others* . A f
 
 While *browsing* a file as a user and at the same time analyzing the requests via burp we *saw an* `HTTP` request which leaked the *current version id* of the *file* including the *previous versions ids of file*.
 
-![1](/blog/assets/images/lark/3/2.PNG)
+![1](/assets/images/lark/3/2.PNG)
 
 
 We also found another `http` POST request and in its body we *posted* the leaked *previous version id* and in the *response* it gave us various details of the *previous version* along with the *download url of that file*.
@@ -330,7 +330,7 @@ Content-Type: application/json
 ```
 
 
-![1](/blog/assets/images/lark/3/1.PNG)
+![1](/assets/images/lark/3/1.PNG)
 
 
 Browsing this *url in browser* we were able to download all of the *previosu versions* of the file.
@@ -361,7 +361,7 @@ In the previous issue, we mentioned that larksuite allowed users to *share files
 
 In this case *we shared our file* with a user and *restricted the download permissions* , implying that the user with whom the file is being shared will be unable to download (as seen download button is disabled) the *file* but can *only view it*.
 
-![1](/blog/assets/images/lark/4/1.png)
+![1](/assets/images/lark/4/1.png)
 
 We were able to bypass this restriction simply by *sending this http request*:
 ```http
@@ -388,7 +388,7 @@ DOM-based open redirection arises when a script writes controllable data into th
 The interesting thing about the DOM based open redirection is that if an attacker is able to control the start of the string that is passed to the redirection API, then it may be possible to escalate this vulnerability into a JavaScript injection attack, by using a URL with the javascript: pseudo-protocol to execute arbitrary script code when the URL is processed by the browser. For example
 
 
-![1](/blog/assets/images/lark/rest/xxx1.png)
+![1](/assets/images/lark/rest/xxx1.png)
 
 
 
@@ -408,7 +408,7 @@ The *Admin* invited a user in his personal *directory*  with only *view permissi
 
 Logically *viewers access from that folder* should be removed when it is *moved into the admins trash bin*, but we noticed that *viewer was still able to get the files inside that folder*, via a `GET` request which materialized the thought that *viewer still has access* on the *folder*. We tried to *perform other restricted* operations by sending *various http requests* but *no luck with that*. Then we *noticed that* there is a *delete permanent* feature available *in the trash* we tried to twitch this. 
 
-![1](/blog/assets/images/lark/5/1.PNG)
+![1](/assets/images/lark/5/1.PNG)
 
 
 HTTP request we *analyzed* that was responsible for *deleting permanentaly* a *folder looked something* like this:
@@ -476,7 +476,7 @@ Larksuite allowed users with *specific permissions* to be invited in the team an
 
 Admins can add a user with *App management permission* on a specific *app* and once the *users create* an app, they will have to *submit it to admin* who will approve the *application*. After approval from the admin, that application wil be functional and the *api token* will get validated. 
 
-![1](/blog/assets/images/lark/rest/3.png)
+![1](/assets/images/lark/rest/3.png)
 
 
 Since we know user couldn't approve an app by himslef so noticed a request *that was responsible for approving the application*, it looked something like this:
@@ -564,7 +564,7 @@ So as soon as someone from the team who has access to Invite Team members functi
 
 In this issue, we managed to figure our that when permission named as **internal risk control** is assigned to any user he is able to view all the admin logs of the company, Which shouldn't be the case generally, So we decided to dig the further and later on found it was a security issue.
 
-![1](/blog/assets/images/lark/rest/2.png)
+![1](/assets/images/lark/rest/2.png)
 
 
 Admin logs contain all the sensitive information like recent changes made, Permission changes,  View newly added or removed users, and View newly created files and deleted files. It keeps a record of all the recent activities in the organization. We found a user *without the above-mentioned permission* was able to *access the company logs* via broken authentication on mentioned API endpoint.

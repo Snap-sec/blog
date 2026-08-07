@@ -21,7 +21,7 @@ In this article we will first understand a hackers mindset beyond his talent, vi
 
 ## Pleasure is based on the work they do.
 
-![x](/blog/assets/images/7/2.png)
+![x](/assets/images/7/2.png)
 
 
 > Strive for progress not perfection
@@ -30,7 +30,7 @@ A hacker hardly attaches his *pleasure to  outcomes* of his efforts rather he en
 
 ### Creative Thinking
 
-![x](/blog/assets/images/7/3.png)
+![x](/assets/images/7/3.png)
 
 > Creativity is seeing what everyone else has seen, and thinking what no one else has thought.
 
@@ -41,7 +41,7 @@ Finding a potential vulnerability in a system can have endless opportunities but
 
 ### SYSTEMIZING : Drive to uderstand systems: 
 
-![x](/blog/assets/images/7/4.png)
+![x](/assets/images/7/4.png)
 
 
 >  It is always easier to destroy a complex system than to selectively alter it ― Roby James
@@ -54,7 +54,7 @@ Simply putting *hackers* aren't stereotyped with the crux of technology but they
 
 ### Persistence and patience
 
-![x](/blog/assets/images/7/5.png)
+![x](/assets/images/7/5.png)
 
 
 > Nothing in this world can take the place of persistence 
@@ -63,7 +63,7 @@ Hackers will try many things that don’t work. They  will spend hours on ideas 
 
 ### Ethics
 
-![x](/blog/assets/images/7/6.png)
+![x](/assets/images/7/6.png)
 
 
 

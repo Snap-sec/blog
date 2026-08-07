@@ -14,7 +14,7 @@ You might be familiar with the annoying OTPS or other authentication tokens deli
 
 ## What is two factor authentication or 2FA?
 
-![1](/blog/assets/images/9/2.png)
+![1](/assets/images/9/2.png)
 
 
 Two-factor authentication (2FA), sometimes referred to as two-step verification or dual-factor authentication , is a security process in which users provide two different authentication factors to verify themselves. 2FA is implemented to better protect both a user’s credentials and the resources the user can access.
@@ -27,7 +27,7 @@ Two-factor authentication has long been used to control access to sensitive syst
 
 ## Exploiting weak or improper 2FA in web applications
 
-![1](/blog/assets/images/9/3.png)
+![1](/assets/images/9/3.png)
 
 Many modern web applications implement an external layer of security i.e 2FA which is a brainer to most of us it was devised to protect but by exploiting this issue hackers can sometimes compromise the accounts of users without much toil. In this section, we will take a look at how this _extra layer of security can be exploited and what its exploitation will land an attacker on_.
 
@@ -41,7 +41,7 @@ Furthermore, once the 2FA is bypassed on an account and Attacker can delete acco
 
 # 2FA/OTP Bypasses
 
-![1](/blog/assets/images/9/4.png)
+![1](/assets/images/9/4.png)
 
 
 This extra layer of security implementation is gaining fame in modern-day web applications and is implemented on a huge scale. But as discussed above _improper implementation_ poses risk to both organizations as well as users residing on their 2FA. As a _pen-tester, bug hunter_ whenever you come across these 2FA's mechanisms implemented in an app make sure you test and try every bypass to identify _vulnerability_. Because at the end of the day you are securing the internet not just breaching it. Below are a few of the techniques I use to _bypass 2FA_ in the application.

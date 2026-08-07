@@ -52,7 +52,7 @@ If the developer has restricted users from uploading files under 2 MB. And all t
 ## Common File upload misconfiguration
 
 
-![1](/blog/assets/images/14/2.png)
+![1](/assets/images/14/2.png)
 
 
 - **No input sanitization:**
