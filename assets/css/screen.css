@@ -145,16 +145,18 @@ ol {
   height: 62px;
   display: flex;
   align-items: center;
+  background: #FFFFFF;
+  border-bottom: 0.5px solid var(--gray-600);
   transform: translateZ(0);
   will-change: background, box-shadow;
   transition: background .2s, box-shadow .2s;
 }
 
 #snapsec-nav.scrolled {
-  background: rgba(255, 255, 255, .96);
+  background: rgba(255, 255, 255, .98);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 1px 0 0 var(--gray-600);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
 .nav-inner {
@@ -162,6 +164,18 @@ ol {
   align-items: center;
   justify-content: space-between;
   width: 100%;
+}
+
+.nav-left-group {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-right-group {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .nav-logo {
