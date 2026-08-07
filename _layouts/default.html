@@ -62,24 +62,24 @@ ga('send', 'pageview');
 
         <div class="collapse navbar-collapse" id="navbarMediumish">
             <ul class="navbar-nav ml-auto align-items-lg-center">
-                {% if page.url == "/" %}
+                <li class="nav-item">
+                    <a class="nav-link" href="https://snapsec.co/platform">Platform</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://snapsec.co/services">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://snapsec.co/our-work">Our Work</a>
+                </li>
+                {% if page.url == "/" or page.layout == "post" %}
                 <li class="nav-item active">
                 {% else %}
                 <li class="nav-item">
                 {% endif %}
                     <a class="nav-link" href="{{ site.baseurl }}/">Blog</a>
                 </li>
-		    
                 <li class="nav-item">
-                    <a class="nav-link" href="https://snapsec.co/blog">Short Stories</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="https://snapsec.co/work.html">Our Work</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="https://snapsec.co/#contact">Contact Us</a>
+                    <a class="nav-link" href="https://snapsec.co/contact-us">Contact Us</a>
                 </li>
 
                 {% include search-lunr.html %}
@@ -98,28 +98,7 @@ ga('send', 'pageview');
             {{ content }}
         </div>
 
-        {% if site.mailchimp-list %}
-        <!-- Enterprise Newsletter Banner -->
-        <div class="newsletter-card my-5">
-            <div class="row align-items-center">
-                <div class="col-lg-7 mb-3 mb-lg-0">
-                    <span class="newsletter-badge">SECURITY NEWSLETTER</span>
-                    <h3 class="newsletter-title mt-2">Stay ahead of emerging threats & vulnerabilities</h3>
-                    <p class="newsletter-desc mb-0">Get technical deep-dives, vulnerability breakdowns, and security insights directly in your inbox.</p>
-                </div>
-                <div class="col-lg-5">
-                    <form action="{{site.mailchimp-list}}" method="post" name="mc-embedded-subscribe-form" class="newsletter-form validate" target="_blank" novalidate>
-                        <div class="input-group">
-                            <input type="email" placeholder="Enter your work email..." name="EMAIL" class="form-control newsletter-input" id="mce-EMAIL" autocomplete="on" required>
-                            <div class="input-group-append">
-                                <button type="submit" name="subscribe" class="btn btn-newsletter">Subscribe</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        {% endif %}
+        {% include demo-banner.html %}
             
     </div>
 </div> <!-- /.site-content -->

@@ -19,12 +19,17 @@ module Jekyll
 
 	class GhostPage < StaticFile
 
+		def extname
+			'.json'
+		end
+
 		def initialize(site, base, dir, name, contents)
 			@site = site
 			@base = base
 			@dir  = dir
 			@name = name
 			@contents = contents
+			@relative_path = File.join(dir, name)
 		end
 
 		def write(dest)
@@ -53,7 +58,7 @@ module Jekyll
 
 		def generate(site)
 
-			converter = site.getConverterImpl(Jekyll::Converters::Markdown)
+			converter = site.find_converter_instance(Jekyll::Converters::Markdown)
 			ex_posts = []
 			id = 0
 
