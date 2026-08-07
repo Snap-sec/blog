@@ -107,23 +107,28 @@ post_class: post-template
 
 
   <!-- Prev / Next -->
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px;">
-    <div>
-      {% if page.previous.url %}
-      <a href="{{ site.baseurl }}{{ page.previous.url }}" class="nav-post-card">
-        <span class="nav-post-label">&larr; Previous</span>
-        <span class="nav-post-title">{{ page.previous.title }}</span>
-      </a>
-      {% endif %}
-    </div>
-    <div>
-      {% if page.next.url %}
-      <a href="{{ site.baseurl }}{{ page.next.url }}" class="nav-post-card" style="text-align:right;">
-        <span class="nav-post-label">Next &rarr;</span>
-        <span class="nav-post-title">{{ page.next.title }}</span>
-      </a>
-      {% endif %}
-    </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));gap:20px;margin-top:40px;padding-top:32px;border-top:.5px solid var(--gray-600);">
+    {% if page.previous.url %}
+    <a href="{{ site.baseurl }}{{ page.previous.url }}" class="nav-post-card nav-post-prev">
+      <span class="nav-post-label">
+        <svg class="nav-arrow-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        PREVIOUS ARTICLE
+      </span>
+      <span class="nav-post-title">{{ page.previous.title }}</span>
+    </a>
+    {% else %}
+    <div></div>
+    {% endif %}
+
+    {% if page.next.url %}
+    <a href="{{ site.baseurl }}{{ page.next.url }}" class="nav-post-card nav-post-next">
+      <span class="nav-post-label">
+        NEXT ARTICLE
+        <svg class="nav-arrow-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </span>
+      <span class="nav-post-title">{{ page.next.title }}</span>
+    </a>
+    {% endif %}
   </div>
 
   {% if page.disqus == true %}{% include disqus.html %}{% endif %}
