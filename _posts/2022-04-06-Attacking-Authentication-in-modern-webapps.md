@@ -110,7 +110,7 @@ By sending a very long string (100000 characters) it’s possible to cause a den
 
 One can simply intercept the request in burp and then can fiddle with different form fields in the burp by sending long string passwords(100000 characters) and checking if the response is **500 internal server error**.
 
-{{500internal pic}}
+*(500 Internal Server Error Response)*
 
 
 
