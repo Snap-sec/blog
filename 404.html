@@ -1,16 +1,55 @@
 ---
 layout: default
-title: 404
+title: Page Not Found
 permalink: /404.html
 ---
 
+<div class="notfound-container">
 
+  <!-- Status Pill -->
+  <div class="notfound-badge">
+    <span class="notfound-dot"></span>
+    STATUS 404 // RESOURCE UNREACHABLE
+  </div>
 
-<div class="text-center">
+  <!-- Display Code -->
+  <h1 class="notfound-code">404</h1>
 
+  <!-- Heading & Subtext -->
+  <h2 class="notfound-title">Target Not Found</h2>
+  <p class="notfound-desc">
+    The page or security research article you are looking for might have been moved, renamed, or is temporarily unavailable.
+  </p>
 
-  
-  
-<h1 class="display-1 mt-5 mb-4"><span class="badge badge-danger">Redirection</span> Redirecting to new blog!</h1>
-<p>Please use this link to visit our new blog <a href="https://blog.snapsec.co/">blog.snapsec.co</a>!</p>
+  <!-- Action Buttons -->
+  <div class="notfound-actions">
+    <a href="{{ site.baseurl }}/" class="btn-primary btn-primary-lg">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+      Return to Blog Home
+    </a>
+    <a href="https://snapsec.co/contact-us" class="btn-ghost btn-primary-lg">
+      Contact Support
+    </a>
+  </div>
+
+  <!-- Latest Articles Section -->
+  <div class="notfound-quicklinks">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;text-align:left;flex-wrap:wrap;gap:12px;">
+      <div>
+        <div class="notfound-quicklinks-heading" style="margin-bottom:4px;">Latest Articles</div>
+        <h3 style="font-family:var(--font-head);font-size:20px;font-weight:600;color:#000;margin:0;">Explore Recent Security Research</h3>
+      </div>
+      <a href="{{ site.baseurl }}/" style="font-size:13px;font-weight:600;color:var(--blue);display:inline-flex;align-items:center;gap:4px;text-decoration:none;">
+        View All Articles
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </a>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));gap:24px;text-align:left;">
+      {% for post in site.posts limit:3 %}
+        {% include postbox.html %}
+      {% endfor %}
+    </div>
+  </div>
+
 </div>
