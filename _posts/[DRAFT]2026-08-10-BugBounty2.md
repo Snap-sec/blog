@@ -1,7 +1,120 @@
 ---
 layout: post
-title: "Broken Access Control Leads to Unauthorized Access to Sensitive Audio Recordings"
+title: "Broken Access Control Leading to Unauthorized Access to Audio Recordings"
 author: snapsec
-categories: [methodology, VAPT]
+categories: [VAPT]
 image: assets/images/23/0.png
+
 ---
+
+## Introduction
+
+Broken access control can result in unauthorized access to resources that should not be publicly available.
+
+A Bugcrowd submission dated **21 April 2018** reported a **P1** vulnerability affecting `api.twilio.com`. The submission was categorized under **API Testing**.
+
+According to the researcher, while testing `api.twilio.com`, they examined the domain using the Wayback Machine and discovered a large number of audio-recording links. The researcher reported that the recordings contained conversations between companies and their customers, including personal and sensitive information.
+
+## What Was Reported
+
+The researcher reported finding a large number of audio recordings while examining historical information associated with `api.twilio.com`.
+
+According to the submission, these recordings contained conversations between companies and their customers in which personal and sensitive information was being shared.
+
+The researcher stated that almost **9,000 recording links** were identified and collected into a JSON file.
+
+## The Vulnerability
+
+The reported issue was the ability to access the identified audio recordings **without authentication**.
+
+According to the researcher, an attacker could directly download and listen to the audio recordings without authentication.
+
+This resulted in unauthorized access to recordings that, according to the submission, contained confidential and personal information belonging to companies and their customers.
+
+## Discovery
+
+The researcher stated that the issue was discovered while testing `api.twilio.com` and examining the domain through the Wayback Machine.
+
+During this process, the researcher reported discovering a large number of audio-recording links. The submission states that these recordings contained conversations between companies and their customers, including personal and sensitive information.
+
+The researcher subsequently created a JSON file containing the identified recording links. The submission states that the file contained almost **9,000 recording links**.
+
+## Impact
+
+The reported impact was unauthorized access to audio recordings and the information contained within them.
+
+According to the submission, an attacker could access the recordings without authentication, download them, and listen to the conversations.
+
+The researcher reported that this could expose:
+
+* Personal information belonging to clients.
+* Confidential information belonging to clients.
+* Personal information contained in conversations.
+* Confidential information shared between companies and their customers.
+
+The reported scale was also significant, with almost **9,000 recording links** identified by the researcher.
+
+## Proof of Concept
+
+The Bugcrowd submission included supporting proof-of-concept files.
+
+The submitted files were:
+
+* `proof of Concept.mkv`
+* `api.twilio.com-waybackurls.json`
+
+The researcher stated that the JSON file contained the identified audio-recording links. The submission also included a video as proof-of-concept material.
+
+## Reported Attack Flow
+
+The issue described in the submission can be summarized as follows:
+
+```text
+Testing api.twilio.com
+        ↓
+Wayback Machine
+        ↓
+Discovery of Audio Recording Links
+        ↓
+Almost 9,000 Recording Links Identified
+        ↓
+No Authentication Required
+        ↓
+Download and Listen to Recordings
+        ↓
+Potential Exposure of Personal and
+Confidential Information
+```
+
+The submission specifically states that the recordings could be directly downloaded and listened to without authentication.
+
+## Why This Matters
+
+Access control is particularly important for resources containing sensitive information.
+
+In this reported case, the resources were audio recordings containing conversations between companies and their customers. The researcher stated that personal and sensitive information was being shared within those conversations.
+
+The reported ability to access those recordings without authentication meant that an attacker could potentially obtain information belonging to both companies and their customers.
+
+## Severity
+
+The Bugcrowd submission assigned the reported vulnerability a **P1 priority**.
+
+The priority reflected the reported unauthorized access to audio recordings and the potential exposure of personal and confidential information described in the submission.
+
+## Key Takeaway
+
+This Bugcrowd submission demonstrates the potential impact of broken access control when sensitive resources can be accessed without authentication.
+
+The researcher reported discovering almost **9,000 audio-recording links** and stated that the recordings could be downloaded and listened to without authentication.
+
+The recordings were reported to contain conversations between companies and their customers, including personal and sensitive information.
+
+The case highlights the importance of ensuring that sensitive resources are protected by appropriate access controls.
+
+## Source
+
+This article is based on the Bugcrowd submission **"[Urgent] - Broken Access Control Leads to Huge Data Breach"**, submitted on **21 April 2018** and assigned **P1 priority**.
+
+> **Note:** This article is based strictly on the information provided in the referenced Bugcrowd submission. It does not independently verify the reported vulnerability and does not add technical details beyond the submitted report.
+
