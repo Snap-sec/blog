@@ -4,7 +4,7 @@ layout: post
 title: "Hibob Vulnerable to Log4j Remote Code Execution"
 author: snapsec
 categories: [VAPT]
-image: assets/images/23/0.png
+image: assets/images/23/LOG4j-image.png
 
 ---
 
