@@ -42,7 +42,7 @@ I then submitted the payload through an application feature that generated a ser
 
 ### Image 1
 
-![Image 1](/assets/images/bb/log4j1.png)
+![Image 1](/assets/images/log4j1.png)
 
 The screenshot shows the controlled DNS subdomain and the JNDI payload submitted to the application.
 
@@ -56,7 +56,7 @@ This confirmed that the application had processed the supplied JNDI reference an
 
 ### Image 2
 
-![Image 2](/assets/images/bb/log4j2.png)
+![Image 2](/assets/images/log4j2.png)
 
 The screenshot shows the DNS monitoring page during the verification process.
 
@@ -68,7 +68,7 @@ The requests confirmed that the supplied JNDI payload was being processed by the
 
 ### Image 3
 
-![Image 3](/assets/images/bb/log4j3.png)
+![Image 3](/assets/images/log4j3.png)
 
 The screenshot shows the DNS requests received for the controlled subdomain.
 
