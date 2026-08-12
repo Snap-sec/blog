@@ -4,7 +4,7 @@ layout: post
 title: "Executing Custom Database Scripts from Unauthorized Roles"
 author: snapsec
 categories: [VAPT]
-image: assets/images/23/0.png
+image: assets/images/23/Unauth-image.png
 
 ---
 
