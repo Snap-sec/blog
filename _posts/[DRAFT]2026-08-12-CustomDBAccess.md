@@ -1,22 +1,20 @@
 ---
-
 layout: post
 title: "Executing Custom Database Scripts from Unauthorized Roles"
 author: snapsec
 categories: [VAPT]
 image: assets/images/23/Unauth-image.png
-
 ---
 
 ## Introduction
 
-A **Broken Access Control (BAC)** vulnerability was identified in the management dashboard of a cloud-based identity and access management platform.
+During security testing of a cloud-based identity and access management platform, I identified a **Broken Access Control (BAC)** vulnerability affecting the Custom Database Action Script functionality.
 
-The issue affected API endpoints responsible for executing Custom Database Action Scripts. Roles that were not authorized to view, edit, or delete user information were able to invoke these backend functions and perform operations against users stored in custom databases.
+The issue allowed roles without permission to view, edit, or delete user information to invoke backend functions responsible for interacting with users stored in custom databases.
 
-This created a privilege escalation scenario where users with limited dashboard permissions could perform administrative actions that should have been restricted to higher-privileged roles.
+This created a privilege escalation scenario in which lower-privileged roles could perform user-management operations that should have been restricted to higher-privileged roles.
 
-> **Disclosure Note:** The identity of the affected organization, its product name, domains, tenant information, and infrastructure-specific identifiers have been intentionally omitted. Endpoint references have also been presented without the original host or domain to prevent disclosure of company-specific infrastructure.
+> **Disclosure Note:** The identity of the affected organization, product name, domains, tenant information, and infrastructure-specific identifiers have been intentionally removed. The endpoint paths are retained where necessary to explain the technical behavior of the vulnerability. Screenshots should also be sanitized before publication.
 
 ## Affected Endpoints
 
@@ -31,7 +29,9 @@ The affected functionality was exposed through the following API paths:
 /api/try-delete
 ```
 
-These endpoints were responsible for executing Custom Database Action Scripts. The underlying authorization checks did not adequately restrict access based on the permissions assigned to the authenticated role.
+These endpoints were responsible for executing Custom Database Action Scripts.
+
+The authorization controls did not adequately restrict access based on the permissions assigned to the authenticated role.
 
 As a result, users with insufficient privileges could invoke functionality intended for users with broader permissions.
 
@@ -39,31 +39,35 @@ As a result, users with insufficient privileges could invoke functionality inten
 
 The following role configurations were affected:
 
-| Role                   | Unauthorized Capability  |
-| ---------------------- | ------------------------ |
+| Role | Unauthorized Capability |
+|---|---|
 | Editor - Specific Apps | View, Edit, Delete Users |
-| Editor - Connections   | View, Edit, Delete Users |
-| Viewer - Users         | Edit, Delete Users       |
-| Viewer - Config        | View, Edit, Delete Users |
+| Editor - Connections | View, Edit, Delete Users |
+| Viewer - Users | Edit, Delete Users |
+| Viewer - Config | View, Edit, Delete Users |
 
 The privilege escalation occurred because authorization was not consistently enforced at the affected API endpoints.
 
 ## Setting Up the Custom Database
 
-The scenario begins with an administrator configuring a new database connection and enabling a **Custom Database**.
+The test scenario begins with an administrator configuring a new database connection and enabling a **Custom Database**.
 
 The associated Database Action Scripts are then configured for operations such as:
 
-* Get User
-* Delete User
-* Change Password
-* Create User
-* Login
-* Verify User
+- Get User
+- Delete User
+- Change Password
+- Create User
+- Login
+- Verify User
 
 These scripts provide application-level functionality for interacting with users stored in the custom database.
 
-The security issue occurs when these backend functions remain callable by roles that do not have permission to perform the corresponding user-management operations.
+### Image 1
+
+![Image 1](/assets/images/bb/unauth1.png)
+
+The screenshot shows the Custom Database configuration and the Custom Database option being enabled.
 
 ## Users in the Custom Database
 
@@ -71,13 +75,17 @@ The test environment contained a custom database with multiple user records.
 
 A tenant member was assigned the **Viewer - Users** role.
 
-This role was expected to provide visibility into user-related information without granting permission to modify or delete users.
+This role was expected to provide access to user-related information without granting permission to modify or delete users.
 
-However, the backend API did not enforce the same authorization restrictions as the management interface.
+### Image 2
+
+![Image 2](/assets/images/bb/unauth2.png)
+
+The screenshot shows the Custom Database configuration and the users stored in the custom database.
 
 ## Deleting a User
 
-The issue was demonstrated using the `Viewer - Users` role.
+I demonstrated the issue using the `Viewer - Users` role.
 
 An authenticated session belonging to this role was used to send a request to the user-deletion endpoint:
 
@@ -100,11 +108,17 @@ The request body contained the connection and user identifier required by the de
 }
 ```
 
-The endpoint returned a successful response:
+The endpoint returned:
 
 ```text
 HTTP/1.1 200 OK
 ```
+
+### Image 3
+
+![Image 3](/assets/images/bb/unauth3.png)
+
+The screenshot shows the tenant member assigned the **Viewer - Users** role and the request sent to the `/api/try-delete` endpoint.
 
 The important security issue was not the successful HTTP response itself, but the fact that the request was accepted despite being initiated from a role that did not have permission to delete users.
 
@@ -112,22 +126,34 @@ The important security issue was not the successful HTTP response itself, but th
 
 After the request was processed, the corresponding user record was no longer present in the custom database.
 
+### Image 4
+
+![Image 4](/assets/images/bb/unauth4.png)
+
+The screenshot shows the request and response, followed by the custom database where the user with `id=6` is no longer present.
+
 This demonstrated that a role with restricted user-management permissions could directly invoke a backend function intended to delete users.
 
-The same authorization weakness affected other Custom Database Action Script endpoints, allowing unauthorized roles to invoke additional user-management functionality.
+The same authorization weakness affected other Custom Database Action Script endpoints, allowing additional user-management functionality to be invoked through their respective endpoints.
 
 ## Parameters and Endpoint Functions
 
 The affected endpoints supported different operations and parameters:
 
-| Endpoint                   | Purpose               | JSON Parameters        |
-| -------------------------- | --------------------- | ---------------------- |
-| `/api/try-verify`          | Verify users          | `email`                |
-| `/api/try-create`          | Create users          | `username`, `email`    |
-| `/api/try-login`           | Attempt user login    | `username`, `password` |
+| Endpoint | Purpose | JSON Parameters |
+|---|---|---|
+| `/api/try-verify` | Verify users | `email` |
+| `/api/try-create` | Create users | `username`, `email` |
+| `/api/try-login` | Attempt user login | `username`, `password` |
 | `/api/try-change_password` | Change user passwords | `email`, `newPassword` |
-| `/api/try-get_user`        | Retrieve user details | `email`                |
-| `/api/try-delete`          | Delete users          | `id`                   |
+| `/api/try-get_user` | Retrieve user details | `email` |
+| `/api/try-delete` | Delete users | `id` |
+
+### Image 5
+
+![Image 5](/assets/images/bb/unauth5.png)
+
+The screenshot shows the request and response information, the resulting database state, and the endpoint parameter information.
 
 Because authorization was not properly enforced at the endpoint level, these functions could be invoked outside the intended permission model.
 
@@ -135,14 +161,20 @@ Because authorization was not properly enforced at the endpoint level, these fun
 
 The affected functionality introduced multiple security risks:
 
-| Endpoint                   | Potential Impact                                                                    |
-| -------------------------- | ----------------------------------------------------------------------------------- |
-| `/api/try-verify`          | Unauthorized verification-state changes for users                                   |
-| `/api/try-create`          | Unauthorized creation of new users                                                  |
-| `/api/try-login`           | Unauthorized login attempts against custom-database accounts                        |
-| `/api/try-change_password` | Unauthorized password changes for user accounts                                     |
-| `/api/try-get_user`        | Unauthorized retrieval of user information                                          |
-| `/api/try-delete`          | Unauthorized deletion of individual user accounts and potentially multiple accounts |
+| Endpoint | Potential Impact |
+|---|---|
+| `/api/try-verify` | Unauthorized verification-state changes for users |
+| `/api/try-create` | Unauthorized creation of new users |
+| `/api/try-login` | Brute-force login attempts against custom-database accounts |
+| `/api/try-change_password` | Unauthorized password changes for user accounts |
+| `/api/try-get_user` | Unauthorized retrieval of user information |
+| `/api/try-delete` | Unauthorized deletion of individual user accounts and potentially multiple accounts |
+
+### Image 6
+
+![Image 6](/assets/images/bb/unauth6.png)
+
+The screenshot contains the endpoint parameter information and the reported impact for each affected endpoint.
 
 The combination of these capabilities could provide an unauthorized role with significant control over users stored within the custom database.
 
@@ -158,11 +190,11 @@ This case demonstrates the importance of treating every API endpoint as an indep
 
 For sensitive operations such as:
 
-* Creating users
-* Deleting users
-* Changing passwords
-* Retrieving user information
-* Modifying verification status
+- Creating users
+- Deleting users
+- Changing passwords
+- Retrieving user information
+- Modifying verification status
 
 the backend should validate whether the authenticated identity has the specific permission required for the requested operation.
 
@@ -192,6 +224,5 @@ Organizations implementing role-based access control should regularly test backe
 
 This article is based on the reported vulnerability **"Executing Custom Database Scripts from un-authorized roles"**, classified as **Broken Access Control (BAC)**.
 
-> **Disclosure Note:** The affected organization's name, product name, domains, tenant identifiers, URLs, infrastructure details, and other identifying information have been intentionally removed from this article. Endpoint paths are retained only where necessary to explain the technical nature of the vulnerability.
-
+> **Disclosure Note:** The affected organization's name, product name, domains, tenant identifiers, URLs, infrastructure details, and other identifying information have been intentionally removed from this article. The screenshots should also be sanitized to remove or blur any remaining company-specific or sensitive information before publication.
 
