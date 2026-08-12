@@ -10,161 +10,188 @@ image: assets/images/23/Unauth-image.png
 
 ## Introduction
 
-A **Broken Access Control (BAC)** vulnerability was reported in the Auth0 Management Dashboard.
+A **Broken Access Control (BAC)** vulnerability was identified in the management dashboard of a cloud-based identity and access management platform.
 
-The affected target was `manage.auth0.com`, with the affected API endpoints located under:
+The issue affected API endpoints responsible for executing Custom Database Action Scripts. Roles that were not authorized to view, edit, or delete user information were able to invoke these backend functions and perform operations against users stored in custom databases.
 
-```text
-https://manage.auth0.com/api/*
-```
+This created a privilege escalation scenario where users with limited dashboard permissions could perform administrative actions that should have been restricted to higher-privileged roles.
 
-The issue allowed roles without permission to view, edit, or delete user information to execute Custom Database Action Scripts and perform actions against user information stored in custom databases added to Auth0.
+> **Disclosure Note:** The identity of the affected organization, its product name, domains, tenant information, and infrastructure-specific identifiers have been intentionally omitted. Endpoint references have also been presented without the original host or domain to prevent disclosure of company-specific infrastructure.
 
 ## Affected Endpoints
 
-The following endpoints were identified:
+The affected functionality was exposed through the following API paths:
 
 ```text
-https://manage.auth0.com/api/try-verify
-https://manage.auth0.com/api/try-create
-https://manage.auth0.com/api/try-login
-https://manage.auth0.com/api/try-change_password
-https://manage.auth0.com/api/try-get_user
-https://manage.auth0.com/api/try-delete
+/api/try-verify
+/api/try-create
+/api/try-login
+/api/try-change_password
+/api/try-get_user
+/api/try-delete
 ```
 
-These endpoints were reported as having no access-control protection, allowing roles without the appropriate permissions to perform actions on user information.
+These endpoints were responsible for executing Custom Database Action Scripts. The underlying authorization checks did not adequately restrict access based on the permissions assigned to the authenticated role.
+
+As a result, users with insufficient privileges could invoke functionality intended for users with broader permissions.
 
 ## Affected Roles
 
-The reported role escalations were:
+The following role configurations were affected:
 
-| Role                   | Escalation               |
+| Role                   | Unauthorized Capability  |
 | ---------------------- | ------------------------ |
 | Editor - Specific Apps | View, Edit, Delete Users |
 | Editor - Connections   | View, Edit, Delete Users |
 | Viewer - Users         | Edit, Delete Users       |
 | Viewer - Config        | View, Edit, Delete Users |
 
-According to the report, these roles could escalate their privileges through the affected endpoints.
+The privilege escalation occurred because authorization was not consistently enforced at the affected API endpoints.
 
 ## Setting Up the Custom Database
 
-The reported scenario begins with an administrator or invited user creating a new Connection and enabling a Custom Database on that connection.
+The scenario begins with an administrator configuring a new database connection and enabling a **Custom Database**.
 
-The Database Action Script is then enabled and configured. The report states that all Custom Scripts, including **Get User, Delete User, Change Password**, and others, should be configured.
+The associated Database Action Scripts are then configured for operations such as:
 
-![Image 1](/assets/images/unauth1.png)
+* Get User
+* Delete User
+* Change Password
+* Create User
+* Login
+* Verify User
 
-The screenshot shows the Custom Database configuration in the Auth0 dashboard, including the Custom Database option being enabled.
+These scripts provide application-level functionality for interacting with users stored in the custom database.
+
+The security issue occurs when these backend functions remain callable by roles that do not have permission to perform the corresponding user-management operations.
 
 ## Users in the Custom Database
 
-The scenario then uses a Custom MySQL database containing several users.
+The test environment contained a custom database with multiple user records.
 
-A tenant member is invited into the organization using the **Viewer - Users** role.
+A tenant member was assigned the **Viewer - Users** role.
 
-![Image 2](/assets/images/unauth2.png)
+This role was expected to provide visibility into user-related information without granting permission to modify or delete users.
 
-The screenshot shows the Custom Database configuration and the users stored in the Custom MySQL database.
+However, the backend API did not enforce the same authorization restrictions as the management interface.
 
 ## Deleting a User
 
 The issue was demonstrated using the `Viewer - Users` role.
 
-According to the report, an attacker with the `Viewer - Users` role could send a request to the following endpoint:
+An authenticated session belonging to this role was used to send a request to the user-deletion endpoint:
 
 ```http
 POST /api/try-delete HTTP/1.1
-Host: manage.auth0.com
+Host: [redacted]
 Connection: close
-Content-Length: 37
+Content-Type: application/json
 Accept: application/json, text/plain, */*
-X-CSRFToken: <CSRF-Token-of-viewer-users>
-x-from-loc: https://manage.auth0.com/dashboard/us/morning-voice-1877-bugcrowd/connections/database/con_vfeWI4nNvmeCjh6y/plug
-User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36
-Content-Type: application/json;charset=UTF-8
-Origin: https://manage.auth0.com
-Sec-Fetch-Site: same-origin
-Sec-Fetch-Mode: cors
-Sec-Fetch-Dest: empty
-Referer: https://manage.auth0.com/dashboard/us/morning-voice-1877-bugcrowd/connections/database/con_vfeWI4nNvmeCjh6y/plug
-Accept-Language: en-US,en;q=0.9
-Cookie: <COOKIE-of-viewer-users>
-
-{"connection":"NewDatabase","id":"6"}
+X-CSRFToken: <CSRF-token>
+Cookie: <authenticated-session>
 ```
 
-The request returned:
+The request body contained the connection and user identifier required by the deletion function:
+
+```json
+{
+  "connection": "NewDatabase",
+  "id": "6"
+}
+```
+
+The endpoint returned a successful response:
 
 ```text
 HTTP/1.1 200 OK
 ```
 
-![Image 3](/assets/images/unauth3.png)
-
-The screenshot shows the tenant member assigned the **Viewer - Users** role and the request sent to the `/api/try-delete` endpoint.
+The important security issue was not the successful HTTP response itself, but the fact that the request was accepted despite being initiated from a role that did not have permission to delete users.
 
 ## Result
 
-After sending the request, the researcher logged into the Custom Database and reported that the user with `id=6` had been removed from the database.
+After the request was processed, the corresponding user record was no longer present in the custom database.
 
-![Image 4](/assets/images/unauth4.png)
+This demonstrated that a role with restricted user-management permissions could directly invoke a backend function intended to delete users.
 
-The screenshot shows the request and response, followed by the Custom Database where the user with `id=6` is no longer present.
-
-The report further states that an attacker could run a loop from `1-n` to delete all users from the database. It also states that the other endpoints could be called with their respective parameters to perform other attacks, including creating users and changing user passwords.
+The same authorization weakness affected other Custom Database Action Script endpoints, allowing unauthorized roles to invoke additional user-management functionality.
 
 ## Parameters and Endpoint Functions
 
-The following endpoints, purposes, and required JSON parameters were listed:
+The affected endpoints supported different operations and parameters:
 
-| Endpoint                                           | Purpose                | JSON Parameters Needed |
-| -------------------------------------------------- | ---------------------- | ---------------------- |
-| `https://manage.auth0.com/api/try-verify`          | Verifying Users        | `email`                |
-| `https://manage.auth0.com/api/try-create`          | Creating Users         | `username,email`       |
-| `https://manage.auth0.com/api/try-login`           | Trying Log-in Users    | `username,password`    |
-| `https://manage.auth0.com/api/try-change_password` | Changing Password user | `email,newPassword`    |
-| `https://manage.auth0.com/api/try-get_user`        | Get user details       | `email`                |
-| `https://manage.auth0.com/api/try-delete`          | Delete Users           | `id`                   |
+| Endpoint                   | Purpose               | JSON Parameters        |
+| -------------------------- | --------------------- | ---------------------- |
+| `/api/try-verify`          | Verify users          | `email`                |
+| `/api/try-create`          | Create users          | `username`, `email`    |
+| `/api/try-login`           | Attempt user login    | `username`, `password` |
+| `/api/try-change_password` | Change user passwords | `email`, `newPassword` |
+| `/api/try-get_user`        | Retrieve user details | `email`                |
+| `/api/try-delete`          | Delete users          | `id`                   |
 
-![Image 5](/assets/images/unauth5.png)
-
-The screenshot shows the request and response information, the resulting database state, and the beginning of the endpoint parameter table.
+Because authorization was not properly enforced at the endpoint level, these functions could be invoked outside the intended permission model.
 
 ## Impact
 
-The reported impact for the affected endpoints was:
+The affected functionality introduced multiple security risks:
 
-| Endpoint                                           | Impact                                                                                                                                       |
-| -------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `https://manage.auth0.com/api/try-verify`          | Attacker verifying unverified users, and attacker un-verifying verified users                                                                |
-| `https://manage.auth0.com/api/try-create`          | Creating New Users                                                                                                                           |
-| `https://manage.auth0.com/api/try-login`           | Brute-force user account passwords against the custom database and bypass brute-force protection as requests will be sent from Auth0 servers |
-| `https://manage.auth0.com/api/try-change_password` | Changing Password of user accounts                                                                                                           |
-| `https://manage.auth0.com/api/try-get_user`        | Get user details                                                                                                                             |
-| `https://manage.auth0.com/api/try-delete`          | Deleting Single User, Delete all users by sending requests from `1-n`                                                                        |
+| Endpoint                   | Potential Impact                                                                    |
+| -------------------------- | ----------------------------------------------------------------------------------- |
+| `/api/try-verify`          | Unauthorized verification-state changes for users                                   |
+| `/api/try-create`          | Unauthorized creation of new users                                                  |
+| `/api/try-login`           | Unauthorized login attempts against custom-database accounts                        |
+| `/api/try-change_password` | Unauthorized password changes for user accounts                                     |
+| `/api/try-get_user`        | Unauthorized retrieval of user information                                          |
+| `/api/try-delete`          | Unauthorized deletion of individual user accounts and potentially multiple accounts |
 
-![Image 6](/assets/images/unauth6.png)
+The combination of these capabilities could provide an unauthorized role with significant control over users stored within the custom database.
 
-The screenshot contains the complete endpoint parameter table and the reported impact for each affected endpoint.
+In particular, unauthorized password changes and user deletion could directly affect account availability and integrity, while unauthorized user retrieval could expose sensitive account information.
+
+## Why This Matters
+
+Role-based access control is only effective when authorization is enforced consistently across both the application interface and its underlying APIs.
+
+Restricting an operation in the dashboard is not sufficient if the corresponding backend endpoint can still be called by a lower-privileged session.
+
+This case demonstrates the importance of treating every API endpoint as an independent authorization boundary.
+
+For sensitive operations such as:
+
+* Creating users
+* Deleting users
+* Changing passwords
+* Retrieving user information
+* Modifying verification status
+
+the backend should validate whether the authenticated identity has the specific permission required for the requested operation.
 
 ## Reported Result
 
-The report concludes that an attacker was able to get read/write permission on the information in the custom database through the affected functionality.
+The demonstrated scenario resulted in unauthorized read and write access to information stored in the custom database.
+
+A role intended to provide limited user visibility was able to invoke backend functions capable of modifying and deleting user records.
+
+This effectively bypassed the intended role-based permission model.
 
 ## Conclusion
 
-The reported vulnerability was classified under **Broken Access Control (BAC)** and affected the Auth0 Management Dashboard.
+This vulnerability demonstrates how **Broken Access Control** can arise when authorization controls are implemented at the application interface but are not consistently enforced at the API layer.
 
-The issue allowed roles without the required permissions to access Custom Database Action Script endpoints and perform operations involving users in a custom database.
+The affected Custom Database Action Script functionality exposed operations for verifying users, creating users, attempting logins, changing passwords, retrieving user information, and deleting users.
 
-The reported operations included verifying users, creating users, attempting logins, changing user passwords, retrieving user details, and deleting users.
+The demonstrated scenario showed that a **Viewer - Users** role could invoke a deletion function despite lacking the expected permission to perform that action.
 
-The demonstrated deletion request showed that a user assigned the **Viewer - Users** role could delete a user from the custom database despite not having the expected permission to perform that action.
+The key lesson is straightforward:
+
+> **Every sensitive API operation must enforce authorization independently of the permissions enforced by the user interface.**
+
+Organizations implementing role-based access control should regularly test backend APIs for privilege escalation and verify that restricted roles cannot directly invoke administrative functionality.
 
 ## Source
 
-This article is based on the reported vulnerability **"Executing Custom Database Scripts from un-authorized roles"**, which was classified as **Broken Access Control (BAC)** and targeted the Auth0 Management Dashboard.
+This article is based on the reported vulnerability **"Executing Custom Database Scripts from un-authorized roles"**, classified as **Broken Access Control (BAC)**.
+
+> **Disclosure Note:** The affected organization's name, product name, domains, tenant identifiers, URLs, infrastructure details, and other identifying information have been intentionally removed from this article. Endpoint paths are retained only where necessary to explain the technical nature of the vulnerability.
 
 
