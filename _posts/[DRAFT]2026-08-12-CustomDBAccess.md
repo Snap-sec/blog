@@ -65,7 +65,7 @@ These scripts provide application-level functionality for interacting with users
 
 ### Image 1
 
-![Image 1](/assets/images/bb/unauth1.png)
+![Image 1](/assets/images/unauth1.png)
 
 The screenshot shows the Custom Database configuration and the Custom Database option being enabled.
 
@@ -79,7 +79,7 @@ This role was expected to provide access to user-related information without gra
 
 ### Image 2
 
-![Image 2](/assets/images/bb/unauth2.png)
+![Image 2](/assets/images/unauth2.png)
 
 The screenshot shows the Custom Database configuration and the users stored in the custom database.
 
@@ -116,7 +116,7 @@ HTTP/1.1 200 OK
 
 ### Image 3
 
-![Image 3](/assets/images/bb/unauth3.png)
+![Image 3](/assets/images/unauth3.png)
 
 The screenshot shows the tenant member assigned the **Viewer - Users** role and the request sent to the `/api/try-delete` endpoint.
 
@@ -128,7 +128,7 @@ After the request was processed, the corresponding user record was no longer pre
 
 ### Image 4
 
-![Image 4](/assets/images/bb/unauth4.png)
+![Image 4](/assets/images/unauth4.png)
 
 The screenshot shows the request and response, followed by the custom database where the user with `id=6` is no longer present.
 
@@ -151,7 +151,7 @@ The affected endpoints supported different operations and parameters:
 
 ### Image 5
 
-![Image 5](/assets/images/bb/unauth5.png)
+![Image 5](/assets/images/unauth5.png)
 
 The screenshot shows the request and response information, the resulting database state, and the endpoint parameter information.
 
@@ -172,7 +172,7 @@ The affected functionality introduced multiple security risks:
 
 ### Image 6
 
-![Image 6](/assets/images/bb/unauth6.png)
+![Image 6](/assets/images/unauth6.png)
 
 The screenshot contains the endpoint parameter information and the reported impact for each affected endpoint.
 
