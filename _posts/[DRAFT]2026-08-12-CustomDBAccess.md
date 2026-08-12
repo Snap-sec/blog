@@ -54,7 +54,7 @@ The reported scenario begins with an administrator or invited user creating a ne
 
 The Database Action Script is then enabled and configured. The report states that all Custom Scripts, including **Get User, Delete User, Change Password**, and others, should be configured.
 
-![Image 1](/assets/images/bb/unauth1.png)
+![Image 1](/assets/images/unauth1.png)
 
 The screenshot shows the Custom Database configuration in the Auth0 dashboard, including the Custom Database option being enabled.
 
@@ -64,7 +64,7 @@ The scenario then uses a Custom MySQL database containing several users.
 
 A tenant member is invited into the organization using the **Viewer - Users** role.
 
-![Image 2](/assets/images/bb/unauth2.png)
+![Image 2](/assets/images/unauth2.png)
 
 The screenshot shows the Custom Database configuration and the users stored in the Custom MySQL database.
 
@@ -101,7 +101,7 @@ The request returned:
 HTTP/1.1 200 OK
 ```
 
-![Image 3](/assets/images/bb/unauth3.png)
+![Image 3](/assets/images/unauth3.png)
 
 The screenshot shows the tenant member assigned the **Viewer - Users** role and the request sent to the `/api/try-delete` endpoint.
 
@@ -109,7 +109,7 @@ The screenshot shows the tenant member assigned the **Viewer - Users** role and 
 
 After sending the request, the researcher logged into the Custom Database and reported that the user with `id=6` had been removed from the database.
 
-![Image 4](/assets/images/bb/unauth4.png)
+![Image 4](/assets/images/unauth4.png)
 
 The screenshot shows the request and response, followed by the Custom Database where the user with `id=6` is no longer present.
 
@@ -128,7 +128,7 @@ The following endpoints, purposes, and required JSON parameters were listed:
 | `https://manage.auth0.com/api/try-get_user`        | Get user details       | `email`                |
 | `https://manage.auth0.com/api/try-delete`          | Delete Users           | `id`                   |
 
-![Image 5](/assets/images/bb/unauth5.png)
+![Image 5](/assets/images/unauth5.png)
 
 The screenshot shows the request and response information, the resulting database state, and the beginning of the endpoint parameter table.
 
@@ -145,7 +145,7 @@ The reported impact for the affected endpoints was:
 | `https://manage.auth0.com/api/try-get_user`        | Get user details                                                                                                                             |
 | `https://manage.auth0.com/api/try-delete`          | Deleting Single User, Delete all users by sending requests from `1-n`                                                                        |
 
-![Image 6](/assets/images/bb/unauth6.png)
+![Image 6](/assets/images/unauth6.png)
 
 The screenshot contains the complete endpoint parameter table and the reported impact for each affected endpoint.
 
