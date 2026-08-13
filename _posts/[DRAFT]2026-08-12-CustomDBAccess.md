@@ -85,7 +85,7 @@ The screenshot shows the Custom Database configuration and the users stored in t
 
 ## Deleting a User
 
-I demonstrated the issue using the `Viewer - Users` role.
+The issue was demonstrated using the `Viewer - Users` role.
 
 An authenticated session belonging to this role was used to send a request to the user-deletion endpoint:
 
@@ -165,7 +165,7 @@ The affected functionality introduced multiple security risks:
 |---|---|
 | `/api/try-verify` | Unauthorized verification-state changes for users |
 | `/api/try-create` | Unauthorized creation of new users |
-| `/api/try-login` | Brute-force login attempts against custom-database accounts |
+| `/api/try-login` | Unauthorized login attempts against custom-database accounts |
 | `/api/try-change_password` | Unauthorized password changes for user accounts |
 | `/api/try-get_user` | Unauthorized retrieval of user information |
 | `/api/try-delete` | Unauthorized deletion of individual user accounts and potentially multiple accounts |
@@ -174,7 +174,7 @@ The affected functionality introduced multiple security risks:
 
 ![Image 6](/assets/images/unauth6.png)
 
-The screenshot contains the endpoint parameter information and the reported impact for each affected endpoint.
+The screenshot contains the endpoint parameter information and the potential impact associated with each affected endpoint.
 
 The combination of these capabilities could provide an unauthorized role with significant control over users stored within the custom database.
 
@@ -198,7 +198,7 @@ For sensitive operations such as:
 
 the backend should validate whether the authenticated identity has the specific permission required for the requested operation.
 
-## Reported Result
+## Result
 
 The demonstrated scenario resulted in unauthorized read and write access to information stored in the custom database.
 
@@ -222,7 +222,6 @@ Organizations implementing role-based access control should regularly test backe
 
 ## Source
 
-This article is based on the reported vulnerability **"Executing Custom Database Scripts from un-authorized roles"**, classified as **Broken Access Control (BAC)**.
+This article documents the vulnerability **"Executing Custom Database Scripts from un-authorized roles"**, classified as **Broken Access Control (BAC)**.
 
 > **Disclosure Note:** The affected organization's name, product name, domains, tenant identifiers, URLs, infrastructure details, and other identifying information have been intentionally removed from this article. The screenshots should also be sanitized to remove or blur any remaining company-specific or sensitive information before publication.
-
