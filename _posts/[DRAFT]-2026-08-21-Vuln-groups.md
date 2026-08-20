@@ -2,7 +2,7 @@
 layout: post
 title:  "Vulnerability Groups - Giving Your Findings List a Shape"
 author: snapsec
-categories: [ Product,Vulnerability-management]
+categories: [ Product,Vulnerability-Management]
 image: assets/images/vulnerability-groups.png
 ---
 
