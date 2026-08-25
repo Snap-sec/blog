@@ -1,7 +1,6 @@
-
 ---
 layout: post
-title: "Log4Shell in the Wild: Finding Vulnerable Log4j2 Logging in a Web Application"
+title: "Log4j JNDI Injection: Detecting Vulnerable Logging in a Web Application"
 author: snapsec
 categories: [VAPT]
 image: assets/images/23/LOG4j-image.png
