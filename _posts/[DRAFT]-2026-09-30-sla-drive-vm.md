@@ -4,7 +4,7 @@ title: "How to Build an SLA-Driven Vulnerability Management Process"
 author: snapsec
 categories: [Vulnerability Management, Pentesting]
 description: "Learn how to set remediation SLAs by severity, track compliance, handle violations and report progress so vulnerabilities get fixed on time."
-image: 
+image: assets/images/23/sla-feature.png
 ---
 
 > **Key takeaways**
