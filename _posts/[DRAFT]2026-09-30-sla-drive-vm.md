@@ -29,7 +29,7 @@ Start by deciding how long each severity level has to be fixed. There's no unive
 It's also worth deciding how days are counted. If weekends don't count toward the deadline, a critical finding reported on a Friday afternoon gets a more realistic window. Public holidays can be handled the same way.
 
 ![SLA settings in Snapsec VM](/assets/images/sla-settings.png)
-*Remediation timelines per severity, with weekend and holiday rules.*
+<p style="text-align: center;"><em>Remediation timelines per severity, with weekend and holiday rules.</em></p>
 
 In Snapsec VM, the SLA setup covers timelines for each severity, which weekend days count toward the calculation, and holiday exceptions imported from a calendar file. Setting these once means every finding gets its deadline automatically and consistently.
 
@@ -48,7 +48,7 @@ An SLA only helps if someone looks at it before deadlines pass. A monthly or qua
 The key numbers are simple: how many findings are compliant, how many are at risk of missing their deadline, how many have already breached, and how many still have no owner. Unassigned findings deserve particular attention, because without an owner, nobody is working on them.
 
 ![SLA dashboard in Snapsec VM](/assets/images/sla-dashboard.png)
-*Compliant, at-risk, breached and unassigned findings, with violations by severity and department.*
+<p style="text-align: center;"><em>Compliant, at-risk, breached and unassigned findings, with violations by severity and department.</em></p>
 
 Breaking violations down by severity and department shows where the problem is. A handful of breached low-severity findings spread across teams is a different situation from critical findings breaching in one department.
 
@@ -56,8 +56,7 @@ Breaking violations down by severity and department shows where the problem is. 
 
 A breached SLA should lead to a decision, not just appear in a report. For each violation, one of four things usually needs to happen: the finding needs more resources, its blocker needs to be escalated, the risk needs to be formally accepted, or the deadline was unrealistic and the policy needs revisiting.
 
-![SLA violations in Snapsec VM](/assets/images/sla-violations.png)
-*Every breached finding with its assessment, severity, owner and time overdue.*
+<p style="text-align: center;"><em>Every breached finding with its assessment, severity, owner and time overdue.</em></p>
 
 A list of violations with the owner and time overdue makes these conversations specific. It's much easier to agree on next steps for "the IDOR on invoice download, four days overdue, owned by James" than for "24 breached findings".
 
@@ -68,7 +67,7 @@ Keep in mind that some findings breach for legitimate reasons, such as waiting o
 Looking at SLA compliance per owner shows patterns that totals hide. One owner with 63% compliance and another with 91% might have very different workloads, very different systems, or very different levels of support.
 
 ![SLA leaderboard in Snapsec VM](/assets/images/sla-leaderboard.png)
-*Breached, at-risk and compliant findings per owner, with a compliance percentage.*
+<p style="text-align: center;"><em>Breached, at-risk and compliant findings per owner, with a compliance percentage.</em></p>
 
 We'd recommend using this view to start conversations, not to rank people. Low compliance often means an owner has too many findings, depends on another team, or owns systems that are hard to patch. Those are problems leadership can help with, but only once they're visible.
 
@@ -77,7 +76,7 @@ We'd recommend using this view to start conversations, not to rank people. Low c
 Stakeholders shouldn't have to log in to find out whether remediation is on track. A short SLA report sent on a fixed schedule keeps security leadership, engineering managers and, where relevant, executives informed without anyone having to prepare it by hand.
 
 ![SLA weekly reports in Snapsec VM](/assets/images/sla-weekly-reports.png)
-*Automated SLA reports sent to stakeholders on a set schedule.*
+<p style="text-align: center;"><em>Automated SLA reports sent to stakeholders on a set schedule.</em></p>
 
 Snapsec VM can send SLA reports automatically to a list of recipients, at a chosen frequency, day and time. A weekly report on Monday morning works well for most teams, because it sets priorities for the week ahead.
 
