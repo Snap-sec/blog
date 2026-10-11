@@ -4,7 +4,6 @@ title: "The Role of Automation in Modern Vulnerability Management"
 author: SNAPSEC
 categories: [Vulnerability Management, Pentesting]
 description: "What to automate after a pentest and what to leave to people: intake, routing, ticketing, false positive screening, and where judgment still matters."
-excerpt: "What to automate after a pentest, what to leave to people, and where rules and AI each fit."
 image: assets/images/23/automation-feature.png
 
 ---
