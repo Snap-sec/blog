@@ -35,8 +35,7 @@ A finding assigned to a department, or to nobody, usually waits. Each confirmed 
 
 We find it works best to assign ownership through the asset or business unit a finding affects, rather than to whoever received the report. The people who own a system are the ones who can deploy a fix, and they stay responsible for it after the security contact who received the report has moved on.
 
-![Finding ownership in Snapsec VM](/assets/images/remediation-ownership.png)
-
+<p align="center"><img src="/assets/images/remediation-ownership.png" alt="Finding ownership in Snapsec VM" width="480"></p>
 <p align="center"><em>Owner, state, assessment, business unit and SLA status on every finding.</em></p>
 
 Each finding should also get a deadline based on its severity. Without one, there's no way to tell whether remediation is on track or falling behind.
