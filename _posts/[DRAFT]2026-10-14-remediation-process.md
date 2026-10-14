@@ -4,7 +4,7 @@ title: "How to Build an Effective Vulnerability Remediation Process After a Pent
 author: snapsec
 categories: [Vulnerability Management, Pentesting]
 description: "Learn how to turn pentest findings into verified fixes: triage, ownership, risk-based prioritization, remediation campaigns, blockers and retesting."
-image
+image: assets/images/23/remediation-feature.png
 ---
 
 > **Key takeaways**
